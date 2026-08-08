@@ -23,7 +23,7 @@
 
   <!-- LOGO BAR -->
   <div class="site-logo-bar">
-    <a href="#">
+    <a href="index.html">
       <img src="images/logos/flashlab-logo.png" alt="Flashlab Creative" class="logo-light" id="siteLogoImg">
       <img src="images/logos/flashlab-logo-dark.png" alt="Flashlab Creative" class="logo-dark" id="siteLogoImg">
     </a>
@@ -249,18 +249,31 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Name <span class="req">*</span></label>
-                <input type="text" id="field-name" placeholder="Your Name" required>
+                <input type="text" id="field-name" placeholder="Your Name" required maxlength="100">
               </div>
               <div class="form-group">
                 <label>Mobile Number <span class="req">*</span></label>
-                <input type="tel" id="field-mobile" placeholder="Mobile Number" required>
+                <input
+                  type="tel"
+                  id="field-mobile"
+                  placeholder="Mobile Number"
+                  required
+                  inputmode="numeric"
+                  maxlength="10"
+                  pattern="[0-9]{10}"
+>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label>Email <span class="req">*</span></label>
-                <input type="email" id="field-email" placeholder="you@email.com" required>
+                <input
+                  type="email"
+                  id="field-email"
+                  placeholder="you@email.com"
+                  required
+>
               </div>
               <div class="form-group">
                 <label>Enquiry Type <span class="req">*</span></label>
@@ -461,7 +474,7 @@
           <li><a href="https://backstagexchange.com" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Event Management</a></li>
           <li><a href="#"><i class="ri-arrow-right-s-line"></i>FNB Marketing</a></li>
           <li><a href="https://stromenightlife.com" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Strome Nightlife</a></li>
-          <li><a href="#"><i class="ri-arrow-right-s-line"></i>Web Development &amp; IoT</a></li>
+          <li><a href="https://cybercreative.in/"><i class="ri-arrow-right-s-line"></i>Web Development &amp; IoT</a></li>
         </ul>
       </div>
       <div>
