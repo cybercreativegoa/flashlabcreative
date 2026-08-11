@@ -138,15 +138,15 @@
   justify-content: center;
   flex-direction: column;
   gap: 12px;
-  background: linear-gradient(135deg, #1f140a 0%, #3a2312 50%, #1a0f08 100%);
+  background: linear-gradient(135deg, #0f1f0f 0%, #1a3a1a 50%, #0d1f0a 100%);
 }
 .cs-cover-placeholder i { font-size: 3rem; color: rgba(168,232,50,.2); }
 .cs-cover-placeholder span { font-size: .75rem; color: var(--muted2); letter-spacing: .1em; text-transform: uppercase; }
 
 /* MAIN CONTENT LAYOUT — single column, sidebar moved below
-   the main content as a row of cards (avoids the dead space
-   a fixed-width side column leaves once its shorter content
-   has scrolled past). */
+   the main content as a row of cards. This removes the
+   reserved right-hand column that left dead space once the
+   sidebar's short content had scrolled past. */
 .cs-body {
   padding: 60px 5%;
   max-width: 1000px;
@@ -161,11 +161,26 @@
 }
 .cs-sidebar .cs-sidebar-card { margin-bottom: 0; }
 
+/* ── MAIN COLUMN: LEFT-ALIGNED TEXT ──────────────────────────
+   Text (headings, paragraphs, lists, tags, testimonial) reads
+   left-to-right as normal; images/grids still span full width. */
+.cs-main {
+  text-align: left;
+}
+.cs-main .cs-img-block,
+.cs-main .cs-img-grid,
+.cs-main .cs-results-grid,
+.cs-main .cs-performing-grid,
+.cs-main .cs-testimonial {
+  width: 100%;
+}
+
 /* SECTION BLOCKS */
 .cs-section {
   margin-bottom: 56px;
   padding-bottom: 56px;
   border-bottom: 1px solid var(--border);
+  width: 100%;
 }
 .cs-section:last-child {
   border-bottom: none;
@@ -208,6 +223,7 @@
   line-height: 1.8;
   font-weight: 300;
   margin-bottom: 16px;
+  max-width: 720px;
 }
 .cs-section p:last-child { margin-bottom: 0; }
 
@@ -227,7 +243,13 @@
   gap: 10px;
 }
 .cs-img-block.tall { aspect-ratio: 4/3; }
-.cs-img-block img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cs-img-block img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+
 .cs-img-placeholder {
   display: flex;
   align-items: center;
@@ -267,13 +289,14 @@
   color: var(--muted2);
 }
 
-/* CHALLENGE / KPI LIST */
+/* CHALLENGE LIST */
 .cs-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 16px 0;
+  max-width: 700px;
 }
 .cs-list li {
   display: flex;
@@ -283,6 +306,7 @@
   color: var(--muted);
   line-height: 1.6;
   font-weight: 300;
+  text-align: left;
 }
 .cs-list li::before {
   content: '';
@@ -333,7 +357,7 @@
 }
 .cs-stat-num {
   font-family: var(--font-head);
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   color: var(--accent);
   line-height: 1;
   margin-bottom: 6px;
@@ -352,7 +376,7 @@
   line-height: 1.5;
 }
 
-/* BEST PERFORMING / VISUAL HIGHLIGHTS */
+/* BEST PERFORMING CONTENT */
 .cs-performing-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -385,6 +409,7 @@
   padding: 32px 28px;
   margin: 28px 0;
   position: relative;
+  text-align: left;
 }
 .cs-testimonial::before {
   content: '\201C';
@@ -403,6 +428,7 @@
   font-weight: 400;
   font-style: italic;
   margin-bottom: 16px;
+  max-width: 700px;
   position: relative;
   z-index: 1;
 }
@@ -414,7 +440,7 @@
   text-transform: uppercase;
 }
 
-/* SIDEBAR */
+/* SIDEBAR (left as-is, not centered) */
 .cs-sidebar-card {
   border-radius: 16px;
   background: var(--card);
@@ -597,3 +623,25 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* Container with 3 images side by side, same overall box size as before */
+.cs-img-block.cs-img-triple {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 0;
+}
+.cs-img-block.cs-img-triple img {
+  flex: 1 1 0;
+  width: 33.333%;
+  height: 100%;
+  object-fit: cover;
+  min-width: 0; /* prevents flex items from overflowing the row on small screens */
+}
+
+@media (max-width: 640px) {
+  .cs-img-block.cs-img-triple {
+    gap: 4px;
+  }
+}
+

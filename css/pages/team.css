@@ -125,8 +125,13 @@
   white-space: nowrap;
 }
 
-[data-theme="dark"] .section-divider h3 { color: rgba(255, 255, 255, .88); }
-[data-theme="light"] .section-divider h3 { color: rgba(0, 0, 0, .75); }
+[data-theme="dark"] .section-divider h3 {
+  color: rgba(255, 255, 255, .88);
+}
+
+[data-theme="light"] .section-divider h3 {
+  color: rgba(0, 0, 0, .75);
+}
 
 .section-divider.divider-left {
   justify-content: flex-start;
@@ -224,7 +229,12 @@
   right: 0;
   z-index: 2;
   padding: 22px 12px 12px;
-  background: linear-gradient(to top, rgba(0, 0, 0, .92) 0%, rgba(0, 0, 0, .55) 50%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .92) 0%,
+    rgba(0, 0, 0, .55) 50%,
+    transparent 100%
+  );
   transition: opacity .35s;
 }
 
@@ -275,21 +285,62 @@
   transform: translateY(0);
 }
 
-.pcard[data-color="orange"] .pcard-hover-inner { background: rgba(249, 115, 22, .92); }
-.pcard[data-color="blue"] .pcard-hover-inner { background: rgba(59, 130, 246, .92); }
-.pcard[data-color="purple"] .pcard-hover-inner { background: rgba(139, 92, 246, .92); }
-.pcard[data-color="teal"] .pcard-hover-inner { background: rgba(20, 184, 166, .92); }
-.pcard[data-color="red"] .pcard-hover-inner { background: rgba(239, 68, 68, .92); }
-.pcard[data-color="gold"] .pcard-hover-inner { background: rgba(234, 179, 8, .92); }
-.pcard[data-color="pink"] .pcard-hover-inner { background: rgba(236, 72, 153, .92); }
-.pcard[data-color="indigo"] .pcard-hover-inner { background: rgba(99, 102, 241, .92); }
-.pcard[data-color="sky"] .pcard-hover-inner { background: rgba(14, 165, 233, .92); }
-.pcard[data-color="rose"] .pcard-hover-inner { background: rgba(244, 63, 94, .92); }
-.pcard[data-color="amber"] .pcard-hover-inner { background: rgba(245, 158, 11, .92); }
-.pcard[data-color="emerald"] .pcard-hover-inner { background: rgba(16, 185, 129, .92); }
+.pcard[data-color="orange"] .pcard-hover-inner {
+  background: rgba(249, 115, 22, .92);
+}
+
+.pcard[data-color="blue"] .pcard-hover-inner {
+  background: rgba(59, 130, 246, .92);
+}
+
+.pcard[data-color="purple"] .pcard-hover-inner {
+  background: rgba(139, 92, 246, .92);
+}
+
+.pcard[data-color="teal"] .pcard-hover-inner {
+  background: rgba(20, 184, 166, .92);
+}
+
+.pcard[data-color="red"] .pcard-hover-inner {
+  background: rgba(239, 68, 68, .92);
+}
+
+.pcard[data-color="gold"] .pcard-hover-inner {
+  background: rgba(234, 179, 8, .92);
+}
+
+.pcard[data-color="pink"] .pcard-hover-inner {
+  background: rgba(236, 72, 153, .92);
+}
+
+.pcard[data-color="indigo"] .pcard-hover-inner {
+  background: rgba(99, 102, 241, .92);
+}
+
+.pcard[data-color="sky"] .pcard-hover-inner {
+  background: rgba(14, 165, 233, .92);
+}
+
+.pcard[data-color="rose"] .pcard-hover-inner {
+  background: rgba(244, 63, 94, .92);
+}
+
+.pcard[data-color="amber"] .pcard-hover-inner {
+  background: rgba(245, 158, 11, .92);
+}
+
+.pcard[data-color="emerald"] .pcard-hover-inner {
+  background: rgba(16, 185, 129, .92);
+}
+
+.pcard[data-color="Dark Blue"] .pcard-hover-inner{
+  background: rgb(36, 53, 100);
+  
+}
 
 .pcard[data-color="gold"] .pcard-hover-inner,
-.pcard[data-color="amber"] .pcard-hover-inner {
+.pcard[data-color="amber"] .pcard-hover-inner,
+.pcard[data-color="green"] .pcard-hover-inner{
   --ht: #0a0a0f;
   --hm: rgba(0, 0, 0, .6);
   --hb: rgba(0, 0, 0, .2);
@@ -357,18 +408,57 @@
   transition: transform .4s cubic-bezier(.22, 1, .36, 1);
 }
 
-.pcard[data-color="orange"]::after { background: var(--accent2); }
-.pcard[data-color="blue"]::after { background: #3b82f6; }
-.pcard[data-color="purple"]::after { background: #8b5cf6; }
-.pcard[data-color="teal"]::after { background: #14b8a6; }
-.pcard[data-color="red"]::after { background: #ef4444; }
-.pcard[data-color="gold"]::after { background: #eab308; }
-.pcard[data-color="pink"]::after { background: #ec4899; }
-.pcard[data-color="indigo"]::after { background: #6366f1; }
-.pcard[data-color="emerald"]::after { background: #10b981; }
-.pcard[data-color="sky"]::after { background: #0ea5e9; }
-.pcard[data-color="rose"]::after { background: #f43f5e; }
-.pcard[data-color="amber"]::after { background: #f59e0b; }
+.pcard[data-color="orange"]::after {
+  background: var(--accent2);
+}
+
+.pcard[data-color="blue"]::after {
+  background: #3b82f6;
+}
+
+.pcard[data-color="purple"]::after {
+  background: #8b5cf6;
+}
+
+.pcard[data-color="teal"]::after {
+  background: #14b8a6;
+}
+
+.pcard[data-color="red"]::after {
+  background: #ef4444;
+}
+
+.pcard[data-color="gold"]::after {
+  background: #eab308;
+}
+
+.pcard[data-color="pink"]::after {
+  background: #ec4899;
+}
+
+.pcard[data-color="indigo"]::after {
+  background: #6366f1;
+}
+
+.pcard[data-color="emerald"]::after {
+  background: #10b981;
+}
+
+.pcard[data-color="sky"]::after {
+  background: #0ea5e9;
+}
+
+.pcard[data-color="rose"]::after {
+  background: #f43f5e;
+}
+
+.pcard[data-color="amber"]::after {
+  background: #f59e0b;
+}
+
+.pcard[data-color="Dark Blue"]::after {
+  background: rgb(36, 53, 100);
+}
 
 .pcard:hover::after {
   transform: scaleX(1);
@@ -390,7 +480,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(168, 232, 50, .05) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(168, 232, 50, .05) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -468,88 +562,58 @@
   color: var(--text);
 }
 
-/* SOCIAL MEDIA MANAGERS - LAST TWO CARDS */
-
-.special-two-card-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-}
-
-
-.special-two-card-grid .pcard {
-    width: calc(25% - 7.5px);
-    flex: 0 0 calc(25% - 7.5px);
-}
-
-
-/* Tablet */
-@media (max-width: 960px) {
-
-    .special-two-card-grid .pcard {
-        width: calc(50% - 5px);
-        flex-basis: calc(50% - 5px);
-    }
-
-}
-
-
-/* Mobile */
-@media (max-width: 500px) {
-
-    .special-two-card-grid {
-        gap: 10px;
-    }
-
-    .special-two-card-grid .pcard {
-        width: calc(50% - 5px);
-        flex-basis: calc(50% - 5px);
-    }
-
-}
-
 /* ═══════════════════════════════════
-   FIVE-CARD ROWS — 4 across, leftover single card aligned left
-   (Graphic Designers, Video Editors)
+   SPECIAL TEAM GRIDS
+   Social Media Executives / Video Editors / Photographers
 ═══════════════════════════════════ */
-.five-card-center {
+.special-two-card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-}
-
-.five-card-center .pcard {
   width: 100%;
 }
 
-/* leftover 5th card: left-aligned, not centered, same size as the rest */
-.five-card-center .pcard:last-child {
-  grid-column: 1;
-  justify-self: start;
+/* Three-card sections: keep all three together and centered on desktop.
+   Two-card sections (Photographers / Videographers) remain centered. */
+@media (min-width: 961px) {
+  .sme-grid {
+    grid-template-columns: repeat(3, 220px);
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .sme-grid .pcard {
+    width: 220px;
+  }
+
+  /* The photographer section has only two cards. */
+  .sme-grid:not(:has(.pcard:nth-child(3))) {
+    grid-template-columns: repeat(2, 220px);
+  }
 }
 
-@media (max-width: 960px) {
-  .five-card-center {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .five-card-center .pcard:last-child {
-    grid-column: 1;
-    justify-self: start;
-    width: 100%;
-  }
+/* Make these grids reliably visible even if the global reveal animation
+   has not yet added its active class. */
+.sme-grid.reveal {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
 }
 
-@media (max-width: 500px) {
-  .five-card-center {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .five-card-center .pcard:last-child {
-    grid-column: 1;
-    width: 100%;
-  }
+/* ═══════════════════════════════════
+   FOUR-CARD ROWS — 4 across
+   Graphic Designers
+═══════════════════════════════════ */
+.gd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gd-grid .pcard {
+  width: 100%;
 }
 
 /* ═══════════════════════════════════
@@ -557,11 +621,35 @@
 ═══════════════════════════════════ */
 @media (max-width: 960px) {
   .creative-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-bg {
     height: 380px;
+  }
+
+  /* All 3-card special sections use two columns on tablet.
+     The third card is centered on the second row. */
+  .sme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .sme-grid .pcard {
+    width: 100%;
+  }
+
+  .sme-grid .pcard:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 10px) / 2);
+  }
+
+  /* The photographer section has only two cards, so both stay in one row. */
+  .sme-grid:has(.pcard:nth-child(2)):not(:has(.pcard:nth-child(3))) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -592,12 +680,21 @@
 
 @media (max-width: 500px) {
   .creative-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
+
+  .sme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sme-grid .pcard:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 10px) / 2);
+  }
 }
-
-
 
 /* ══════════════════════════════════════
    PREMIUM LIGHT MODE OVERRIDES
@@ -609,6 +706,7 @@
 [data-theme="light"] .pcard {
   box-shadow: 0 4px 20px rgba(15,23,42,0.09);
 }
+
 [data-theme="light"] .pcard:hover {
   box-shadow: 0 14px 40px rgba(15,23,42,0.14);
 }
@@ -616,6 +714,7 @@
 [data-theme="light"] .section-divider h3 {
   color: #0f172a;
 }
+
 [data-theme="light"] .section-divider::before,
 [data-theme="light"] .section-divider::after {
   background: rgba(15,23,42,0.12);
@@ -632,28 +731,61 @@
     margin-top: 130px !important;
     padding-bottom: 40px !important;
   }
+
   .pcard {
     border-radius: 10px !important;
   }
+
   .pcard-photo {
     height: 100% !important;
     object-fit: cover;
     object-position: top;
   }
+
   .creative-grid {
     gap: 12px !important;
   }
 }
 
 @media (max-width: 768px) {
-  .pcard-strip h3 { font-size: 0.82rem; }
-  .pcard-strip p { font-size: 0.55rem; letter-spacing: 0.4px; }
-  .phover-name { font-size: 0.92rem; }
-  .phover-role { font-size: 0.5rem; letter-spacing: 0.4px; margin-bottom: 5px; }
-  .phover-bio { font-size: 0.62rem; line-height: 1.3; margin-bottom: 7px; }
-  .phover-socials { gap: 4px; }
-  .phover-socials a { width: 22px; height: 22px; font-size: 0.64rem; }
-  .pcard-hover-inner { padding: 10px; }
+  .pcard-strip h3 {
+    font-size: 0.82rem;
+  }
+
+  .pcard-strip p {
+    font-size: 0.55rem;
+    letter-spacing: 0.4px;
+  }
+
+  .phover-name {
+    font-size: 0.92rem;
+  }
+
+  .phover-role {
+    font-size: 0.5rem;
+    letter-spacing: 0.4px;
+    margin-bottom: 5px;
+  }
+
+  .phover-bio {
+    font-size: 0.62rem;
+    line-height: 1.3;
+    margin-bottom: 7px;
+  }
+
+  .phover-socials {
+    gap: 4px;
+  }
+
+  .phover-socials a {
+    width: 22px;
+    height: 22px;
+    font-size: 0.64rem;
+  }
+
+  .pcard-hover-inner {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -661,15 +793,18 @@
     padding: 24px 0 16px !important;
     gap: 12px !important;
   }
+
   .section-divider h3 {
     font-size: 1.1rem !important;
     letter-spacing: 2px !important;
     white-space: normal !important;
     text-align: center !important;
   }
+
   .section-divider.divider-left {
     justify-content: center !important;
   }
+
   .section-divider.divider-left::before {
     display: block !important;
     content: '';
@@ -680,9 +815,95 @@
 }
 
 @media (max-width: 640px) {
-  .join-cta { padding: 32px 20px 32px !important; }
-  .join-cta h2 { font-size: 1.6rem !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
-  .join-cta p { font-size: 0.9rem !important; padding: 0 10px; margin-bottom: 20px !important; }
-  .join-btns { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
-  .join-btns a { width: 100% !important; max-width: 260px !important; justify-content: center !important; }
+  .join-cta {
+    padding: 32px 20px 32px !important;
+  }
+
+  .join-cta h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .join-cta p {
+    font-size: 0.9rem !important;
+    padding: 0 10px;
+    margin-bottom: 20px !important;
+  }
+
+  .join-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .join-btns a {
+    width: 100% !important;
+    max-width: 260px !important;
+    justify-content: center !important;
+  }
+}
+
+/* Core Team — 3 smaller cards centered on desktop */
+@media (min-width: 961px) {
+  .core-team-grid {
+    grid-template-columns: repeat(3, 220px);
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .core-team-grid .pcard {
+    width: 220px;
+  }
+}
+
+/* Keep the page from creating horizontal scrolling */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════
+   DESKTOP CENTERING — Core Team / Social Media Executives /
+   Video Editors / Photographers
+   (higher specificity beats the inline !important rules
+   in the HTML <head>, without editing the HTML)
+═══════════════════════════════════ */
+@media (min-width: 961px) {
+  .team-section .core-team-grid,
+  .team-section .social-executives-grid,
+  .team-section .video-editors-grid {
+    grid-template-columns: repeat(4, 220px) !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+
+  .team-section .photographers-grid {
+    grid-template-columns: repeat(2, 220px) !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+
+  .team-section .core-team-grid .pcard,
+  .team-section .social-executives-grid .pcard,
+  .team-section .video-editors-grid .pcard,
+  .team-section .photographers-grid .pcard {
+    width: 220px !important;
+  }
+}
+
+/* Social Media Executives & Video Editors have only 3 cards —
+   use a 3-column track so the group centers correctly
+   (overrides the 4-column rule above it, desktop only) */
+@media (min-width: 961px) {
+  .team-section .social-executives-grid,
+  .team-section .video-editors-grid {
+    grid-template-columns: repeat(3, 220px) !important;
+  }
 }

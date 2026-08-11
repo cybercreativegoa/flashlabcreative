@@ -502,3 +502,15 @@ document.addEventListener('click', function (e) {
         });
     });
 })();
+
+
+  const rangeInput = document.getElementById('compare-range');
+  const afterContainer = document.getElementById('after-img-container');
+  const handleLine = document.getElementById('handle-line');
+
+  rangeInput.addEventListener('input', (e) => {
+    const value = e.target.value + "%";
+    afterContainer.style.width = value;
+    handleLine.style.left = value;
+  });
+

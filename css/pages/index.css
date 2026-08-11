@@ -3740,3 +3740,10 @@
   }
 
 }
+
+/* Restore breathing room between Clients section and CTA on mobile only */
+@media (max-width: 1024px) {
+  .clients-section {
+    padding-bottom: 32px !important;
+  }
+}

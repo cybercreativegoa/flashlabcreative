@@ -216,7 +216,7 @@
   gap: 10px;
 }
 .cs-img-block.tall { aspect-ratio: 4/3; }
-.cs-img-block img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cs-img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cs-img-placeholder {
   display: flex;
   align-items: center;
@@ -613,3 +613,25 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* Container with 3 images side by side, same overall box size as before */
+.cs-img-block.cs-img-triple {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 0;
+}
+.cs-img-block.cs-img-triple img {
+  flex: 1 1 0;
+  width: 33.333%;
+  height: 100%;
+  object-fit: cover;
+  min-width: 0; /* prevents flex items from overflowing the row on small screens */
+}
+
+@media (max-width: 640px) {
+  .cs-img-block.cs-img-triple {
+    gap: 4px;
+  }
+}
+
