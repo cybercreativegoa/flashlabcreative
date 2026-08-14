@@ -179,12 +179,14 @@ li, blockquote, input, textarea { cursor: text; }
   display:         flex;
   align-items:     center;
   justify-content: space-between;
+  gap: 16px;
   position:        relative;
 }
 
 /* -- Top-level link list -- */
 .nav-links {
   flex:            1;
+  min-width: 0;
   display:         flex;
   align-items:     center;
   height:          44px;
@@ -198,8 +200,8 @@ li, blockquote, input, textarea { cursor: text; }
   list-style:      none;
   margin:          0;
   padding:         0;
-  margin-right:    auto;
-  margin-left:     -120px;
+  /* margin-right:    auto;
+  margin-left:     -120px; */
 }
 .nav-links > li {
   position:  relative;
@@ -388,7 +390,7 @@ li, blockquote, input, textarea { cursor: text; }
    8. NAV CONTROLS
    ============================================================ */
 .nav-controls {
-  position:    absolute;
+  position:    static;
   right:       0;
   display:     flex !important;
   align-items: center;
