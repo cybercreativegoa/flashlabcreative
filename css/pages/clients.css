@@ -1,4 +1,4 @@
-    /* -- BUTTONS -- */
+/* -- BUTTONS -- */
     .btn-red {
       display: inline-flex;
       align-items: center;
@@ -501,10 +501,13 @@
       padding: 70px 0;
     }
 
+    /* Uniform 16:9 landscape grid — every card is the exact same shape
+       (no more mixing a tall portrait card + a wide card + regular
+       cards). aspect-ratio drives the height, so the grid never needs
+       fixed pixel row heights or span overrides again. */
     .media-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 280px 280px;
       gap: 16px;
       margin-top: 40px;
     }
@@ -514,14 +517,7 @@
       border-radius: var(--radius);
       overflow: hidden;
       background: #000;
-    }
-
-    .media-item.tall {
-      grid-row: span 2;
-    }
-
-    .media-item.wide {
-      grid-column: span 2;
+      aspect-ratio: 16/9;
     }
 
     .media-item iframe {
@@ -891,16 +887,7 @@
       }
 
       .media-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 220px 220px 220px;
-      }
-
-      .media-item.wide {
-        grid-column: span 2;
-      }
-
-      .media-item.tall {
-        grid-row: span 1;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .testi-card {
@@ -959,19 +946,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .media-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
-
-      .media-item.wide {
-        grid-column: span 1;
-      }
-
-      .media-item {
-        min-height: 220px;
-      }
-
       .mcta-col:first-child {
         padding-left: 5%;
       }
@@ -991,6 +965,10 @@
       }
 
       .feed-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .media-grid {
         grid-template-columns: 1fr;
       }
 
