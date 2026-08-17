@@ -413,8 +413,13 @@
       border-radius: 999px;
     }
 
-    .pos-panel { background: var(--bg); min-height: 500px; }
-
+    .pos-panel { background: var(--bg); min-height: 500px; 
+    .pos-detail,
+.pos-detail p,
+.pos-detail li,
+.pos-detail .pos-overview {
+  text-align: justify;
+}}
     .pos-detail {
       display: none;
       padding: 50px;
@@ -447,7 +452,13 @@
       line-height: 1;
     }
 
-    .pos-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .pos-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    
+    .pos-tag-break {
+  flex-basis: 100%;
+  width: 0;
+  height: 0;
+}
 
     .pos-tag {
       display: inline-flex;
@@ -1625,3 +1636,355 @@ body[data-page="career"] {
   text-transform: uppercase !important;
 }
 
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+
+.testimonials-section {
+  padding: 80px 0;
+}
+
+
+/* ============================================================
+   SECTION BACKGROUNDS
+   ============================================================ */
+
+.internship-testimonials {
+  background: var(--bg2);
+}
+
+.fulltime-testimonials {
+  background: var(--bg);
+}
+
+
+/* ============================================================
+   TESTIMONIAL GRID
+   ============================================================ */
+
+.testimonials-grid {
+  display: grid;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 50px auto 0;
+
+  gap: 16px;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  overflow: visible;
+}
+
+
+/* ============================================================
+   INTERNSHIP
+   2 CARDS — CENTERED
+   ============================================================ */
+
+.internship-grid {
+  grid-template-columns: repeat(2, 310px);
+}
+
+
+/* ============================================================
+   FULL TIME
+   4 CARDS — CENTERED
+   ============================================================ */
+
+.fulltime-grid {
+  grid-template-columns: repeat(4, 270px);
+}
+
+
+/* ============================================================
+   TESTIMONIAL CARD
+   ============================================================ */
+
+.testi-card {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  padding: 20px 22px;
+
+  min-height: 210px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+}
+
+
+/* Hover */
+
+.testi-card:hover {
+  background: var(--card2);
+
+  transform: translateY(-4px);
+
+  border-color: rgba(168, 232, 50, .35);
+}
+
+
+/* ============================================================
+   STARS
+   ============================================================ */
+
+.testi-stars {
+  color: var(--accent);
+
+  font-size: .8rem;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 12px;
+}
+
+
+/* ============================================================
+   TESTIMONIAL TEXT
+   ============================================================ */
+
+.testi-card p {
+  font-size: .78rem;
+
+  color: var(--muted);
+
+  line-height: 1.55;
+
+  margin: 0 0 16px;
+}
+
+
+/* ============================================================
+   AUTHOR
+   ============================================================ */
+
+.testi-author {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: auto;
+
+  padding-top: 12px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+/* ============================================================
+   INITIAL
+   ============================================================ */
+
+.testi-initial {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(168, 232, 50, .1);
+
+  border-radius: 10px;
+
+  font-family: var(--font-head);
+
+  font-size: 1rem;
+
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   NAME
+   ============================================================ */
+
+.testi-name {
+  font-family: var(--font-head);
+
+  font-size: .9rem;
+
+  letter-spacing: .8px;
+
+  color: var(--text-strong);
+}
+
+
+/* ============================================================
+   ROLE
+   ============================================================ */
+
+.testi-role {
+  font-size: .65rem;
+
+  color: var(--muted);
+
+  margin-top: 2px;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .fulltime-grid {
+    grid-template-columns: repeat(2, 270px);
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+
+  .testimonials-grid,
+  .internship-grid,
+  .fulltime-grid {
+
+    grid-template-columns: 1fr;
+
+    width: min(310px, 90%);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    gap: 14px;
+  }
+
+
+  .testi-card {
+    width: 100%;
+
+    min-height: 200px;
+
+    padding: 20px 18px;
+  }
+
+
+  .testi-stars {
+    font-size: .75rem;
+
+    margin-bottom: 10px;
+  }
+
+
+  .testi-card p {
+    font-size: .76rem;
+
+    line-height: 1.5;
+  }
+
+
+  .testi-initial {
+    width: 34px;
+    height: 34px;
+
+    font-size: .9rem;
+  }
+
+
+  .testi-name {
+    font-size: .85rem;
+  }
+
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 50px;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track span {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .marquee-track {
+    gap: 35px;
+    animation-duration: 22s;
+  }
+
+  .marquee-track span {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .marquee-strip {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    gap: 25px;
+    animation-duration: 18s;
+  }
+
+  .marquee-track span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
