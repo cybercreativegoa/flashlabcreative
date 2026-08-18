@@ -300,7 +300,7 @@
 /* SERVICES GRID */
 .design-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2px;
   background: var(--border);
 }
@@ -694,5 +694,96 @@
     flex: 0 0 85% !important;
     width: 85% !important;
     scroll-snap-align: center;
+  }
+}
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 50px;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track span {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .marquee-track {
+    gap: 35px;
+    animation-duration: 22s;
+  }
+
+  .marquee-track span {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .marquee-strip {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    gap: 35px;
+    animation-duration: 18s;
+  }
+
+  .marquee-track span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+}
+
+@media (max-width: 1100px) {
+  .departments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .departments-grid {
+    grid-template-columns: 1fr;
   }
 }
