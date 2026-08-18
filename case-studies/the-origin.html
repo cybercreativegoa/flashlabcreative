@@ -14,6 +14,199 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/pages/case-studies.css">
   <link rel="stylesheet" href="../css/pages/the-origin.css">
+  <style>
+    .comparison-container {
+  width: 100%;
+  /* 1. Change this to your preferred width (e.g., 300px or 350px) */
+  max-width: 320px; 
+  margin: 40px auto;
+  position: relative;
+  /* This prevents the "blue dot" and overflow issues */
+  overflow: hidden;
+  line-height: 0; /* Removes tiny gaps at the bottom of images */
+}
+
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  /* We removed aspect-ratio so the image shows fully from top to bottom */
+}
+
+.comparison-slider img {
+  width: 100%;
+  height: auto; /* Changed from 100% to auto to prevent stretching */
+  display: block;
+}
+
+/* The bottom image (Before) */
+.image-base {
+  position: relative;
+  z-index: 1;
+}
+
+/* The top image container (After) */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+  border-right: 2px solid white;
+}
+
+/* 2. IMPORTANT: This MUST have a fixed width matching the container above */
+.image-overlay img {
+  width: 320px; /* <--- MUST match the .comparison-container max-width exactly */
+  height: auto;
+  max-width: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Hides the default slider appearance */
+.slider-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+  margin: 0;
+}
+
+/* The visual vertical line */
+.slider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: white;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+/* The circular handle */
+.slider-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Styling for both labels */
+.comparison-label {
+  position: absolute;
+  top: 20px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  backdrop-filter: blur(4px);    /* Modern blur effect */
+  color: white;
+  font-family: var(--font-head, 'Bebas Neue', sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  pointer-events: none; /* Allows clicks to pass through to the slider */
+  z-index: 4;
+}
+
+/* Position After label on the left */
+.label-after {
+  left: 20px;
+  border: 1px solid rgba(168, 232, 50, 0.4); /* Optional: Flashlab Green border */
+}
+
+/* Position Before label on the right */
+.label-before {
+  right: 20px;
+  z-index: 1; /* Sits behind the overlay container */
+}
+
+/* Ensure the overlay label doesn't wrap */
+.image-overlay .label-after {
+  white-space: nowrap;
+}
+
+/* 1. Base style for both labels */
+.comparison-label {
+  position: absolute;
+  top: 15px;               /* Distance from top edge */
+  padding: 10px 22px;      /* Larger padding for a 'pill' look */
+  
+  /* HIGH CONTRAST COLORS */
+  background: var(--accent); /* Your bright lime green */
+  color: #000000 !important; /* Force pitch black text */
+  
+  /* TYPOGRAPHY */
+  font-family: var(--font-head, 'Bebas Neue', sans-serif);
+  font-size: 1.3rem;       /* Much larger text */
+  font-weight: 800;        /* Extra bold */
+  letter-spacing: 2px;     /* Professional spacing */
+  text-transform: uppercase;
+  
+  /* SEPARATION FROM BACKGROUND */
+  border: 2px solid #ffffff;  /* Solid white border to separate from the image */
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7); /* Heavy shadow to lift it off the image */
+  
+  pointer-events: none;    /* Ensures clicking the text doesn't break the slider */
+  transition: opacity 0.3s;
+}
+
+/* 2. Position the AFTER label (Left side) */
+.label-after {
+  left: 15px;
+  z-index: 10;             /* On top of everything */
+}
+
+/* 3. Position the BEFORE label (Right side) */
+.label-before {
+  right: 15px;
+  z-index: 1;              /* Sits behind the 'After' container clip */
+}
+
+/* 4. Responsive adjustment: slightly smaller on mobile */
+@media (max-width: 480px) {
+  .comparison-label {
+    font-size: 1rem;
+    padding: 6px 15px;
+    top: 10px;
+  }
+}
+
+.slider-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.slider-circle i {
+  font-size: 16px;
+  line-height: 1;
+  color: #111 !important;
+}
+
+  </style>
 </head>
 
 <body data-page="case-studies">
@@ -52,7 +245,7 @@
           </ul>
         </li>
         <li><a href="../clients.html">Clients</a></li>
-        <li><a href="../case-studies.html" class="nav-active">Case Studies</a></li>
+        <!-- <li><a href="../case-studies.html" class="nav-active">Case Studies</a></li> -->
         <li>
           <a href="../career.html">Careers</a>
           <ul>
@@ -97,7 +290,7 @@
         </ul>
       </li>
       <li><a href="../clients.html">Clients</a></li>
-      <li><a href="../case-studies.html" class="nav-active">Case Studies</a></li>
+      <!-- <li><a href="../case-studies.html" class="nav-active">Case Studies</a></li> -->
       <li>
         <button class="mob-parent-btn" data-target="mob-sub-career">Careers <i class="ri-arrow-down-s-line mob-arrow"></i></button>
         <ul class="mob-sub" id="mob-sub-career">
@@ -115,55 +308,69 @@
 
   <main>
 
-    <!-- HERO -->
+   <!-- HERO -->
     <section class="cs-hero">
       <div class="hero-bg">
         <div class="orb1"></div>
         <div class="orb2"></div>
+        <div class="orb3"></div>
+        <div class="cs-hero-grid"></div>
       </div>
+      <div class="cs-hero-ghost" aria-hidden="true">FITNESS</div>
+
       <div class="cs-hero-inner sr">
-        <!-- Breadcrumb -->
-        <div class="cs-breadcrumb">
-          <a href="../case-studies.html">Case Studies</a>
-          <i class="ri-arrow-right-s-line"></i>
-          <span>Restaurant &amp; Football Bar</span>
-          <i class="ri-arrow-right-s-line"></i>
-          <span>The Origin</span>
-        </div>
+        <div class="cs-hero-glass">
 
-        <div class="cs-hero-eyebrow">
-          <span class="pulse-dot"></span>
-          Restaurant &amp; Football Bar
-        </div>
+          <!-- Breadcrumb -->
+          <div class="cs-breadcrumb">
+            <!-- <a href="../case-studies.html">Case Studies</a> -->
+            <i class="ri-arrow-right-s-line"></i>
+            <span>Restaurant & Football Bar</span>
+            <i class="ri-arrow-right-s-line"></i>
+            <span>The Origin</span>
+          </div>
 
-        <h1>The<br><em>Origin</em></h1>
+          <div class="cs-hero-eyebrow">
+            <span class="pulse-dot"></span>
+            Restaurant & Football Bar
+          </div>
 
-        <p class="cs-hero-intro">
-          Origin is a football bar and restaurant based in Seraulim, Goa. The restaurant is known for hosting regular events, football and cricket screenings, and attractive offers for customers. We started working with Origin from scratch, right from the time the restaurant started. Our association with the brand has continued for around 4+ years, during which we helped build and manage its social media presence through regular content, event promotions, and paid campaign support.
-        </p>
+          <h1>The<br><em>Origin</em></h1>
 
-        <!-- Meta strip -->
-        <div class="cs-meta-row">
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Client</span>
-            <span class="cs-meta-value">The Origin</span>
+          <p class="cs-hero-intro">
+            Origin is a football bar and restaurant based in Seraulim, Goa. The restaurant is known for hosting regular 
+            events, football and cricket screenings, and attractive offers for customers. We started working with Origin from scratch, 
+            right from the time the restaurant started. Our association with the brand has continued for around 4+ years, during which we 
+            helped build and manage its social media presence through regular content, event promotions, and paid campaign support.
+          </p>
+
+          <!-- Meta strip -->
+          <div class="cs-meta-row">
+            <div class="cs-meta-item">
+              <span class="cs-meta-icon"><i class="ri-user-star-line"></i></span>
+              <span class="cs-meta-label">Client</span>
+              <span class="cs-meta-value">The Origin</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-icon"><i class="ri-heart-pulse-line"></i></span>
+              <span class="cs-meta-label">Industry</span>
+              <span class="cs-meta-value">Restaurant & Football Bar</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-icon"><i class="ri-megaphone-line"></i></span>
+              <span class="cs-meta-label">Service</span>
+              <span class="cs-meta-value">Social Media Management</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-icon"><i class="ri-apps-2-line"></i></span>
+              <span class="cs-meta-label">Duration</span>
+              <span class="cs-meta-value">4+ Years</span>
+            </div>
           </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Industry</span>
-            <span class="cs-meta-value">Restaurant &amp; Football Bar</span>
-          </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Service</span>
-            <span class="cs-meta-value">Social Media Management</span>
-          </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Duration</span>
-            <span class="cs-meta-value">4+ Years</span>
-          </div>
+
         </div>
       </div>
     </section>
-
     <!-- COVER IMAGE -->
     <div class="cs-cover">
       <img src="../images/case-studies/the-origin/cover.jpg"
@@ -188,7 +395,7 @@
           </p>
 
           <div class="cs-img-block tall">
-            <img src="../images/case-studies/the-origin/d1.jpg"
+            <img src="../images/case-studies/the-origin/hero.png"
                  alt="The Origin challenges and initial stage">
           </div>
         </div>
@@ -204,7 +411,7 @@
             The client wanted to showcase its offers through regular story postings, create promo reels for selected events, and build visibility around football and cricket screenings. Another key goal was to increase page engagement, grow the follower base, and bring in more crowd for specific events through paid boosting.
           </p>
 
-          <h2 style="font-size:clamp(1.4rem,2.5vw,2rem); margin-top:32px;">Key Performance <em>INDICATORS</em></h2>
+          <!-- <h2 style="font-size:clamp(1.4rem,2.5vw,2rem); margin-top:32px;">Key Performance <em>INDICATORS</em></h2>
           <ul class="cs-list">
             <li>Follower growth</li>
             <li>Overall engagement</li>
@@ -213,12 +420,16 @@
             <li>Story interactions</li>
             <li>Event awareness</li>
             <li>Paid campaign performance</li>
-          </ul>
+          </ul> -->
 
-          <div class="cs-img-block">
-            <img src="../images/case-studies/the-origin/ppl1.jpg"
-                 alt="The Origin objectives and strategy planning">
-          </div>
+          <div class="cs-img-block tall cs-img-triple">
+            <img src="../images/case-studies/the-origin/d1.jpg"
+                alt="Next Level Gym objectives and strategy plan">
+            <img src="../images/case-studies/the-origin/d2.jpg"
+                alt="Next Level Gym objectives and strategy plan 2">
+            <img src="../images/case-studies/the-origin/d3.jpg"
+                alt="Next Level Gym objectives and strategy plan 3">
+            </div>
         </div>
 
         <!-- 03 — THE STRATEGY -->
@@ -246,22 +457,31 @@
             <span class="cs-tag">Meta Ads</span>
           </div>
 
-          <!-- BEFORE / AFTER comparison -->
           <h2 style="font-size:clamp(1.4rem,2.5vw,2rem); margin-top:28px;">Before &amp; <em>After</em></h2>
-          <div class="cs-img-grid">
-            <div class="cs-img-grid-item">
-              <div class="cs-img-block tall">
-                <img src="../images/case-studies/the-origin/before.jpeg"
-                     alt="The Origin Instagram feed before Flashlab">
-              </div>
-              <span class="cs-img-grid-caption">Before</span>
+            <div class="comparison-container">
+  
+              <div class="comparison-slider">
+            <!-- Top Image (After) -->
+            <div class="image-overlay" id="after-img-container">
+              <img src="../images/case-studies/the-origin/after.jpeg" alt="After">
+              <span class="comparison-label label-after">After</span>
             </div>
-            <div class="cs-img-grid-item">
-              <div class="cs-img-block tall">
-                <img src="../images/case-studies/the-origin/after.jpeg"
-                     alt="The Origin Instagram feed after Flashlab management">
+            
+            
+            <!-- Bottom Image (Before) -->
+            <img src="../images/case-studies/the-origin/before.jpeg" alt="Before" class="image-base">
+            <span class="comparison-label label-before">Before</span>
+
+                  <!-- The Slider Input -->
+              <input type="range" min="0" max="100" value="50" class="slider-input" id="compare-range">
+
+              <!-- The Visual Handle -->
+              <div class="slider-line" id="handle-line">
+                <div class="slider-circle">
+                  <i class="ri-arrow-left-s-line"></i>
+                  <i class="ri-arrow-right-s-line"></i>
+                </div>
               </div>
-              <span class="cs-img-grid-caption">After</span>
             </div>
           </div>
         </div>
@@ -433,7 +653,7 @@
           </p>
           <div class="cs-sidebar-cta">
             <a href="../connect.html" class="btn-primary" style="justify-content:center;">Start a Project <i class="ri-arrow-right-line"></i></a>
-            <a href="../case-studies.html" class="btn-ghost" style="justify-content:center;">All Case Studies <i class="ri-arrow-right-line"></i></a>
+            <a href="../portfolio.html" class="btn-ghost" style="justify-content:center;">All Case Studies <i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
 
@@ -493,10 +713,10 @@
     <section class="port-section">
       <div class="cta-band sr">
         <h2>Ready to be<br><em>Our Next Case Study?</em></h2>
-        <p>Let's build something remarkable together &mdash; a campaign, a brand, or a digital experience your audience won't forget.</p>
+        <p>Let's build something remarkable together a campaign, a brand, or a digital experience your audience won't forget.</p>
         <div class="cta-band-btns">
           <a href="../connect.html" class="btn-primary">Start a Project <i class="ri-arrow-right-line"></i></a>
-          <a href="../case-studies.html" class="btn-ghost">Browse Case Studies <i class="ri-article-line"></i></a>
+          <a href="../portfolio.html" class="btn-ghost">Browse Case Studies <i class="ri-article-line"></i></a>
         </div>
       </div>
     </section>
@@ -513,7 +733,7 @@
               onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff\'>FLASHLAB CREATIVE</span>'">
           </a>
         </div>
-        <p>Goa's leading creative &amp; digital marketing agency &mdash; where imagination meets reality. Born in Margao in 2016, we craft unforgettable digital experiences for brands that dare to stand out.</p>
+        <p>Goa's leading creative &amp; digital marketing agency where imagination meets reality. Born in Margao in 2016, we craft unforgettable digital experiences for brands that dare to stand out.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener"><i class="ri-instagram-fill"></i></a>
           <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener"><i class="ri-facebook-fill"></i></a>
@@ -529,7 +749,7 @@
           <li><a href="../services.html"><i class="ri-arrow-right-s-line"></i>Services</a></li>
           <li><a href="../portfolio.html"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li>
           <li><a href="../clients.html"><i class="ri-arrow-right-s-line"></i>Clients</a></li>
-          <li><a href="../case-studies.html"><i class="ri-arrow-right-s-line"></i>Case Studies</a></li>
+          <!-- <li><a href="../case-studies.html"><i class="ri-arrow-right-s-line"></i>Case Studies</a></li> -->
           <li><a href="../team.html"><i class="ri-arrow-right-s-line"></i>Teams</a></li>
           <li><a href="../career.html"><i class="ri-arrow-right-s-line"></i>Careers</a></li>
           <li><a href="../connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li>
