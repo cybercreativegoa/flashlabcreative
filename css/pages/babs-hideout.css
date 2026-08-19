@@ -748,12 +748,8 @@
 }
 
 .reels-container{
+  justify-content: center;
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
 
 }
 
@@ -830,3 +826,17 @@ grid-template-columns:1fr;
   }
 }
 
+.reel-embed {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 2px solid #000;
+  background: #000;
+  padding: 6px;
+}
+
+.reel-embed iframe {
+  max-width: 100% !important;
+  border-radius: 10px;
+}

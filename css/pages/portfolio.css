@@ -321,12 +321,12 @@
       flex-direction: column;
       gap: 10px;
       min-width: 0;
-      animation: hlwScrollUp 24s linear infinite;
+      animation: hlwScrollUp 6s linear infinite;
       will-change: transform;
     }
     .hlw-col.hlw-col-down { animation-name: hlwScrollDown; }
-    .hlw-col:nth-child(2) { animation-duration: 30s; }
-    .hlw-col:nth-child(3) { animation-duration: 20s; }
+    .hlw-col:nth-child(2) { animation-duration: 8s; }
+    .hlw-col:nth-child(3) { animation-duration: 5s; }
 
     .hero-logos-wall:hover .hlw-col { animation-play-state: paused; }
 
@@ -436,12 +436,12 @@
       animation: fadeUp .9s cubic-bezier(.22,1,.36,1) .35s both;
     }
     .hero-stats {
-      display: flex;
-      gap: 36px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-      animation: fadeUp .9s cubic-bezier(.22,1,.36,1) .45s both;
-    }
+    display: flex;
+    gap: 36px;
+    flex-wrap: nowrap;
+    margin-bottom: 36px;
+    animation: fadeUp .9s cubic-bezier(.22,1,.36,1) .45s both;
+}
     .stat-item {
       display: flex;
       flex-direction: column;

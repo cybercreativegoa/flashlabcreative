@@ -467,6 +467,7 @@
   color: var(--muted);
   line-height: 1.6;
   font-weight: 300;
+  
 }
 .cs-list li::before {
   content: '';
@@ -819,3 +820,45 @@ grid-template-columns:1fr;
   }
 }
 
+/* 1. Target the unordered list container */
+.cs-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 40px; /* Creates base indentation for the whole list */
+}
+
+/* 2. Style the individual list item using Flexbox */
+.cs-list li {
+  display: flex; /* This is the key fix */
+  align-items: flex-start; /* Aligns label and paragraph at the top */
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* 3. Style the green label marker (High Performing Content:) */
+.cs-list li strong {
+  color: var(--accent);
+  font-weight: 600;
+  
+  /* Pulls the label to the left of the list's padding */
+  margin-left: -40px; 
+  
+  /* The label takes only the space it needs, no overlap */
+  width: auto; 
+  display: inline-block;
+  
+  /* Adds a little space between the end of the label and the paragraph */
+  padding-right: 15px; 
+  
+  /* Ensures the label doesn't wrap in a weird way */
+  flex-shrink: 0; 
+}
+
+/* 4. Style the descriptive paragraph */
+.cs-list li p {
+  /* Paragraph takes up all remaining horizontal space */
+  flex: 1; 
+  margin: 0;
+}

@@ -11,7 +11,7 @@ document.querySelectorAll('.pcard').forEach(card => {
   const YEARS = [
     {
       year: '2016', title: 'The Spark &mdash; Pre-Launch', tag: 'Foundation',
-      body: 'The idea of Flashlab Creative was born. Ankith and Anuraj Kedar identified a gap in Goa\'s creative market &mdash; businesses needed world-class creative services, and no one was delivering them locally. One of the earliest projects: a cinematic branding video for The SouthDeck, setting the tone for the bold storytelling Flashlab Creative would become known for.',
+      body: 'The idea of Flashlab Creative was born. Ankith and Anuraj Kedar identified a gap in Goa\'s creative market businesses needed world class creative services, and no one was delivering them locally. One of the earliest projects: a cinematic branding video for The SouthDeck, setting the tone for the bold storytelling Flashlab Creative would become known for.',
       images: [
         { c: 'yr-c1', s: 'images/timeline/southdeck1.jpg', cap: 'The SouthDeck &mdash; Branding Video' },
         { c: 'yr-c3', s: 'images/timeline/southdeck2.jpg', cap: 'The SouthDeck &mdash; Branding Video' },
@@ -21,7 +21,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2017', title: 'Building the Blueprint', tag: 'Pre-Launch',
-      body: 'Brand identity designed. Business model refined. Flashlab Creative took on early collaborations to build a portfolio before the official launch &mdash; including video production for The Mambo Halloween Event promo and a cinematic piece covering Max Vangeli\'s first experience in Goa. By year\'s end, everything was set for launch.',
+      body: 'Brand identity designed. Business model refined. Flashlab Creative took on early collaborations to build a portfolio before the official launch including video production for The Mambo Halloween Event promo and a cinematic piece covering Max Vangeli\'s first experience in Goa. By year\'s end, everything was set for launch.',
       images: [
         { c: 'yr-c2', s: 'images/timeline/mambo1.jpg', cap: 'The Mambo Halloween Event' },
         { c: 'yr-c4', s: 'images/timeline/mambo2.jpg', cap: 'The Mambo Halloween Event' },
@@ -31,7 +31,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2018', title: 'Flashlab Creative Officially Founded', tag: 'Year One',
-      body: 'Established in Margao, Goa, starting from a small godown room with passion and purpose. First paying clients onboarded. Projects included Cyrus Berne\'s Ed Sheeran & Chainsmokers "Shape of You" video production, the Ashley + Melita Wedding Film Teaser, and the Five Six Zero 2017 ft. Blasterjaxx event &mdash; a landmark electronic music production in Goa. The Flashlab Creative era officially began.',
+      body: 'Established in Margao, Goa, starting from a small godown room with passion and purpose. First paying clients onboarded. Projects included Cyrus Berne\'s Ed Sheeran & Chainsmokers "Shape of You" video production, the Ashley + Melita Wedding Film Teaser, and the Five Six Zero 2017 ft. Blasterjaxx event a landmark electronic music production in Goa. The Flashlab Creative era officially began.',
       images: [
         { c: 'yr-c1', s: 'images/timeline/2018-cyrus.png', cap: 'Cyrus Berne &mdash; Shape of You' },
         { c: 'yr-c2', s: 'images/timeline/2018-marriage.png', cap: 'Ashley & Melita Wedding Film' },
@@ -51,7 +51,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2020', title: 'Resilience &amp; Digital Push', tag: 'Pivot',
-      body: 'Navigated the pandemic by doubling down on digital strategy and content production. Helped local businesses pivot online &mdash; producing a cinematic branding video for European Bartender School, Goa, and a stunning property shoot for Mystras Assagao. Flashlab Creative emerged stronger, more versatile, and with a wider client base than before.',
+      body: 'Navigated the pandemic by doubling down on digital strategy and content production. Helped local businesses pivot online producing a cinematic branding video for European Bartender School, Goa, and a stunning property shoot for Mystras Assagao. Flashlab Creative emerged stronger, more versatile, and with a wider client base than before.',
       images: [
         { c: 'yr-c1', s: 'images/timeline/2020-bartend.png', cap: 'European Bartender School, Goa' },
         { c: 'yr-c5', s: 'images/timeline/2020-bartend2.png', cap: 'European Bartender School, Goa' },
@@ -61,7 +61,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2021', title: 'Parashoot Studios Launch', tag: 'New Venture',
-      body: 'Launched Parashoot Studios &mdash; a dedicated content production arm specialising in weddings, food, aerial, and commercial photography. Armed with cinema-grade cameras, professional studio setups, and advanced drones, Parashoot quickly became the go-to photography and film partner for Goa\'s premium hospitality and lifestyle brands.',
+      body: 'Launched Parashoot Studios a dedicated content production arm specialising in weddings, food, aerial, and commercial photography. Armed with cinema grade cameras, professional studio setups, and advanced drones, Parashoot quickly became the go to photography and film partner for Goa\'s premium hospitality and lifestyle brands.',
       images: [
        { c: 'yr-c4', s: 'images/timeline/f1.jpg', cap: 'Parashoot Studios Launch' },
         { c: 'yr-c3', s: 'images/timeline/f2.jpg', cap: 'Aerial & Drone Work' },
@@ -71,7 +71,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2022', title: 'Premium Brand Partnerships', tag: 'Major Wins',
-      body: 'Secured major contracts with high-profile brands and events. Captured the Goa Experience Stage at Sunburn Goa 2022 for Sunburn x Deltin &mdash; where music, culture, and visuals collided. Also produced cinematic coverage of the Deltin Life activation at IFFI Goa 2022, with celebrated guests including Rishab Shetty, Ajay Devgn, and Anupam Kher. Campaigns that set new standards in Goa\'s creative industry.',
+      body: 'Secured major contracts with high profile brands and events. Captured the Goa Experience Stage at Sunburn Goa 2022 for Sunburn x Deltin where music, culture, and visuals collided. Also produced cinematic coverage of the Deltin Life activation at IFFI Goa 2022, with celebrated guests including Rishab Shetty, Ajay Devgn, and Anupam Kher. Campaigns that set new standards in Goa\'s creative industry.',
       images: [
         { c: 'yr-c2', s: 'images/timeline/2022-sunburn.png', cap: 'Sunburn x Deltin &mdash; Goa Experience Stage' },
         { c: 'yr-c1', s: 'images/timeline/2022-sunburn2.png', cap: 'Sunburn x Deltin 2022' },
@@ -81,7 +81,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2023', title: 'Office Expansion &amp; National Games', tag: 'Milestone',
-      body: 'Expanded to G26 Vikrant Complex, Margao &mdash; a professional, inspiring workspace for the growing team. From a small godown room to a full creative hub. Also delivered comprehensive multi-sport media coverage for the National Games 2023 hosted in Goa. More staff, more capabilities, more impact.',
+      body: 'Expanded to G26 Vikrant Complex, Margao a professional, inspiring workspace for the growing team. From a small godown room to a full creative hub. Also delivered comprehensive multi sport media coverage for the National Games 2023 hosted in Goa. More staff, more capabilities, more impact.',
       images: [
         { c: 'yr-c3', s: 'images/timeline/2023-1.jpg', cap: 'New Office &mdash; Vikrant Complex' },
         { c: 'yr-c6', s: 'images/timeline/2023-2.jpg', cap: 'Team Expansion' },
@@ -91,7 +91,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2024', title: 'Record-Breaking Year', tag: 'Peak Year',
-      body: 'One of Flashlab Creative\'s biggest years. Delivered cinematic coverage for Netflix at IFFI 2024 &mdash; capturing red-carpet moments, exclusive talent interviews, and on-ground activations. Also covered the Ironman 70.3 Goa for MP Tejasvi Surya, and launched "Your Origin Story" podcast at The Origin Goa. Bold visuals and immersive storytelling defined the year.',
+      body: 'One of Flashlab Creative\'s biggest years. Delivered cinematic coverage for Netflix at IFFI 2024 capturing red carpet moments, exclusive talent interviews, and on ground activations. Also covered the Ironman 70.3 Goa for MP Tejasvi Surya, and launched "Your Origin Story" podcast at The Origin Goa. Bold visuals and immersive storytelling defined the year.',
       images: [
         { c: 'yr-c1', s: 'images/timeline/2024-iffi.png', cap: 'Netflix at IFFI 2024' },
         { c: 'yr-c2', s: 'images/timeline/2024-iffi2.png', cap: 'Netflix at IFFI 2024' },
@@ -101,7 +101,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     },
     {
       year: '2025', title: '7 Years &amp; Looking Forward', tag: 'Present',
-      body: 'Celebrating 7 years of creativity, innovation, and impact. Delivered a cinematic property showcase for Deltin Daman, and captured the FIDE Chess World Cup 2025 launch in Goa &mdash; covering the logo and anthem reveal, cultural performances, and key moments with precision and style. With celebrity collaborations and campaigns pushing creative limits, the Flashlab Creative story is far from over.',
+      body: 'Celebrating 7 years of creativity, innovation, and impact. Delivered a cinematic property showcase for Deltin Daman, and captured the FIDE Chess World Cup 2025 launch in Goa covering the logo and anthem reveal, cultural performances, and key moments with precision and style. With celebrity collaborations and campaigns pushing creative limits, the Flashlab Creative story is far from over.',
       images: [
         { c: 'yr-c4', s: 'images/timeline/2025-deltin.png', cap: 'Deltin Daman &mdash; Property Showcase' },
         { c: 'yr-c3', s: 'images/timeline/2025-deltin2.png', cap: 'Deltin Daman' },
