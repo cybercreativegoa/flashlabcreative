@@ -34,7 +34,14 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Agency</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
+        <li>
+        <a href="portfolio.html">Portfolio</a>
+        <ul>
+          <li><a href="#port-works"><i class="ri-star-line"></i>Best Work</a></li>
+          <li><a href="#port-founders"><i class="ri-time-line"></i>Our Journey</a></li>
+          <li><a href="#port-creative-portfolio"><i class="ri-gallery-line"></i>Our Creative Portfolio</a></li>
+        </ul>
+      </li>
         <li><a href="team.html">Team</a></li>
         <li>
           <a href="services.html">Services</a>
@@ -86,7 +93,14 @@
     <ul class="mob-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Agency</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
+          <li>
+        <button class="mob-parent-btn" data-target="mob-sub-portfolio">Portfolio <i class="ri-arrow-down-s-line mob-arrow"></i></button>
+        <ul class="mob-sub" id="mob-sub-portfolio">
+          <li><a href="#port-works">Best Work</a></li>
+          <li><a href="#port-founders">Our Journey</a></li>
+          <li><a href="#port-creative-portfolio">Our Creative Portfolio</a></li>
+        </ul>
+      </li>
       <li><a href="team.html">Team</a></li>
       <li>
         <button class="mob-parent-btn" data-target="mob-sub-services">Services <i class="ri-arrow-down-s-line mob-arrow"></i></button>
@@ -212,7 +226,7 @@
             <div class="hlw-col hlw-col-up">
               <div class="hlw-item"><img src="images/logos/ewater.png" alt="eWater" loading="lazy"></div>
               <div class="hlw-item"><img src="images/logos/gen.png" alt="Gen" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Deltin-casino.png" alt="Deltin Casino" loading="lazy"></div>
+              <div class="hlw-item"><img src="images/logos/deltin.png" alt="Deltin Casino" loading="lazy"></div>
               <div class="hlw-item"><img src="images/logos/heineken.png" alt="Krank" loading="lazy"></div>
               <div class="hlw-item"><img src="images/logos/Papiillon-Logo.png" alt="Papillon" loading="lazy"></div>
               <div class="hlw-item"><img src="images/logos/fc-goa.png" alt="FC Goa" loading="lazy"></div>
@@ -802,7 +816,7 @@
            and responsive grid behavior are identical. Three uniform
            cards (no feat/half sizing) + a centered button at the
            bottom linking to the dedicated Case Studies page. -->
-      <div class="proof-intro sr" style="margin-top:64px;">
+      <div class="proof-intro sr" id="port-creative-portfolio" style="margin-top:64px;">
         <span class="sec-eyebrow"> Deep Dives</span>
         <h2 class="sec-heading">OUR CREATIVE<br><em>PORTFOLIO</em></h2>
         <p class="sec-sub">A closer look at the strategy, process, and results behind a few of our favourite projects.</p>

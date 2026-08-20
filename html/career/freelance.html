@@ -23,7 +23,14 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="../../index.html">Home</a></li>
         <li><a href="../../about.html">About Agency</a></li>
-        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li>
+  <a href="portfolio.html">Portfolio</a>
+  <ul>
+    <li><a href="#port-works"><i class="ri-star-line"></i>Best Work</a></li>
+    <li><a href="#port-founders"><i class="ri-time-line"></i>Our Journey</a></li>
+    <li><a href="#port-creative-portfolio"><i class="ri-gallery-line"></i>Our Creative Portfolio</a></li>
+  </ul>
+</li>
         <li><a href="../../team.html">Team</a></li>
         <li><a href="../../services.html">Services</a><ul><li><a href="../services/digital-advertising.html"><i class="ri-megaphone-line"></i>Digital Advertising</a></li><li><a href="../services/seo-sem-marketing.html"><i class="ri-search-line"></i>SEO / SEM Marketing</a></li><li><a href="../services/social-media-management.html"><i class="ri-instagram-line"></i>Social Media Management</a></li><li><a href="../services/product-design-strategies.html"><i class="ri-pen-nib-line"></i>Product Design &amp; Strategies</a></li><li><a href="../services/web-app-development.html"><i class="ri-code-s-slash-line"></i>Web &amp; App Development</a></li><li><a href="../services/outdoor-print-ads.html"><i class="ri-image-line"></i>Outdoor &amp; Print Ads</a></li><li><a href="../services/ecommerce.html"><i class="ri-shopping-cart-line"></i>E-Commerce</a></li><li><a href="../services/trademark-registration.html"><i class="ri-shield-check-line"></i>Trademark Registration</a></li><li><a href="../services/photography-video.html"><i class="ri-camera-line"></i>Photography &amp; Video</a></li><li><a href="../services/event-production.html"><i class="ri-calendar-event-line"></i>Event Production</a></li><li><a href="../services/media-consulting.html"><i class="ri-chat-voice-line"></i>Media Consulting</a></li><li><a href="../services/animation-motion.html"><i class="ri-video-line"></i>Animation &amp; Motion</a></li></ul></li>
         <li><a href="../../clients.html">Clients</a></li>
@@ -48,7 +55,16 @@
   <div class="mob-menu" id="mobMenu" aria-hidden="true">
     <button class="mob-close" id="mobClose" aria-label="Close menu"><i class="ri-close-line"></i></button>
     <ul class="mob-links">
-      <li><a href="../../index.html">Home</a></li><li><a href="../../about.html">About Agency</a></li><li><a href="../../portfolio.html">Portfolio</a></li><li><a href="../../team.html">Team</a></li>
+      <li><a href="../../index.html">Home</a></li><li><a href="../../about.html">About Agency</a></li>
+      <li>
+  <button class="mob-parent-btn" data-target="mob-sub-portfolio">Portfolio <i class="ri-arrow-down-s-line mob-arrow"></i></button>
+  <ul class="mob-sub" id="mob-sub-portfolio">
+    <li><a href="#port-works">Best Work</a></li>
+    <li><a href="#port-founders">Our Journey</a></li>
+    <li><a href="#port-creative-portfolio">Our Creative Portfolio</a></li>
+  </ul>
+</li>
+      <li><a href="../../team.html">Team</a></li>
       <li><button class="mob-parent-btn" data-target="mob-sub-services">Services <i class="ri-arrow-down-s-line mob-arrow"></i></button><ul class="mob-sub" id="mob-sub-services"><li><a href="../services/digital-advertising.html">Digital Advertising</a></li><li><a href="../services/seo-sem-marketing.html">SEO / SEM Marketing</a></li><li><a href="../services/social-media-management.html">Social Media Management</a></li><li><a href="../services/product-design-strategies.html">Product Design &amp; Strategies</a></li><li><a href="../services/web-app-development.html">Web &amp; App Development</a></li><li><a href="../services/outdoor-print-ads.html">Outdoor &amp; Print Ads</a></li><li><a href="../services/ecommerce.html">E-Commerce</a></li><li><a href="../services/trademark-registration.html">Trademark Registration</a></li><li><a href="../services/photography-video.html">Photography &amp; Video</a></li><li><a href="../services/event-production.html">Event Production</a></li><li><a href="../services/media-consulting.html">Media Consulting</a></li><li><a href="../services/animation-motion.html">Animation &amp; Motion</a></li></ul></li>
       <li><a href="../../clients.html">Clients</a></li>
       <li><button class="mob-parent-btn" data-target="mob-sub-career">Career <i class="ri-arrow-down-s-line mob-arrow"></i></button><ul class="mob-sub" id="mob-sub-career">
@@ -187,17 +203,113 @@
     <a href="../../connect.html" class="btn-dark">Get In Touch <i class="ri-arrow-right-up-line"></i></a>
   </div>
 
+ <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><a href="../../index.html"><img src="../../images/logos/flashlab-logo-dark.png" alt="Flashlab Creative" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff\'>FLASHLAB CREATIVE</span>'"></a></div>
-        <p>Goa's leading creative &amp; digital marketing agency where imagination meets reality.</p>
-        <div class="footer-socials"><a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener"><i class="ri-instagram-fill"></i></a><a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener"><i class="ri-facebook-fill"></i></a><a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener"><i class="ri-linkedin-fill"></i></a><a href="https://twitter.com/theflashlab" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a><a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener"><i class="ri-youtube-fill"></i></a></div>
+        <div class="footer-logo">
+          <a href="index.html" class="nav-active">
+            <img src="images/logos/flashlab-logo-dark.png" alt="Flashlab Creative"
+              onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff\'>FLASHLAB CREATIVE</span>'">
+          </a>
+        </div>
+        <p>Goa's leading creative &amp; digital marketing agency where imagination meets reality. Born in Margao
+          in 2016, we craft unforgettable digital experiences for brands that dare to stand out.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener"><i
+              class="ri-instagram-fill"></i></a>
+          <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener"><i
+              class="ri-facebook-fill"></i></a>
+          <a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener"><i
+              class="ri-linkedin-fill"></i></a>
+          <a href="https://twitter.com/theflashlab" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a>
+          <a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener"><i
+              class="ri-youtube-fill"></i></a>
+        </div>
       </div>
-      <div class="hide-on-mobile"><h4 class="footer-head">Navigation</h4><ul class="footer-list"><li><a href="../../about.html"><i class="ri-arrow-right-s-line"></i>About</a></li><li><a href="../../services.html"><i class="ri-arrow-right-s-line"></i>Services</a></li><li><a href="../../portfolio.html"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li><li><a href="../../clients.html"><i class="ri-arrow-right-s-line"></i>Clients</a></li><li><a href="../../career.html"><i class="ri-arrow-right-s-line"></i>Career</a></li><li><a href="../../connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li></ul></div>
-      <div><h4 class="footer-head">Contact</h4><div class="footer-contact"><p><i class="ri-map-pin-2-fill"></i><a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa" target="_blank" rel="noopener">G26 Vikrant Complex,<br>Margao, Goa, India</a></p><p><i class="ri-phone-fill"></i><a href="tel:+919923580023">+91 99235 80023</a></p><p><i class="ri-mail-fill"></i><a href="mailto:contact@flashlabcreative.com">contact@flashlabcreative.com</a></p><p><i class="ri-time-fill"></i><span>Mon &ndash; Sat: 9am &ndash; 6pm IST</span></p><a href="../../connect.html" class="footer-cta">Start a Project <i class="ri-arrow-right-line"></i></a></div></div>
+      <div class="hide-on-mobile">
+        <h4 class="footer-head">Navigation</h4>
+        <ul class="footer-list">
+          <li><a href="index.html" class="nav-active"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+          <li><a href="about.html"><i class="ri-arrow-right-s-line"></i>About</a></li>
+          <li><a href="services.html"><i class="ri-arrow-right-s-line"></i>Services</a></li>
+          <li><a href="portfolio.html"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li>
+          <li><a href="clients.html"><i class="ri-arrow-right-s-line"></i>Clients</a></li>
+          <!-- <li><a href="case-studies.html"><i class="ri-arrow-right-s-line"></i>Case Studies</a></li> -->
+          <li><a href="team.html"><i class="ri-arrow-right-s-line"></i>Teams</a></li>
+          <li><a href="career.html"><i class="ri-arrow-right-s-line"></i>Career</a></li>
+          <li><a href="connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li>
+        </ul>
+      </div>
+      <div class="hide-on-mobile">
+        <h4 class="footer-head">Services</h4>
+        <ul class="footer-list">
+          <li><a href="html/services/outdoor-print-ads.html"><i class="ri-arrow-right-s-line"></i>Outdoor &amp;
+              Print</a></li>
+          <li><a href="html/services/digital-advertising.html"><i class="ri-arrow-right-s-line"></i>Digital
+              Advertising</a></li>
+          <li><a href="html/services/seo-sem-marketing.html"><i class="ri-arrow-right-s-line"></i>SEO / SEM</a></li>
+          <li><a href="html/services/social-media-management.html"><i class="ri-arrow-right-s-line"></i>Social Media</a>
+          </li>
+          <li><a href="html/services/product-design-strategies.html"><i class="ri-arrow-right-s-line"></i>Product
+              Design</a></li>
+          <li><a href="html/services/web-app-development.html"><i class="ri-arrow-right-s-line"></i>Web &amp; App
+              Dev</a></li>
+          <li><a href="html/services/ecommerce.html"><i class="ri-arrow-right-s-line"></i>E-Commerce</a></li>
+        </ul>
+      </div>
+      <div class="hide-on-mobile">
+        <h4 class="footer-head">Join Us</h4>
+        <ul class="footer-list">
+          <li><a href="career.html#open-positions" data-open-role="intern"><i
+                class="ri-arrow-right-s-line"></i>Intern</a></li>
+          <li><a href="career.html#open-positions" data-open-role="seo-expert"><i class="ri-arrow-right-s-line"></i>SEO
+              Expert</a></li>
+          <li><a href="career.html#open-positions" data-open-role="social-media-manager"><i
+                class="ri-arrow-right-s-line"></i>Social Media Mgr</a></li>
+          <li><a href="career.html#open-positions" data-open-role="graphic-designer"><i
+                class="ri-arrow-right-s-line"></i>Graphic Designer</a></li>
+          <li><a href="career.html#open-positions" data-open-role="web-developer"><i
+                class="ri-arrow-right-s-line"></i>Web Developer</a></li>
+          <li><a href="career.html#open-positions" data-open-role="animation-designer"><i
+                class="ri-arrow-right-s-line"></i>Animation Designer</a></li>
+          <li><a href="career.html#open-positions" data-open-role="app-developer"><i
+                class="ri-arrow-right-s-line"></i>App Developer</a></li>
+        </ul>
+      </div>
+      <div class="hide-on-mobile">
+        <h4 class="footer-head">Service Links</h4>
+        <ul class="footer-list">
+          <li><a href="#"><i class="ri-arrow-right-s-line"></i>Team Blogs</a></li>
+          <li><a href="https://parashootstudio.com" target="_blank" rel="noopener"><i
+                class="ri-arrow-right-s-line"></i>Production</a></li>
+          <li><a href="https://backstagexchange.com" target="_blank" rel="noopener"><i
+                class="ri-arrow-right-s-line"></i>Event Management</a></li>
+          <li><a href="#"><i class="ri-arrow-right-s-line"></i>FNB Marketing</a></li>
+          <li><a href="https://stromenightlife.com" target="_blank" rel="noopener"><i
+                class="ri-arrow-right-s-line"></i>Strobe Nightlife</a></li>
+          <li><a href="https://www.cybercreative.in" target="_blank" rel="noopener"><i
+                class="ri-arrow-right-s-line"></i>Web Development &amp; IoT</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-head">Contact</h4>
+        <div class="footer-contact">
+          <p><i class="ri-map-pin-2-fill"></i><a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa"
+              target="_blank" rel="noopener">G26 Vikrant Complex,<br>Margao, Goa, India</a></p>
+          <p><i class="ri-phone-fill"></i><a href="tel:+919923580023">+91 99235 80023</a></p>
+          <p><i class="ri-mail-fill"></i><a href="mailto:contact@flashlabcreative.com">contact@flashlabcreative.com</a>
+          </p>
+          <p><i class="ri-time-fill"></i><span>Mon &ndash; Sat: 9am &ndash; 6pm IST</span></p>
+          <a href="connect.html" class="footer-cta">Start a Project <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom"><p class="footer-copy">Copyright &copy; 2026 <a href="../../index.html" class="flashlab-link">Flashlab Creative</a></p><p class="footer-credit">Website Crafted by <a href="https://cybercreative.in/" target="_blank" rel="noopener" class="cyber-link">Cyber Creative</a></p></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright &copy; 2026 <a href="index.html" class="flashlab-link">Flashlab Creative</a></p>
+      <p class="footer-credit">Website Crafted by <a href="https://cybercreative.in/" target="_blank" rel="noopener"
+          class="cyber-link">Cyber Creative</a></p>
+    </div>
   </footer>
   <button class="back-top" id="backTop" aria-label="Back to top"><i class="ri-arrow-up-line"></i></button>
   <script src="../../js/main.js"></script>

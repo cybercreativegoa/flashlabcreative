@@ -179,36 +179,37 @@
     }
 
     .life-collage {
-      margin-top: 60px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 240px 200px;
-      gap: 4px;
-      border-radius: 20px;
-      overflow: hidden;
-    }
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-    .life-cell {
-      position: relative;
-      overflow: hidden;
-      background: #111;
-    }
+.life-cell {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+}
 
-    .life-cell img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-      filter: saturate(0.85);
-    }
+.life-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+  filter: saturate(0.85);
+}
 
-    .life-cell:hover img {
-      transform: scale(1.06);
-      filter: saturate(1);
-    }
-
-    .life-cell.span-col-2 { grid-column: span 2; }
-    .life-cell.span-row-2 { grid-row: span 2; }
+.life-cell:hover img {
+  transform: scale(1.06);
+  filter: saturate(1);
+}
 
     .life-cell-overlay {
       position: absolute;
@@ -1213,7 +1214,7 @@ body[data-page="career"] .pos-panel {
       .hero-img-wrap { order: -1; }
       .wwu-inner { grid-template-columns: 1fr; gap: 50px; }
       .perks-grid { grid-template-columns: repeat(2, 1fr); }
-      .life-collage { grid-template-columns: repeat(2, 1fr); grid-template-rows: 200px 200px 200px; }
+      .life-collage { grid-template-columns: repeat(2, 1fr); }
       .life-cell.span-col-2 { grid-column: span 1; }
       .life-cell.span-row-2 { grid-row: span 1; }
       .positions-layout { grid-template-columns: 1fr; }
@@ -1242,7 +1243,7 @@ body[data-page="career"] .pos-panel {
     @media (max-width:640px) {
       .career-hero { padding: 130px 5% 60px; }
       .perks-grid { grid-template-columns: 1fr; }
-      .life-collage { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .life-collage { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .life-cell { height: 180px; }
       .form-row { grid-template-columns: 1fr; }
       .no-role-inner { padding: 40px 28px; }

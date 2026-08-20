@@ -34,7 +34,14 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-active">Home</a></li>
         <li><a href="about.html">About Agency</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
+        <li>
+        <a href="portfolio.html">Portfolio</a>
+        <ul>
+          <li><a href="#port-works"><i class="ri-star-line"></i>Best Work</a></li>
+          <li><a href="#port-founders"><i class="ri-time-line"></i>Our Journey</a></li>
+          <li><a href="#port-creative-portfolio"><i class="ri-gallery-line"></i>Our Creative Portfolio</a></li>
+        </ul>
+      </li>
         <li><a href="team.html">Team</a></li>
         <li>
           <a href="services.html">Services</a>
@@ -97,7 +104,14 @@
     <ul class="mob-links">
       <li><a href="index.html" class="mob-active">Home</a></li>
       <li><a href="about.html">About Agency</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
+      <li>
+  <button class="mob-parent-btn" data-target="mob-sub-portfolio">Portfolio <i class="ri-arrow-down-s-line mob-arrow"></i></button>
+  <ul class="mob-sub" id="mob-sub-portfolio">
+    <li><a href="#port-works">Best Work</a></li>
+    <li><a href="#port-founders">Our Journey</a></li>
+    <li><a href="#port-creative-portfolio">Our Creative Portfolio</a></li>
+  </ul>
+</li>
       <!-- <li><a href="case-studies.html">Case Studies</a></li> -->
       <li><a href="team.html">Team</a></li>
       <li>
@@ -140,7 +154,7 @@
  <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg-img" id="heroBgImg"></div>
-  <div class="hero-bg-overlay"></div>
+  <!-- <div class="hero-bg-overlay"></div> -->
   <div class="hero-noise"></div>
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -163,12 +177,14 @@
 
     <!-- Slides -->
     <div class="hero-slider">
-      <div class="slide active" data-bg="images/hero1.png">
+      <div class="slide active" data-bg="images/HerDel.jpeg">
         <h1 class="hero-heading">GOA'S MOST TRUSTED<br>CREATIVE AGENCY</h1>
         <p class="hero-slide-small">With over a decade of experience in Goa, we have established benchmarks for
           excellence across hospitality, real estate, lifestyle, and modern brands.</p>
       </div>
-      <div class="slide" data-bg="images/hero-slide-2.jpg">
+      
+      <div class="slide"  data-bg="images/hero-slide-2.jpg">
+        
         <h1 class="hero-heading">CREATIVE DESIGN<br>SOLUTIONS</h1>
         <p class="hero-slide-small">Bold identities and meaningful storytelling crafted to connect with audiences and
           leave a lasting impression.</p>
@@ -243,7 +259,7 @@
         <!-- 01 Product Design & Strategies -->
         <a class="svc-card" href="html/services/product-design-strategies.html">
           <div class="svc-bg"
-            style="background-image:url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80')">
+            style="background-image:url('images/feature2.jpeg')">
           </div>
           <div class="svc-gradient"></div>
           <div class="svc-accent"></div>
@@ -260,7 +276,7 @@
         <!-- 02 Web & App Development -->
         <a class="svc-card" href="html/services/web-app-development.html">
           <div class="svc-bg"
-            style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80')">
+            style="background-image:url('images/feature1.jpeg')">
           </div>
           <div class="svc-gradient"></div>
           <div class="svc-accent"></div>
@@ -277,7 +293,7 @@
         <!-- 03 E-Commerce Solutions -->
         <a class="svc-card" href="html/services/ecommerce.html">
           <div class="svc-bg"
-            style="background-image:url('images/eco.png')">
+            style="background-image:url('images/feature3.jpeg')">
           </div>
           <div class="svc-gradient"></div>
           <div class="svc-accent"></div>

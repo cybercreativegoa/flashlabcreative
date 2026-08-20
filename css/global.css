@@ -288,7 +288,8 @@ li, blockquote, input, textarea { cursor: text; }
 }
 
 .nav-links > li:nth-child(7) > ul,
-.nav-links > li:has(> a[href*="career"]) > ul {
+.nav-links > li:has(> a[href*="career"]) > ul,
+.nav-links > li:has(> a[href*="portfolio"]) > ul {
   min-width: 260px;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
