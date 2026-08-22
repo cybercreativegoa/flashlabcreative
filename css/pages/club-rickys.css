@@ -797,6 +797,7 @@ grid-template-columns:1fr;
 }
 
 }
+
 /* Container with 3 images side by side, same overall box size as before */
 .cs-img-block.cs-img-triple {
   display: flex;
