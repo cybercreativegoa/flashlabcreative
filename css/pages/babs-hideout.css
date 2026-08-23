@@ -733,89 +733,6 @@
     border:1px solid var(--border);
     transition:transform .3s ease;
 }
-/* ---------- Reels Section ---------- */
-
-.reels-section {
-    width: 100vw !important;
-    margin-left: calc((100% - 100vw) / 2) !important;
-    padding: 60px 0 !important;
-    box-sizing: border-box;
-}
-
-.reels-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.reels-container {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    gap: 14px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    box-sizing: border-box;
-}
-
-/* IMPORTANT:
-   Instagram adds its own minimum width to the embed.
-   Override that width here.
-*/
-.reel-embed {
-    width: 326px !important;
-    min-width: 326px !important;
-    max-width: 326px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-    overflow: hidden !important;
-    border: none !important;
-    background: transparent !important;
-    box-sizing: border-box;
-}
-
-.reel-embed .instagram-media {
-    width: 326px !important;
-    min-width: 326px !important;
-    max-width: 326px !important;
-    margin: 0 !important;
-}
-
-.reel-embed iframe {
-    width: 326px !important;
-    max-width: 326px !important;
-    margin: 0 !important;
-}
-
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 1100px) {
-
-    .reels-container {
-        flex-wrap: wrap !important;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .reels-container {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    .reel-embed,
-    .reel-embed .instagram-media,
-    .reel-embed iframe {
-        width: 326px !important;
-        min-width: 326px !important;
-        max-width: 326px !important;
-    }
-
-}
 
 /* Container with 3 images side by side, same overall box size as before */
 .cs-img-block.cs-img-triple {
@@ -838,5 +755,77 @@
   }
 }
 
+/* ---------- Reels Section ---------- */
 
+.reels-section{
+    width:100%;
+    padding:60px 8%;
+}
+
+.reels-section h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.reels-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.reels-container a{
+
+    display:block;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+
+.reels-container video{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+}
+
+.reels-container video:hover{
+
+    transform:scale(1.05);
+
+}
+
+@media(max-width:992px){
+
+.reels-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.reels-container{
+
+grid-template-columns:1fr;
+
+}
+
+}
 
