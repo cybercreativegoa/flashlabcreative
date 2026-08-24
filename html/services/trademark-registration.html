@@ -11,6 +11,76 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/services/service-category.css">
+  <style>
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-top: 48px;
+    }
+
+    @media (max-width: 700px) {
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .type-card {
+      background: var(--card-bg);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+    }
+
+    .type-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s;
+    }
+
+    .type-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .type-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 14px;
+      transition: color .3s;
+    }
+
+    .type-card:hover .type-num {
+      color: rgba(168, 232, 50, .2);
+    }
+
+    .type-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .type-card p {
+      font-size: .86rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+  </style>
+  </head>
 
 <body data-page="trademark-registration">
 
@@ -183,8 +253,8 @@
       </div>
     </div>
     <div class="wrap">
-      <div class="design-grid reveal">
-        <div class="design-card">
+      <div class="types-grid reveal" style="transition-delay:.16s">
+        <div class="type-card">
           <div class="design-card-icon"><i class="ri-registered-line"></i></div>
           <h4>Trademark Registration</h4>
           <p>Register your brand name and logo as a trademark with the Indian Trademark Registry we handle the full application, classification, and correspondence process.</p>

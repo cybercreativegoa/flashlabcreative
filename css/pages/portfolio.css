@@ -1086,8 +1086,12 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-
+ 
     .proof-panel {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
       border-radius: 18px;
       background: var(--card);
       border: 1px solid var(--border);
@@ -1111,7 +1115,7 @@
       background: radial-gradient(ellipse at top right, rgba(168,232,50,.04) 0%, transparent 60%);
       pointer-events: none;
     }
-
+ 
     .proof-header {
       display: flex;
       align-items: center;
@@ -1119,14 +1123,18 @@
       margin-bottom: 20px;
     }
     .proof-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 66px;
+      height: 66px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 2rem;
       flex-shrink: 0;
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    .proof-panel:hover .proof-icon-wrap {
+      transform: scale(1.08);
     }
     .proof-icon-wrap.li {
       background: rgba(0,119,181,.12);
@@ -1141,7 +1149,7 @@
       color: #ea4335;
     }
     .proof-platform {
-      font-size: .67rem;
+      font-size: .80rem;
       color: var(--muted);
       letter-spacing: .14em;
       text-transform: uppercase;
@@ -1159,7 +1167,17 @@
       background: var(--border);
       margin: 0 0 16px;
     }
-
+ 
+    /* Short one-line descriptor — the whole card is now the link out
+       to the platform (see .proof-panel above), so there's no
+       separate "View on X" line beneath this anymore. */
+    .proof-desc {
+      font-size: .84rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
     /* Short one-line descriptor that replaces the old inline post/thumb/review
        previews — the CTA link below is the only way to see the full content. */
     .proof-desc {

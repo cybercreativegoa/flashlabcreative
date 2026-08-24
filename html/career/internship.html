@@ -13,6 +13,98 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/services/service-category.css">
+  <style>
+    /* SERVICES GRID */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--border);
+}
+
+@media (max-width: 900px) {
+  .design-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    background: transparent;
+    padding-bottom: 12px;
+  }
+  .design-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .design-card {
+    flex: 0 0 45%;
+    scroll-snap-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 600px) {
+  .design-card {
+    flex: 0 0 85%;
+  }
+}
+
+.design-card {
+  background: var(--card);
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.design-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+
+.design-card:hover::after {
+  transform: scaleX(1);
+}
+
+.design-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(168, 232, 50, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.design-card h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.design-card p {
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+  </style>
 </head>
 
 <body data-page="career-internship">

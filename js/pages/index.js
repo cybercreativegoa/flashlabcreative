@@ -328,12 +328,12 @@ window.addEventListener('scroll', () => {
     { src: 'images/logos/Hide-Expo.png',            alt: 'Hide Expo' },
     { src: 'images/logos/holi.png',            alt: 'Holi Dhun' },
     { src: 'images/logos/KAP.png', alt: 'KAP Panandiker' },
-    { src: 'images/logos/lightbox.png',             alt: 'Lightbox' },
+    // { src: 'images/logos/lightbox.png',             alt: 'Lightbox' },
     { src: 'images/logos/Permaguard-final - Edited.png',           alt: 'Permaguard' },
-    { src: 'images/logos/siteman.png',              alt: 'Siteman' },
+    // { src: 'images/logos/siteman.png',              alt: 'Siteman' },
     { src: 'images/logos/tataki.png',               alt: 'Tataki' },
     { src: 'images/logos/tulum.png',                alt: 'Tulum' },
-    { src: 'images/logos/waveless.png',             alt: 'Waveless' },
+    // { src: 'images/logos/waveless.png',             alt: 'Waveless' },
     { src: 'images/logos/YU hotel.png',             alt: 'YU Hotel' },
   ];
   function buildBelt(list) {
