@@ -83,7 +83,7 @@
       margin-top: 32px;
     }
 
-    /* === 01. UTILITIES � SECTION TYPOGRAPHY === */
+    /* === 01. UTILITIES — SECTION TYPOGRAPHY === */
     .sec-eyebrow {
       font-size: 0.78rem;
       font-weight: 600;
@@ -92,6 +92,13 @@
       color: #a8e832 !important;
       margin-bottom: 14px;
       display: block;
+    }
+
+    /* Light mode: the base rule above forces lime green with
+       !important, so this override needs !important too, or it
+       gets silently ignored no matter how specific the selector is. */
+    [data-theme="light"] .sec-eyebrow {
+      color: var(--text-strong) !important;
     }
 
     .sec-heading {
@@ -159,7 +166,7 @@
 .hero-bg-img {
   position: absolute;
   inset: 0;
-  background-image: url('../../images/hero-slide-1.jpg');
+  background-image: url('../../images/HerDel.jpeg');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -198,6 +205,18 @@
       rgba(0,0,0,0.48) 0%,
       rgba(0,0,0,0.15) 40%,
       rgba(0,0,0,0.65) 100%);
+}
+
+[data-theme="light"] .stat-num {
+  color:black;
+}
+
+[data-theme="light"] .stat-suf{
+  color: black;
+}
+
+[data-theme="light"] .stat-item p{
+  color: black;
 }
 
 .hero-noise {
@@ -422,6 +441,19 @@
         0 2px 6px rgba(0,0,0,.9),
         0 6px 18px rgba(0,0,0,.8);
 
+}
+
+/* Per-slide text colour — for slides whose background image is too
+   light for white text. Add data-text="dark" to any .slide in the
+   HTML to switch just that slide's description text to black; slides
+   without the attribute keep the default white above. Reusable for
+   any future slide, not just the two currently marked. */
+.slide[data-text="dark"] .hero-slide-small {
+  color: rgba(20,20,20,0.88) !important;
+  font-style: bold;
+  text-shadow:
+     0 1px 2px rgba(255,255,255,.5),
+     0 2px 10px rgba(255,255,255,.3) !important;
 }
 
 /* ── CTAs ── */
@@ -1568,7 +1600,7 @@
     .stat-num {
       font-family: var(--font-head);
       font-size: clamp(3.5rem, 5vw, 5.5rem);
-      color: white;
+      color: rgb(253, 253, 253);
       line-height: 1;
       display: inline-block;
     }
@@ -1979,7 +2011,7 @@
     .testi-section .sec-eyebrow,
     .testi-section .sec-heading,
     .testi-section .sec-sub {
-      color: white;
+      color: white !important;
     }
 
     .testi-section .sec-sub { opacity: 0.85; }

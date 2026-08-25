@@ -107,7 +107,7 @@
     <div class="wrap">
       <div class="overview-split">
         <div class="overview-img-wrap reveal">
-          <img class="overview-img-main" src="C:\Users\Lenovo\Desktop\Github\fc\images\Influence.jpeg" alt="Influencer">
+          <img class="overview-img-main" src="../../images/Influence.jpeg" alt="Influencer">
           <div class="img-badge">
             <strong>100+</strong>
             <span>Creators</span>
@@ -118,7 +118,7 @@
           <h2 class="sec-heading" style="margin-bottom:20px">Create Content,<br><em>Get Paid</em></h2>
           <p>Flashlab Creative manages 350+ brands across Goa and India. We're constantly looking for authentic content creators to help us tell their stories. Whether you're a micro-influencer with 1K followers or a macro creator with 100K+, we have campaigns that match your niche.</p>
           <p>From restaurant reviews and hotel stays to product launches and event coverage join our network and get matched with brands that align with your content and audience.</p>
-          <a href="../../connect.html" class="btn-primary">Sign Up Now <i class="ri-arrow-right-up-line"></i></a>
+          <a href="#" class="btn-primary open-signup-btn">Sign Up Now <i class="ri-arrow-right-up-line"></i></a>
         </div>
       </div>
     </div>
@@ -234,7 +234,7 @@
   <div class="contact-band">
     <h2>Ready to <em>Create Together?</em></h2>
     <p>Drop us your Instagram handle and a brief intro. We'll get back to you within 48 hours.</p>
-    <a href="../../connect.html" class="btn-dark">Sign Up Now <i class="ri-arrow-right-up-line"></i></a>
+    <a href="#" class="btn-dark open-signup-btn">Sign Up Now <i class="ri-arrow-right-up-line"></i></a>
   </div>
 
   <!-- FOOTER -->
@@ -346,6 +346,114 @@
     </div>
   </footer>
   <button class="back-top" id="backTop" aria-label="Back to top"><i class="ri-arrow-up-line"></i></button>
+
+  <!-- SIGN UP MODAL — hidden by default, opened by any .open-signup-btn -->
+  <div class="modal-overlay" id="signupModalOverlay">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="signupModalTitle">
+      <button class="modal-close" id="signupModalClose" aria-label="Close">&times;</button>
+
+      <div class="centered" style="margin-bottom:32px">
+        <div class="sec-eyebrow"><span></span>Apply Now</div>
+        <h2 class="sec-heading" id="signupModalTitle">Influencer <em>Sign Up</em></h2>
+        <p class="sec-sub">Fill in your details below and our team will get back to you within 48 hours.</p>
+      </div>
+
+      <!-- TODO: this form has no backend yet. Point the action="" at a
+           form service (Formspree, Netlify Forms, Google Forms, your
+           own endpoint, etc.) before going live, or it won't send
+           anywhere. -->
+      <form class="signup-form" id="influencerForm" action="#" method="POST">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" name="city" required placeholder="e.g. Margao, Goa">
+          </div>
+          <div class="form-group">
+            <label for="instagram">Instagram Handle *</label>
+            <input type="text" id="instagram" name="instagram" required placeholder="@yourhandle">
+          </div>
+          <div class="form-group">
+            <label for="followers">Follower Count *</label>
+            <select id="followers" name="followers" required>
+              <option value="" disabled selected>Select range</option>
+              <option value="1k-10k">1K &ndash; 10K</option>
+              <option value="10k-50k">10K &ndash; 50K</option>
+              <option value="50k-100k">50K &ndash; 100K</option>
+              <option value="100k+">100K+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="category">Content Category *</label>
+            <select id="category" name="category" required>
+              <option value="" disabled selected>Select your niche</option>
+              <option value="food">Food Blogger</option>
+              <option value="travel">Travel Creator</option>
+              <option value="lifestyle">Lifestyle Influencer</option>
+              <option value="entertainment">Entertainment &amp; Events</option>
+              <option value="micro">Micro &amp; Nano Creator</option>
+              <option value="video">Video Creator</option>
+              <option value="fitness">Fitness &amp; Wellness Creator</option>
+              <option value="ugc">UGC Creator</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="portfolio">Portfolio / Best Reel Link</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://instagram.com/reel/...">
+          </div>
+          <div class="form-group form-group-full">
+            <label for="message">Tell Us About Yourself</label>
+            <textarea id="message" name="message" rows="4" placeholder="A short intro about your content style and audience..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">Submit Application <i class="ri-arrow-right-up-line"></i></button>
+        <p class="form-note">By submitting, you agree to be contacted by Flashlab Creative regarding collaboration opportunities.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Signup modal — scoped, defensive, no external dependencies.
+    (function () {
+      var overlay = document.getElementById('signupModalOverlay');
+      var closeBtn = document.getElementById('signupModalClose');
+      var openBtns = document.querySelectorAll('.open-signup-btn');
+      if (!overlay || !openBtns.length) return;
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        overlay.classList.add('active');
+        document.body.classList.add('modal-open');
+      }
+      function closeModal() {
+        overlay.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+
+      openBtns.forEach(function (btn) {
+        btn.addEventListener('click', openModal);
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
+
   <script src="../../js/main.js"></script>
 </body>
 </html>

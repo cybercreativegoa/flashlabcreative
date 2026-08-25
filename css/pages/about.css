@@ -1196,11 +1196,11 @@
 
     /* Year tabs — better contrast */
     [data-theme="light"] .year-tab.active {
-      color: #2d8b00;
+      color: #a8e832;
       border-bottom-color: #a8e832;
     }
     [data-theme="light"] .year-big {
-      color: #2d8b00;
+      color: #a8e832;
     }
     [data-theme="light"] .year-tag {
       background: rgba(168,232,50,0.14);
@@ -1819,22 +1819,22 @@
 }
 
 [data-theme="light"] .manifesto-tag {
-  color: #2d8b00;
+  color: #a8e832;
   background: rgba(168, 232, 50, .14);
   border-color: rgba(168, 232, 50, .28);
 }
 
 [data-theme="light"] .manifesto-rail-item.active .manifesto-rail-label {
-  color: #2d8b00;
+  color: #a8e832;
 }
 
 [data-theme="light"] .manifesto-rail-item.active .manifesto-rail-dot {
-  background: #2d8b00;
-  border-color: #2d8b00;
+  background: #a8e832;
+  border-color: #a8e832;
 }
 
 [data-theme="light"] .mr-eyebrow {
-  color: #2d8b00;
+  color: #a8e832;
 }
 
 [data-theme="light"] .manifesto-visual {

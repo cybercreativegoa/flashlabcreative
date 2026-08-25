@@ -1946,7 +1946,7 @@ Screaming Frog SEO Spider</p>
   </div>
 
   <div class="instagram-placeholder">
-  <img src="images/ins.jpg" alt="Creative Team">
+  <img src="images/flashlab_office_under_200kb.jpg.jpeg" alt="Creative Team">
 </div>
 </div>
 
@@ -2091,17 +2091,21 @@ Screaming Frog SEO Spider</p>
            INTERN — REY D'CRUZ
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-rey">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           I’ve had a really good experience working with Flashlab Creative.
           The environment is supportive and the team is very creative and
           professional. It’s a great place to learn and grow.
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-rey">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2128,12 +2132,13 @@ Screaming Frog SEO Spider</p>
            INTERN — BRENDAN COLACO
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-brendan">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           I would highly recommend Flash Lab Creative to all students and
           working professionals who want to make their career in the field
@@ -2154,6 +2159,9 @@ Screaming Frog SEO Spider</p>
           corporates. People there were also really friendly. I never thought
           I would miss my days working at Flash Lab Creative.
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-brendan">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2211,12 +2219,13 @@ Screaming Frog SEO Spider</p>
            FULL TIME — SHRISHTI
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-shristhi">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           I worked at Flashlab Creative as a Visual &amp; UI Designer for one
           year, and it was an incredible learning experience in a highly
@@ -2239,6 +2248,9 @@ Screaming Frog SEO Spider</p>
 
           Grateful for such an amazing first job experience!
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-shristhi">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2266,17 +2278,21 @@ Screaming Frog SEO Spider</p>
            FULL TIME — MELISTON
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-meliston">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           I had an incredible experience. The environment was always
           professional. A big shoutout to Anuraj for being the most
           down-to-earth person I’ve worked with.
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-meliston">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2304,18 +2320,22 @@ Screaming Frog SEO Spider</p>
            FULL TIME — ARYA
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-arya">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           It is always a great opportunity to work here with Anuraj, whose
           guidance and leadership make a real difference. The learning
           exposure, creative freedom, and positive atmosphere make this a
           wonderful place to grow both personally and professionally.
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-arya">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2343,12 +2363,13 @@ Screaming Frog SEO Spider</p>
            FULL TIME — PERMEET
       ========================== -->
 
-      <div class="testi-card reveal">
+      <div class="testi-card reveal" id="testi-permeet">
 
         <div class="testi-stars">
           ★★★★★
         </div>
 
+        <div class="testi-text-wrap">
         <p>
           One of the best agencies in South Goa, I was working as a
           videographer for over a year. The working atmosphere was too good
@@ -2366,6 +2387,9 @@ Screaming Frog SEO Spider</p>
           Again, thank you so much for everything. If you are considering
           an agency, you can go for this without any hesitation.
         </p>
+        </div>
+
+        <button class="testi-viewmore" data-testi="testi-permeet">View More <i class="ri-arrow-down-s-line"></i></button>
 
         <div class="testi-author">
 
@@ -2563,6 +2587,33 @@ Screaming Frog SEO Spider</p>
   </footer>
 
   <button class="back-top" id="backTop"><i class="ri-arrow-up-line"></i></button>
+
+  <script>
+    // "View More" — expands the clicked testimonial card in place
+    // (no popup). Toggles .expanded on the card itself, which the
+    // CSS uses to grow .testi-text-wrap's max-height and drop the
+    // 3-line clamp on the paragraph. Swaps the button's own label
+    // between "View More" / "View Less".
+    (function () {
+      var viewMoreBtns = document.querySelectorAll('.testi-viewmore');
+      if (!viewMoreBtns.length) return;
+
+      viewMoreBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.testi-card');
+          if (!card) return;
+
+          var isExpanded = card.classList.toggle('expanded');
+          btn.classList.toggle('expanded', isExpanded);
+
+          // Rebuild the button label, keeping the <i> icon element intact.
+          var icon = btn.querySelector('i');
+          btn.textContent = isExpanded ? 'View Less ' : 'View More ';
+          if (icon) btn.appendChild(icon);
+        });
+      });
+    })();
+  </script>
 
   <script src="js/main.js"></script>
   <script src="js/pages/career.js"></script>

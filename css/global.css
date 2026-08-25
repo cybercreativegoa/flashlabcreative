@@ -748,6 +748,11 @@ li, blockquote, input, textarea { cursor: text; }
   color:          var(--accent);
   margin-bottom:  14px;
 }
+/* Light mode: the bright lime accent is low-contrast against the
+   light background, so switch these small labels to near-black. */
+[data-theme="light"] .sec-eyebrow {
+  color: var(--text-strong);
+}
 .sec-heading {
   font-family:   var(--font-head);
   font-size:     clamp(2.2rem, 6vw, 5rem);
@@ -762,7 +767,7 @@ li, blockquote, input, textarea { cursor: text; }
   font-weight: 700;
 }
 [data-theme="light"] .impact-our {
-  color: #ffffff;
+  color: #060606;
 }
 .sec-sub {
   font-size:     1rem;
