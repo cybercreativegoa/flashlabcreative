@@ -166,7 +166,15 @@ window.addEventListener('scroll', () => {
   function setBackground(index) {
     const slide  = slides[index];
     const bgUrl  = slide.getAttribute('data-bg');
-    const bgPos  = slide.getAttribute('data-bg-pos') || 'center';
+    // On narrow screens, background-size:cover crops mostly from the
+    // sides (not top/bottom), since a wide image has to scale up a lot
+    // to fill a tall, narrow viewport. A slide can supply
+    // data-bg-pos-mobile as a separate crop focus for that case —
+    // falls back to the normal data-bg-pos (or "center") if not set.
+    const isMobile = window.innerWidth <= 640;
+    const bgPos = (isMobile && slide.getAttribute('data-bg-pos-mobile'))
+      || slide.getAttribute('data-bg-pos')
+      || 'center';
 
     // Create an offscreen image to preload, then swap
     const img = new Image();
@@ -324,7 +332,7 @@ window.addEventListener('scroll', () => {
     { src: 'images/logos/avtar-kitchen.png',        alt: 'Avtar Kitchen' },
     { src: 'images/logos/Pipa-Bela.png',            alt: 'Pipa Bela' },
     { src: 'images/logos/fc-goa.png',               alt: 'FC Goa' },
-    { src: 'images/logos/Robins-ark.png',           alt: "Robin's Ark" },
+    { src: 'images/logos/Robins-Ark(logo).png',           alt: "Robin's Ark" },
     { src: 'images/logos/Hide-Expo.png',            alt: 'Hide Expo' },
     { src: 'images/logos/holi.png',            alt: 'Holi Dhun' },
     { src: 'images/logos/KAP.png', alt: 'KAP Panandiker' },

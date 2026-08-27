@@ -178,15 +178,23 @@
     <!-- Slides — each slide's small description text is white by default.
          Add data-text="dark" on any .slide whose background image is too
          light for white text (like slides 2 & 3 below); leave the
-         attribute off on slides that should keep white text. -->
+         attribute off on slides that should keep white text.
+
+         Background cropping: on narrow/mobile screens the image crops
+         mostly from the LEFT/RIGHT (not top/bottom), since a wide photo
+         has to scale up a lot to fill a tall, narrow screen. If the main
+         subject gets cut off on mobile, add data-bg-pos-mobile="..." with
+         a CSS background-position value (e.g. "left center", "20% 50%")
+         to re-aim the crop just for narrow screens — desktop keeps using
+         data-bg-pos (or "center" if that's not set either). -->
     <div class="hero-slider">
-      <div class="slide active" data-bg="images/HerDel.jpeg">
+      <div class="slide active" data-bg="images/HerDel.jpeg" data-bg-pos-mobile="left center">
         <h1 class="hero-heading">GOA'S MOST TRUSTED<br>CREATIVE AGENCY</h1>
         <p class="hero-slide-small"><b>With over a decade of experience in Goa, we have established benchmarks for
           excellence across hospitality, real estate, lifestyle, and modern brands.</b></p>
       </div>
       
-      <div class="slide" data-bg="images/Website-Home Page (Fc Goa).png" >
+      <div class="slide" data-bg="images/Website-Home Page (Fc Goa).png">
         
         <h1 class="hero-heading">SPORTS<br>MARKETING</h1>
         <p class="hero-slide-small"><b>Building powerful sports brands through strategic marketing, creative storytelling, and campaigns that connect with fans and drive engagement.</b></p>
@@ -194,7 +202,7 @@
 
       <div class="slide" data-bg="images/Website-Home Page.jpg.jpeg" data-text="dark">
         
-        <h1 class="hero-heading">F & B<br>MARKETING</h1>
+        <h1 class="hero-heading"><b>F & B<br>MARKETING</b></h1>
         <p class="hero-slide-small"><b>Blending creative storytelling and strategic marketing to build memorable F&B brands that inspire cravings, engagement, and loyalty.</b></p>
       </div>
 
@@ -203,7 +211,7 @@
         <p class="hero-slide-small">Designers, strategists and marketers working together to create campaigns that
           people remember and brands that grow from.</p>
       </div> -->
-      <div class="slide" data-bg="images/hero4.png" data-bg-pos="center 10%">
+      <div class="slide" data-bg="images/slide4.jpeg" data-bg-pos="center 10%">
         <h1 class="hero-heading">BUILDING BRANDS<br>THAT INSPIRE</h1>
         <p class="hero-slide-small"><b>Data driven marketing across Meta, Google and other various digital platforms.
           Focused on visibility, engagement and measurable growth.</b></p>
@@ -268,7 +276,7 @@
         <!-- 01 Product Design & Strategies -->
         <a class="svc-card" href="html/services/product-design-strategies.html">
           <div class="svc-bg"
-            style="background-image:url('images/feature2.jpeg')">
+            style="background-image:url('images/coffe\ brand.jpg')">
           </div>
           <div class="svc-gradient"></div>
           <div class="svc-accent"></div>
@@ -302,7 +310,7 @@
         <!-- 03 E-Commerce Solutions -->
         <a class="svc-card" href="html/services/ecommerce.html">
           <div class="svc-bg"
-            style="background-image:url('images/ecom3.png')">
+            style="background-image:url('images/susegad\ mockup\ expanded.png')">
           </div>
           <div class="svc-gradient"></div>
           <div class="svc-accent"></div>
