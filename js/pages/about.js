@@ -8,169 +8,213 @@ document.querySelectorAll('.pcard').forEach(card => {
 
 /* TIMELINE */
 (function () {
+  // Sample copy for title/tag/body — final wording to follow, especially
+  // for 2026 which is newly added here (wasn't in the original timeline).
   const YEARS = [
     {
       year: '2016', title: 'The Spark &mdash; Pre-Launch', tag: 'Foundation',
       body: 'The idea of Flashlab Creative was born. Ankith and Anuraj Kedar identified a gap in Goa\'s creative market businesses needed world class creative services, and no one was delivering them locally. One of the earliest projects: a cinematic branding video for The SouthDeck, setting the tone for the bold storytelling Flashlab Creative would become known for.',
-      images: [
-        { c: 'yr-c1', s: 'images/timeline/southdeck1.jpg', cap: 'The SouthDeck &mdash; Branding Video' },
-        { c: 'yr-c3', s: 'images/timeline/southdeck2.jpg', cap: 'The SouthDeck &mdash; Branding Video' },
-        { c: 'yr-c5', s: 'images/timeline/southdeck3.jpg', cap: 'The SouthDeck &mdash; Branding Video' },
-        { c: 'yr-c7', s: 'images/timeline/southdeck4.jpg', cap: 'The SouthDeck &mdash; Branding Video' }
-      ]
     },
     {
       year: '2017', title: 'Building the Blueprint', tag: 'Pre-Launch',
       body: 'Brand identity designed. Business model refined. Flashlab Creative took on early collaborations to build a portfolio before the official launch including video production for The Mambo Halloween Event promo and a cinematic piece covering Max Vangeli\'s first experience in Goa. By year\'s end, everything was set for launch.',
-      images: [
-        { c: 'yr-c2', s: 'images/timeline/mambo1.jpg', cap: 'The Mambo Halloween Event' },
-        { c: 'yr-c4', s: 'images/timeline/mambo2.jpg', cap: 'The Mambo Halloween Event' },
-        { c: 'yr-c6', s: 'images/timeline/mambo3.jpg', cap: "Max Vangeli's First Goa Experience" },
-        { c: 'yr-c8', s: 'images/timeline/mambo4.png', cap: "Max Vangeli's First Goa Experience" }
-      ]
     },
     {
       year: '2018', title: 'Flashlab Creative Officially Founded', tag: 'Year One',
       body: 'Established in Margao, Goa, starting from a small godown room with passion and purpose. First paying clients onboarded. Projects included Cyrus Berne\'s Ed Sheeran & Chainsmokers "Shape of You" video production, the Ashley + Melita Wedding Film Teaser, and the Five Six Zero 2017 ft. Blasterjaxx event a landmark electronic music production in Goa. The Flashlab Creative era officially began.',
-      images: [
-        { c: 'yr-c1', s: 'images/timeline/2018-cyrus.png', cap: 'Cyrus Berne &mdash; Shape of You' },
-        { c: 'yr-c2', s: 'images/timeline/2018-marriage.png', cap: 'Ashley & Melita Wedding Film' },
-        { c: 'yr-c5', s: 'images/timeline/2018-marriage2.png', cap: 'Ashley + Melita Wedding' },
-        { c: 'yr-c7', s: 'images/timeline/2018-blasterjaxx.png', cap: 'Five Six Zero ft. Blasterjaxx' }
-      ]
     },
     {
       year: '2019', title: 'Building Our Foundation', tag: 'Growth',
       body: 'Expanded into digital marketing, graphic design, web design, photography, and video production. Key highlights: the FC Goa 2018&ndash;19 Jersey Launch Event, a Deltin Casino "Deltin Select" promo, and a fashion film for Pipa Bella featuring Snehal Fernandes. This year established Flashlab Creative as Goa\'s trusted creative partner across sports, hospitality, and lifestyle brands.',
-      images: [
-        { c: 'yr-c3', s: 'images/timeline/2019-jersey.png', cap: 'FC Goa Jersey Launch' },
-        { c: 'yr-c4', s: 'images/timeline/2019-deltin-life.png', cap: 'Deltin Casino &mdash; Deltin Select' },
-        { c: 'yr-c6', s: 'images/timeline/2019pipa.png', cap: 'Pipa Bella Fashion Film' },
-        { c: 'yr-c8', s: 'images/timeline/2019deltin.png', cap: 'Deltin Casino Promo' }
-      ]
     },
     {
       year: '2020', title: 'Resilience &amp; Digital Push', tag: 'Pivot',
       body: 'Navigated the pandemic by doubling down on digital strategy and content production. Helped local businesses pivot online producing a cinematic branding video for European Bartender School, Goa, and a stunning property shoot for Mystras Assagao. Flashlab Creative emerged stronger, more versatile, and with a wider client base than before.',
-      images: [
-        { c: 'yr-c1', s: 'images/timeline/2020-bartend.png', cap: 'European Bartender School, Goa' },
-        { c: 'yr-c5', s: 'images/timeline/2020-bartend2.png', cap: 'European Bartender School, Goa' },
-        { c: 'yr-c2', s: 'images/timeline/2020-mystras.png', cap: 'Mystras Assagao Property Shoot' },
-        { c: 'yr-c7', s: 'images/timeline/2020-mystras2.png', cap: 'Mystras Assagao Property Shoot' }
-      ]
     },
     {
       year: '2021', title: 'Parashoot Studios Launch', tag: 'New Venture',
       body: 'Launched Parashoot Studios a dedicated content production arm specialising in weddings, food, aerial, and commercial photography. Armed with cinema grade cameras, professional studio setups, and advanced drones, Parashoot quickly became the go to photography and film partner for Goa\'s premium hospitality and lifestyle brands.',
-      images: [
-       { c: 'yr-c4', s: 'images/timeline/f1.jpg', cap: 'Parashoot Studios Launch' },
-        { c: 'yr-c3', s: 'images/timeline/f2.jpg', cap: 'Aerial & Drone Work' },
-        { c: 'yr-c6', s: 'images/timeline/f3.jpg', cap: 'Food Photography' },
-        { c: 'yr-c8', s: 'images/timeline/f4.jpg', cap: 'Wedding Coverage' }
-      ]
     },
     {
       year: '2022', title: 'Premium Brand Partnerships', tag: 'Major Wins',
       body: 'Secured major contracts with high profile brands and events. Captured the Goa Experience Stage at Sunburn Goa 2022 for Sunburn x Deltin where music, culture, and visuals collided. Also produced cinematic coverage of the Deltin Life activation at IFFI Goa 2022, with celebrated guests including Rishab Shetty, Ajay Devgn, and Anupam Kher. Campaigns that set new standards in Goa\'s creative industry.',
-      images: [
-        { c: 'yr-c2', s: 'images/timeline/2022-sunburn.png', cap: 'Sunburn x Deltin &mdash; Goa Experience Stage' },
-        { c: 'yr-c1', s: 'images/timeline/2022-sunburn2.png', cap: 'Sunburn x Deltin 2022' },
-        { c: 'yr-c5', s: 'images/timeline/2022-deltin.png', cap: 'Deltin at IFFI 2022' },
-        { c: 'yr-c7', s: 'images/timeline/2022-deltin2.png', cap: 'Deltin at IFFI 2022' }
-      ]
     },
     {
       year: '2023', title: 'Office Expansion &amp; National Games', tag: 'Milestone',
       body: 'Expanded to G26 Vikrant Complex, Margao a professional, inspiring workspace for the growing team. From a small godown room to a full creative hub. Also delivered comprehensive multi sport media coverage for the National Games 2023 hosted in Goa. More staff, more capabilities, more impact.',
-      images: [
-        { c: 'yr-c3', s: 'images/timeline/2023-1.jpg', cap: 'New Office &mdash; Vikrant Complex' },
-        { c: 'yr-c6', s: 'images/timeline/2023-2.jpg', cap: 'Team Expansion' },
-        { c: 'yr-c4', s: 'images/timeline/2023-3.jpg', cap: 'National Games 2023 Coverage' },
-        { c: 'yr-c8', s: 'images/timeline/2023-4.jpg', cap: 'National Games 2023 Coverage' }
-      ]
     },
     {
       year: '2024', title: 'Record-Breaking Year', tag: 'Peak Year',
       body: 'One of Flashlab Creative\'s biggest years. Delivered cinematic coverage for Netflix at IFFI 2024 capturing red carpet moments, exclusive talent interviews, and on ground activations. Also covered the Ironman 70.3 Goa for MP Tejasvi Surya, and launched "Your Origin Story" podcast at The Origin Goa. Bold visuals and immersive storytelling defined the year.',
-      images: [
-        { c: 'yr-c1', s: 'images/timeline/2024-iffi.png', cap: 'Netflix at IFFI 2024' },
-        { c: 'yr-c2', s: 'images/timeline/2024-iffi2.png', cap: 'Netflix at IFFI 2024' },
-        { c: 'yr-c5', s: 'images/timeline/2024-iffi3.png', cap: 'Netflix at IFFI 2024' },
-        { c: 'yr-c7', s: 'images/timeline/2024-iffi-4.png', cap: 'Netflix at IFFI 2024' }
-      ]
     },
     {
       year: '2025', title: '7 Years &amp; Looking Forward', tag: 'Present',
       body: 'Celebrating 7 years of creativity, innovation, and impact. Delivered a cinematic property showcase for Deltin Daman, and captured the FIDE Chess World Cup 2025 launch in Goa covering the logo and anthem reveal, cultural performances, and key moments with precision and style. With celebrity collaborations and campaigns pushing creative limits, the Flashlab Creative story is far from over.',
-      images: [
-        { c: 'yr-c4', s: 'images/timeline/2025-deltin.png', cap: 'Deltin Daman &mdash; Property Showcase' },
-        { c: 'yr-c3', s: 'images/timeline/2025-deltin2.png', cap: 'Deltin Daman' },
-        { c: 'yr-c6', s: 'images/timeline/2025-fide.png', cap: 'FIDE Chess World Cup 2025, Goa' },
-        { c: 'yr-c8', s: 'images/timeline/2025-fide2.png', cap: 'FIDE Chess World Cup 2025, Goa' }
-      ]
+    },
+    {
+      year: '2026', title: 'A New Chapter Begins', tag: 'Expanding Forward',
+      body: 'Sample content &mdash; final copy to follow. Ten years since that first cinematic video for The SouthDeck, Flashlab Creative keeps growing its roster of hospitality, fitness, and lifestyle brands across Goa &mdash; the same bold storytelling instinct, now backed by a decade of experience.',
     },
   ];
 
-  /* LIGHTBOX */
-  const lb = document.createElement('div');
-  lb.id = 'fl-lightbox';
-  lb.innerHTML =
-    '<div id="fl-lb-overlay"></div>' +
-    '<div id="fl-lb-inner">' +
-    '<button id="fl-lb-close" aria-label="Close"><i class="ri-close-line"></i></button>' +
-    '<button id="fl-lb-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>' +
-    '<button id="fl-lb-next" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>' +
-    '<div id="fl-lb-img-wrap"><img id="fl-lb-img" src="" alt=""></div>' +
-    '<p id="fl-lb-caption"></p>' +
-    '</div>';
-  document.body.appendChild(lb);
+  // Client logos shown per year (replaces the old project-photo grid).
+  // Logo paths are best-guess filenames — swap in the real files under
+  // images/logos/ whenever you have them; anything missing falls back
+  // to a clean text badge automatically (see CLIENTS_BY_YEAR fallback
+  // handling below), so nothing breaks in the meantime.
+  const CLIENTS_BY_YEAR = {
+      '2016': [
+        { name: 'Cape Town Cafe', logo: 'images/logos/CapeTownCafe.png', desc: 'A laid-back cafe serving all-day comfort food and coffee.' },
+        { name: 'Cafe Mambo', logo: 'images/logos/mambo.jpg', desc: 'Iconic beachfront cafe known for sunset vibes and live music.' },
+        { name: 'Tito\'s', logo: 'images/logos/TITO.jpg', desc: 'Goa\'s legendary nightlife institution on Baga\'s party strip.' },
+        { name: 'Strobe Nightlife', logo: 'images/logos/strobe.jpg', desc: 'High-energy nightlife brand bringing Goa\'s best DJs to the floor.' },
+      ],
+      '2017': [
+        { name: 'The Southern Deck', logo: 'images/logos/southern deck.jpg', desc: 'A boutique bar & kitchen blending coastal charm with craft cocktails.' },
+        { name: 'Quicksand Events', logo: 'images/logos/quicksand-events.png', desc: 'Full-service event management crew behind Goa\'s biggest gatherings.' },
+        { name: 'BackstageXchange', logo: 'images/logos/Backstage-Xchange-Logo.png', desc: 'Event and artist management connecting talent with unforgettable shows.' },
+        { name: 'Barefeet Easter', logo: 'images/logos/barefeet-easter.png', desc: 'Goa\'s beloved Easter festival celebrating music, sand, and sun.' },
+      ],
+      '2018': [
+        { name: 'Boca Loca Creatives', logo: 'images/logos/boca-loca.png', desc: 'A creative studio crafting bold visual identities for Goan brands.' },
+        { name: 'Genora Infotech', logo: 'images/logos/genora-infotech.png', desc: 'IT solutions and software services powering local businesses.' },
+        { name: 'Bull Frog', logo: 'images/logos/bull-frog.png', desc: 'A lively bar known for its eclectic drinks and buzzing crowd.' },
+        { name: 'Sochi Beach', logo: 'images/logos/SOCHI.jpg', desc: 'A beachfront shack serving fresh seafood with ocean views.' },
+        { name: 'Jamming Goat', logo: 'images/logos/jamming-goat.png', desc: 'A music-first cafe where live sessions meet good coffee.' },
+        { name: 'The Hangover', logo: 'images/logos/the-hangover.png', desc: 'A go-to nightlife spot for late-night beats and cocktails.' },
+        { name: 'FC Goa', logo: 'images/logos/fc-goa.png', desc: 'Goa\'s home-grown Indian Super League football club.' },
+        { name: 'EBS', logo: 'images/logos/ebs.png', desc: 'European Bartender School Goa, training the region\'s next mixologists.' },
+      ],
+      '2019': [
+        { name: 'Sochi Beach', logo: 'images/logos/SOCHI.jpg', desc: 'A beachfront shack serving fresh seafood with ocean views.' },
+        { name: 'Tulum', logo: 'images/logos/tulum.png', desc: 'A tropical-inspired beach lounge with a Mexican-Caribbean soul.' },
+        { name: 'Soul Souffle Creatives', logo: 'images/logos/soul-souffle.png', desc: 'A dessert-and-cafe concept plating up soulful sweet treats.' },
+        { name: 'Deltin', logo: 'images/logos/Deltin-casino.png', desc: 'Goa\'s premier casino and entertainment resort brand.' },
+        { name: 'Marriott', logo: 'images/logos/marriott.png', desc: 'Print and poster campaigns for a leading international hotel brand.' },
+        { name: 'Tataki', logo: 'images/logos/tataki.png', desc: 'Japanese-inspired dining brought to life through cinematic video.' },
+        { name: 'The Hangover', logo: 'images/logos/the-hangover.png', desc: 'Reel-first content driving buzz for Goa\'s nightlife hotspot.' },
+        { name: 'Krank', logo: 'images/logos/heineken.png', desc: 'Heineken\'s flagship nightlife experience blending music and beer culture.' },
+      ],
+      '2020': [
+        { name: 'Flamingos', logo: 'images/logos/Flamingos.jpg', desc: 'A pastel-hued beach cafe made for laid-back Goan afternoons.' },
+        { name: 'Adinco Distilleries', logo: 'images/logos/adinco-distilleries.png', desc: 'A craft distillery bottling spirits with a distinctly Goan character.' },
+        { name: 'Forca Foundation', logo: 'images/logos/forca goa.jpg', desc: 'A community foundation driving sport and social impact in Goa.' },
+        { name: 'Kings Casino', logo: 'images/logos/kings-casino.png', desc: 'A premium gaming and entertainment destination on the water.' },
+        { name: 'Tikibab', logo: 'images/logos/tikibab-final.png', desc: 'Tiki-themed bar & kitchen serving tropical cocktails and comfort food.' },
+        { name: 'The Hive', logo: 'images/logos/the-hive.png', desc: 'A buzzing co-working and community space for Goa\'s creators.' },
+        { name: 'Neuro Space', logo: 'images/logos/neuro-space.png', desc: 'A wellness studio focused on mind, movement, and recovery.' },
+        { name: 'Fairtrade', logo: 'images/logos/fairtrade.png', desc: 'Ethically-sourced goods championing fair trade across Goa.' },
+        { name: 'Myra Goa', logo: 'images/logos/myra-goa.png', desc: 'A boutique hospitality brand offering curated Goan stays.' },
+      ],
+      '2021': [
+        { name: 'Mickeys', logo: 'images/logos/Mickeys.png', desc: 'A neighbourhood bar serving classic drinks with a local twist.' },
+        { name: 'Noaa social dining &mantra', logo: 'images/logos/NOAA Logo.png', desc: 'A neighbourhood bar serving classic drinks with a local twist.' },
+        { name: 'YU Hotel', logo: 'images/logos/YU hotel.png', desc: 'A modern hotel brand offering comfort with contemporary design.' },
+        { name: 'Borecha', logo: 'images/logos/borecha.png', desc: 'A homegrown beverage brand crafting refreshing local flavours.' },
+        { name: 'Barefeet Easter', logo: 'images/logos/barefeet-easter.png', desc: 'Goa\'s beloved Easter festival celebrating music, sand, and sun.' },
+      ],
+      '2022': [
+        { name: 'Bab\'s Hideout', logo: 'images/logos/babs hideout.png', desc: 'A village bar & kitchen tucked away for good food and better company.' },
+        { name: 'Yacht Club', logo: 'images/logos/yacht-club.png', desc: 'An exclusive yacht club offering Goa\'s finest on-water experiences.' },
+        { name: 'Tinera Stays', logo: 'images/logos/tinera-stays.png', desc: 'Boutique homestays offering an authentic slice of Siolim living.' },
+        { name: 'World of Wines', logo: 'images/logos/world-of-wines.png', desc: 'A curated wine destination for tastings and connoisseurs.' },
+      ],
+      '2023': [
+        { name: 'The Origin', logo: 'images/logos/theorigin.png', desc: 'A bar & kitchen rooted in bold flavours and honest storytelling.' },
+        { name: 'Dempo College', logo: 'images/logos/dempo-college.png', desc: 'One of Goa\'s leading institutions for higher education.' },
+        { name: 'Bliss Villa', logo: 'images/logos/bliss-villa.png', desc: 'A serene private villa offering a peaceful escape in Goa.' },
+        { name: 'Orane', logo: 'images/logos/orane.jpg', desc: 'A beauty and wellness academy shaping Goa\'s next-gen professionals.' },
+        { name: 'Mike\'s Place', logo: 'images/logos/mikes.png', desc: 'A cosy neighbourhood haunt for great food and good vibes.' },
+        { name: 'Ziki', logo: 'images/logos/Ziki Logo (Black).png', desc: 'A contemporary dining concept with a playful, modern edge.' },
+        { name: 'Feli', logo: 'images/logos/Feli-Logo-Black.png', desc: 'A boutique brand delivering thoughtfully designed everyday essentials.' },
+        { name: 'Carina Beach Resort', logo: 'images/logos/carina-beach-resort.png', desc: 'A beachfront resort offering relaxed luxury by the Arabian Sea.' },
+        { name: 'Robins Ark', logo: 'images/logos/Robins-Ark(logo).png', desc: 'A charming cafe serving comfort food in a cosy, homely setting.' },
+      ],
+      '2024': [
+        { name: 'Cravela Cafe', logo: 'images/logos/Caravel-Logo.png', desc: 'A cosy cafe corner serving all-day brews and comfort bites.' },
+        { name: 'House of Hyderabad', logo: 'images/logos/house-of-hyderabad.png', desc: 'Authentic Hyderabadi cuisine bringing royal flavours to Goa.' },
+        { name: 'Thalassa', logo: 'images/logos/thalassa.png', desc: 'A cliffside Greek taverna famous for sunset views and mezze.' },
+        { name: 'Patisserie Victoria', logo: 'images/logos/patisserie.png', desc: 'An artisanal patisserie crafting delicate cakes and pastries.' },
+        { name: 'Purple Mint', logo: 'images/logos/purple-mint.png', desc: 'A boutique salon and styling studio for the modern Goan.' },
+        { name: 'Papillion Salon', logo: 'images/logos/Papiillon-Logo.png', desc: 'A premium salon offering styling and beauty treatments.' },
+      ],
+      '2025': [
+        { name: 'Coco Leni', logo: 'images/logos/coco-leni.png', desc: 'A boutique lifestyle brand with a breezy, coastal aesthetic.' },
+        { name: 'Club Ricky\'s', logo: 'images/logos/Club-Rickys-Logo.png', desc: 'A heartfelt beach shack serving comfort food with love.' },
+        { name: 'Dwarka Beach Resort', logo: 'images/logos/Dwarka.png', desc: 'A beachfront resort blending comfort with coastal charm.' },
+        { name: 'Piccola Roma', logo: 'images/logos/piccola-roma.png', desc: 'An intimate Italian trattoria serving authentic Roman classics.' },
+        { name: 'Bash Bistro', logo: 'images/logos/bash-bistro.png', desc: 'A vibrant bistro serving globally-inspired plates and cocktails.' },
+        { name: 'Finance with Akshay', logo: 'images/logos/akshay.png', desc: 'Personal finance guidance made simple and accessible.' },
+        { name: 'Susegad Fragrances', logo: 'images/logos/susegad.png', desc: 'Perfumes capturing the laid-back Goan susegad spirit.' },
+        { name: 'Surf House', logo: 'images/logos/Surf-house-logo.png', desc: 'A surf-and-stay resort for wave chasers and sunset lovers.' },
+        { name: 'Aadhvay', logo: 'images/logos/aadhvay.png', desc: 'A wellness and lifestyle brand rooted in holistic living.' },
+      ],
+      '2026': [
+        { name: 'Next Level Gym', logo: 'images/logos/Next Level Gym - Logo (1).png', desc: 'A fitness studio built for serious training and real results.' },
+        { name: 'Blue Heaven', logo: 'images/logos/blue-heaven.png', desc: 'A tranquil beachside retreat offering an idyllic Goan escape.' },
+        { name: 'Hotel Colva Plaza', logo: 'images/logos/colvaplaza.png', desc: 'A comfortable stay steps away from Colva\'s golden sands.' },
+        { name: 'Inspired Salon', logo: 'images/logos/inspired salon.jpeg', desc: 'A styling studio dedicated to fresh looks and confident clients.' },
+        { name: 'Cameron', logo: 'images/logos/cameron.png', desc: 'A contemporary lifestyle brand with a bold creative edge.' },
+        { name: 'Anoushka', logo: 'images/logos/Anoshka - Logo .png', desc: 'A fashion label crafting elegant, statement-making pieces.' },
+        { name: 'E Water', logo: 'images/logos/ewater.png', desc: 'A purified water brand delivering freshness across Goa.' },
+      ],
+  };
 
-  let lbImages = [], lbIdx = 0;
-  function openLb(imgs, idx) {
-    lbImages = imgs;
-    lbIdx = idx;
-    showLbSlide();
-    lb.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb() {
-    lb.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function showLbSlide() {
-    const img = document.getElementById('fl-lb-img');
-    const cap = document.getElementById('fl-lb-caption');
-    img.style.opacity = '0';
-    img.src = lbImages[lbIdx].s;
-    img.alt = lbImages[lbIdx].cap;
-    cap.textContent = lbImages[lbIdx].cap;
-    img.onload = function () { img.style.opacity = '1'; };
-  }
-  document.getElementById('fl-lb-overlay').addEventListener('click', closeLb);
-  document.getElementById('fl-lb-close').addEventListener('click', closeLb);
-  document.getElementById('fl-lb-prev').addEventListener('click', function () {
-    lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length;
-    showLbSlide();
-  });
-  document.getElementById('fl-lb-next').addEventListener('click', function () {
-    lbIdx = (lbIdx + 1) % lbImages.length;
-    showLbSlide();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (!lb.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') {
-      lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length;
-      showLbSlide();
-    }
-    if (e.key === 'ArrowRight') {
-      lbIdx = (lbIdx + 1) % lbImages.length;
-      showLbSlide();
-    }
-  });
+  YEARS.forEach(function (yr) { yr.clients = CLIENTS_BY_YEAR[yr.year] || []; });
 
   const tabsEl = document.getElementById('yearTabs');
   const panelsEl = document.getElementById('yearPanels');
+  const CLIENTS_PER_PAGE = 4;
+  const pageState = YEARS.map(function () { return 0; });
+
+  function clientCardHTML(c) {
+    return '<div class="yrc-card">' +
+      '<div class="yrc-logo-wrap">' +
+      '<img src="' + c.logo + '" alt="' + c.name + '" ' +
+      'onerror="this.style.display=\'none\'; this.parentElement.classList.add(\'yrc-fallback\');">' +
+      '<span class="yrc-fallback-text">' + c.name + '</span>' +
+      '<div class="yrc-overlay"><p>' + c.desc + '</p></div>' +
+      '</div>' +
+      '<div class="yrc-name">' + c.name + '</div>' +
+      '</div>';
+  }
+
+  function renderClientPage(yi, animateSwap) {
+    const yr = YEARS[yi];
+    const panel = panelsEl.children[yi];
+    if (!panel) return;
+    const gridEl = panel.querySelector('.yrc-grid');
+    const dotsEl = panel.querySelector('.yrc-dots');
+    const wrapEl = panel.querySelector('.yr-clients');
+    const total = yr.clients.length;
+    const pages = Math.max(1, Math.ceil(total / CLIENTS_PER_PAGE));
+    const page = ((pageState[yi] % pages) + pages) % pages;
+    pageState[yi] = page;
+
+    const start = page * CLIENTS_PER_PAGE;
+    const pageClients = yr.clients.slice(start, start + CLIENTS_PER_PAGE);
+
+    function paint() {
+      gridEl.innerHTML = pageClients.map(clientCardHTML).join('');
+      dotsEl.innerHTML = pages > 1
+        ? Array.from({ length: pages }).map(function (_, di) {
+            return '<button class="yrc-dot' + (di === page ? ' active' : '') +
+              '" data-page="' + di + '" aria-label="Logos page ' + (di + 1) + '"></button>';
+          }).join('')
+        : '';
+      wrapEl.classList.toggle('single-page', pages <= 1);
+    }
+
+    if (animateSwap) {
+      gridEl.classList.add('switching');
+      setTimeout(function () {
+        paint();
+        gridEl.classList.remove('switching');
+      }, 220);
+    } else {
+      paint();
+    }
+  }
 
   YEARS.forEach(function (yr, i) {
     const tab = document.createElement('button');
@@ -190,27 +234,35 @@ document.querySelectorAll('.pcard').forEach(card => {
       '<p class="year-body">' + yr.body + '</p>' +
       '</div>' +
       '</div>' +
-      '<div class="year-images">' +
-      yr.images.map(function (img, ci) {
-        return '<div class="yr-img-card" data-year-idx="' + i + '" data-img-idx="' + ci + '" title="Click to enlarge">' +
-          '<div class="yr-img-bg ' + img.c + '"><img src="' + img.s + '" alt="' + img.cap + '" onerror="this.style.display=\'none\'"></div>' +
-          '<div class="yr-img-label">' +
-          '<span class="yr-img-num">0' + (ci + 1) + '</span>' +
-          '<p class="yr-img-caption">' + img.cap + '</p>' +
-          '</div>' +
-          '<div class="yr-img-zoom-hint"><i class="ri-zoom-in-line"></i></div>' +
-          '</div>';
-      }).join('') +
+      '<div class="yr-clients-wrap">' +
+      '<div class="yrc-section-label"><i class="ri-team-line"></i> Clients We Worked With</div>' +
+      '<div class="yr-clients" data-year-idx="' + i + '">' +
+      '<button class="yrc-nav yrc-prev" aria-label="Previous logos"><i class="ri-arrow-left-s-line"></i></button>' +
+      '<div class="yrc-grid"></div>' +
+      '<button class="yrc-nav yrc-next" aria-label="More logos"><i class="ri-arrow-right-s-line"></i></button>' +
+      '</div>' +
+      '<div class="yrc-dots"></div>' +
       '</div>';
     panelsEl.appendChild(panel);
+    renderClientPage(i, false);
   });
 
   panelsEl.addEventListener('click', function (e) {
-    const card = e.target.closest('.yr-img-card');
-    if (!card) return;
-    const yi = parseInt(card.dataset.yearIdx);
-    const ii = parseInt(card.dataset.imgIdx);
-    openLb(YEARS[yi].images, ii);
+    const nextBtn = e.target.closest('.yrc-next');
+    const prevBtn = e.target.closest('.yrc-prev');
+    const dotBtn = e.target.closest('.yrc-dot');
+    if (!nextBtn && !prevBtn && !dotBtn) return;
+
+    const wrap = e.target.closest('.yr-clients');
+    const yi = parseInt(wrap.dataset.yearIdx, 10);
+    const yr = YEARS[yi];
+    const pages = Math.max(1, Math.ceil(yr.clients.length / CLIENTS_PER_PAGE));
+
+    if (nextBtn) pageState[yi] = (pageState[yi] + 1) % pages;
+    if (prevBtn) pageState[yi] = (pageState[yi] - 1 + pages) % pages;
+    if (dotBtn) pageState[yi] = parseInt(dotBtn.dataset.page, 10);
+
+    renderClientPage(yi, true);
   });
 
   function switchYear(idx) {
@@ -237,6 +289,7 @@ document.querySelectorAll('.pcard').forEach(card => {
     if (e.key === 'ArrowLeft' && cur > 0) switchYear(cur - 1);
   });
 })();
+
 
 /* MOBILE CAROUSEL ARROWS */
 (function() {

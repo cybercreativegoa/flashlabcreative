@@ -2091,36 +2091,21 @@
 
     .testi-card {
       background: rgba(255, 255, 255, 0.95);
-      padding: 24px 22px;
+      padding: 18px 18px;
       border-radius: 14px;
       text-align: left;
       position: relative;
       box-sizing: border-box;
       box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-      flex: 0 0 280px;
-      width: 280px;
+      flex: 0 0 230px;
+      width: 230px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
       text-decoration: none;
     }
-
-    .testi-card::after {
-      content: 'View on Google \2197';
-      position: absolute;
-      top: 12px; right: 14px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #4285F4;
-      opacity: 0;
-      transition: opacity 0.25s;
-      pointer-events: none;
-    }
-
-    .testi-card:hover::after { opacity: 1; }
 
     .testi-card:hover {
       transform: translateY(-4px);
@@ -2128,43 +2113,84 @@
       border: 1.5px solid rgba(66, 133, 244, 0.25);
     }
 
+    /* Top row: avatar, name + date, Google badge — matches the
+       reference Google-review layout instead of the old bottom
+       author strip. */
+    .testi-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .testi-google-badge {
+      margin-left: auto;
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      padding-top: 2px;
+    }
+
+    .testi-google-badge svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
     .testi-stars {
       color: #f59e0b;
       letter-spacing: 2px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
+
+    .testi-text-wrap { flex: 1; }
 
     .testi-card p {
       color: #444;
-      font-size: 0.85rem;
-      line-height: 1.7;
+      font-size: 0.8rem;
+      line-height: 1.6;
       font-style: normal;
-      flex: 1;
-      margin: 0;
+      margin: 0 0 4px;
       width: 100%;
       word-wrap: break-word;
       overflow-wrap: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 4px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding-top: 12px;
+    .testi-card.expanded p {
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .testi-seemore {
+      display: inline-block;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #1a73e8;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .testi-seemore:hover {
+      text-decoration: underline;
     }
 
     .testi-avatar {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-head);
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #0a0a0f;
       flex-shrink: 0;
       overflow: hidden;
@@ -2183,13 +2209,14 @@
 
     .testi-author-info strong {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #1a1218;
       font-weight: 700;
+      line-height: 1.3;
     }
     .testi-author-info span {
       color: #888;
-      font-size: 0.73rem;
+      font-size: 0.7rem;
     }
 
     .testi-carousel-nav {
@@ -2580,7 +2607,7 @@
       .founder-quote { padding: 36px 28px; }
       .founder-quote blockquote { font-size: 1rem; }
       .made-grid { grid-template-columns: 1fr 1fr 1fr; }
-      .testi-card { flex: 0 0 250px; width: 250px; }
+      .testi-card { flex: 0 0 210px; width: 210px; }
       .cl-item { width: 160px; height: 108px; margin: 0 4px; }
     }
 
@@ -2637,7 +2664,7 @@
       .testi-carousel-outer::after {
         display: none;
       }
-      .testi-card { flex: 0 0 280px; width: 280px; }
+      .testi-card { flex: 0 0 230px; width: 230px; }
       .cl-item {
         width: 130px;
         height: 88px;
@@ -3417,9 +3444,9 @@
 /* --- MOBILE FIX 8 --- */
 @media (max-width: 480px) {
   .testi-card {
-    flex: 0 0 calc(100vw - 48px) !important;
-    width: calc(100vw - 48px) !important;
-    padding: 28px 20px !important;
+    flex: 0 0 200px !important;
+    width: 200px !important;
+    padding: 16px 16px !important;
   }
   .testi-carousel-outer {
     padding: 0 16px;
@@ -3438,10 +3465,7 @@
 
 @media (max-width: 360px) {
   .testi-card {
-    padding: 22px 16px !important;
-  }
-  .testi-name {
-    font-size: 0.9rem !important;
+    padding: 14px 14px !important;
   }
 }
 

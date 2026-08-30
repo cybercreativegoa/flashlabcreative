@@ -561,6 +561,14 @@
     }
     .wcard { grid-column: span 4; }
     .wcard.feat { grid-column: span 6; }
+    /* Some cards are <a> tags linking out to Instagram — make them
+       behave identically to the plain <div> cards visually. */
+    a.wcard {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
 
     .work-card {
       border-radius: 14px;
@@ -1868,4 +1876,3 @@
 @media (prefers-reduced-motion: reduce) {
   .journey-rail-fill { transition: none; }
 }
-

@@ -402,10 +402,57 @@ window.addEventListener('scroll', () => {
     card.href = t.link;
     card.target = '_blank';
     card.rel = 'noopener noreferrer';
-    card.innerHTML = '<div class="testi-stars">' + '★'.repeat(t.stars) + '</div><p>' + t.text + '</p><div class="testi-author"><div class="testi-avatar" style="background:' + t.color + '20; border-color:' + t.color + '60; color:' + t.color + '">' + (t.img ? '<img src="' + t.img + '" alt="' + t.name + '">' : t.initial) + '</div><div class="testi-author-info"><strong>' + t.name + '</strong><span>' + t.role + '</span></div></div>';
+    card.innerHTML =
+      '<div class="testi-top-row">' +
+        '<div class="testi-avatar" style="background:' + t.color + '20; border-color:' + t.color + '60; color:' + t.color + '">' +
+          (t.img ? '<img src="' + t.img + '" alt="' + t.name + '">' : t.initial) +
+        '</div>' +
+        '<div class="testi-author-info"><strong>' + t.name + '</strong><span>' + t.role + '</span></div>' +
+        '<div class="testi-google-badge" aria-hidden="true">' +
+          '<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">' +
+            '<path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>' +
+            '<path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>' +
+            '<path fill="#FBBC05" d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z"/>' +
+            '<path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.580z"/>' +
+          '</svg>' +
+        '</div>' +
+      '</div>' +
+      '<div class="testi-stars">' + '★'.repeat(t.stars) + '</div>' +
+      '<div class="testi-text-wrap">' +
+        '<p>' + t.text + '</p>' +
+        '<button type="button" class="testi-seemore">See more</button>' +
+      '</div>';
     return card;
   }
   TESTIMONIALS.forEach(t => track.appendChild(makeCard(t)));
+
+  // Only show "See more" on cards whose review text actually overflows
+  // the clamped preview — short reviews don't need it at all. This
+  // style is set via cloneNode() below too, since it copies inline
+  // styles (just not event listeners — see the delegated handler).
+  Array.from(track.children).forEach(card => {
+    const p = card.querySelector('p');
+    const btn = card.querySelector('.testi-seemore');
+    if (p && btn && p.scrollHeight <= p.clientHeight + 2) {
+      btn.style.display = 'none';
+    }
+  });
+
+  // "See more" expands the text in place — it must NOT follow the
+  // card's own link out to Google, since the card itself is an <a>.
+  // Delegated on the track (not attached per-card) so it also works
+  // on the cloneNode()'d copies used for the infinite-scroll illusion,
+  // which don't carry over individually-attached listeners.
+  track.addEventListener('click', function (e) {
+    const btn = e.target.closest('.testi-seemore');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const card = btn.closest('.testi-card');
+    const expanded = card.classList.toggle('expanded');
+    btn.textContent = expanded ? 'See less' : 'See more';
+  });
+
   const realCards = Array.from(track.children);
   for (let i = 0; i < CLONE_COUNT; i++) track.appendChild(realCards[i].cloneNode(true));
   for (let i = N - 1; i >= N - CLONE_COUNT; i--) track.insertBefore(realCards[i].cloneNode(true), track.firstChild);

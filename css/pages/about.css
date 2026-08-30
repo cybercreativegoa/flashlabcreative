@@ -679,296 +679,212 @@
       max-width: 600px;
     }
 
-    .year-images {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+    /* ══════════════════════════════════════════════════════════
+       CLIENT LOGO SLIDER — replaces the old project-photo grid.
+       Shows 4 client logos at a time per year; if a year has more
+       than 4 clients, prev/next arrows + dots page through them in
+       groups of 4. Name always visible below the logo; a one-line
+       description slides up over the logo itself on hover.
+       ══════════════════════════════════════════════════════════ */
+
+    .yr-clients-wrap {
+      margin-top: 4px;
     }
 
-    .yr-img-card {
-      border-radius: 14px;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      position: relative;
-      cursor: pointer;
-      background: var(--card2);
+    .yrc-section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 18px;
+    }
+
+    .yrc-section-label i {
+      color: var(--accent);
+      font-size: .9rem;
+    }
+
+    .yr-clients {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .yrc-nav {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card);
       border: 1px solid var(--border);
-      transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .3s;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background .25s, border-color .25s, transform .2s, color .25s;
     }
 
-    .yr-img-card:hover {
-      transform: translateY(-7px) scale(1.02);
-      border-color: rgba(168, 232, 50, .3);
-    }
-
-    .yr-img-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      transition: transform .5s;
-    }
-
-    .yr-img-card:hover .yr-img-bg {
+    .yrc-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0a0a0f;
       transform: scale(1.08);
     }
 
-    .yr-img-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .yr-img-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(to top, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .2) 55%, transparent 100%);
-    }
-
-    .yr-img-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      z-index: 3;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s cubic-bezier(.22, 1, .36, 1);
-    }
-
-    .yr-img-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    .yr-img-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      padding: 14px 12px 12px;
-    }
-
-    .yr-img-num {
-      font-family: var(--font-head);
-      font-size: .62rem;
-      letter-spacing: 3px;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .yr-img-caption {
-      font-family: var(--font-body);
-      font-size: .78rem;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    /* Zoom hint icon on image hover */
-    .yr-img-zoom-hint {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 4;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: rgba(168, 232, 50, .85);
-      color: #0a0a0f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      opacity: 0;
-      transition: opacity .25s;
-    }
-
-    .yr-img-card:hover .yr-img-zoom-hint {
-      opacity: 1;
-    }
-
-    .yr-img-card:nth-child(1) {
-      animation-delay: .05s;
-    }
-
-    .yr-img-card:nth-child(2) {
-      animation-delay: .12s;
-    }
-
-    .yr-img-card:nth-child(3) {
-      animation-delay: .19s;
-    }
-
-    .yr-img-card:nth-child(4) {
-      animation-delay: .26s;
-    }
-
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(24px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    .year-panel.active .yr-img-card {
-      animation: cardIn .5s cubic-bezier(.22, 1, .36, 1) both;
-    }
-
-    .yr-c1 {
-      background: linear-gradient(135deg, #052e16, #16a34a);
-    }
-
-    .yr-c2 {
-      background: linear-gradient(135deg, #431407, #f97316);
-    }
-
-    .yr-c3 {
-      background: linear-gradient(135deg, #0d0320, #7c3aed);
-    }
-
-    .yr-c4 {
-      background: linear-gradient(135deg, #0f1a20, #0ea5e9);
-    }
-
-    .yr-c5 {
-      background: linear-gradient(135deg, #1a1003, #eab308);
-    }
-
-    .yr-c6 {
-      background: linear-gradient(135deg, #1a0308, #dc2626);
-    }
-
-    .yr-c7 {
-      background: linear-gradient(135deg, #0a1a10, #16a34a);
-    }
-
-    .yr-c8 {
-      background: linear-gradient(135deg, #080820, #6366f1);
-    }
-
-    /* ── LIGHTBOX ── */
-    #fl-lightbox {
+    .yr-clients.single-page .yrc-nav {
       display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      align-items: center;
-      justify-content: center;
     }
 
-    #fl-lightbox.active {
-      display: flex;
+    .yrc-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      min-width: 0;
+      transition: opacity .22s ease, transform .22s ease;
     }
 
-    #fl-lb-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, .92);
+    .yrc-grid.switching {
+      opacity: 0;
+      transform: translateY(6px);
     }
 
-    #fl-lb-inner {
-      position: relative;
-      z-index: 1;
+    .yrc-card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 90vw;
-      max-height: 90vh;
+      animation: yrcCardIn .45s cubic-bezier(.22, 1, .36, 1) both;
     }
 
-    #fl-lb-img-wrap {
-      flex: 1;
+    .yrc-card:nth-child(1) { animation-delay: .03s; }
+    .yrc-card:nth-child(2) { animation-delay: .08s; }
+    .yrc-card:nth-child(3) { animation-delay: .13s; }
+    .yrc-card:nth-child(4) { animation-delay: .18s; }
+
+    @keyframes yrcCardIn {
+      from { opacity: 0; transform: translateY(14px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .yrc-logo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      max-height: 80vh;
+      padding: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+      transition: transform .35s cubic-bezier(.22, 1, .36, 1), box-shadow .35s;
     }
 
-    #fl-lb-img {
-      max-width: 85vw;
-      max-height: 78vh;
+    .yrc-logo-wrap:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+    }
+
+    .yrc-logo-wrap img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .7);
-      transition: opacity .25s;
+      transition: opacity .3s ease, filter .3s ease;
     }
 
-    #fl-lb-caption {
-      color: rgba(255, 255, 255, .65);
-      font-size: .82rem;
+    .yrc-logo-wrap:hover img {
+      opacity: .12;
+      filter: blur(1px);
+    }
+
+    /* Text fallback if a logo image fails to load — keeps the card
+       intact instead of showing a broken-image icon. */
+    .yrc-fallback-text {
+      display: none;
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-head);
+      font-size: 1rem;
       letter-spacing: 1px;
-      margin-top: 14px;
       text-align: center;
-      font-family: var(--font-body);
+      color: #0a0a0f;
+      padding: 0 8px;
+      text-transform: uppercase;
     }
 
-    #fl-lb-close {
-      position: fixed;
-      top: 22px;
-      right: 26px;
-      background: rgba(255, 255, 255, .12);
-      border: none;
-      color: #fff;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      font-size: 1.4rem;
+    .yrc-logo-wrap.yrc-fallback .yrc-fallback-text {
+      display: block;
+    }
+
+    /* One-line description — slides up over the logo on hover */
+    .yrc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168, 232, 50, .96), rgba(10, 10, 15, .94));
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: background .2s;
-      z-index: 2;
+      padding: 14px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .3s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+      pointer-events: none;
     }
 
-    #fl-lb-close:hover {
-      background: rgba(168, 232, 50, .3);
+    .yrc-logo-wrap:hover .yrc-overlay {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    #fl-lb-prev,
-    #fl-lb-next {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, .1);
-      border: none;
-      color: #fff;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      font-size: 1.6rem;
+    .yrc-overlay p {
+      margin: 0;
+      font-size: .72rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: #0a0a0f;
+      text-align: center;
+    }
+
+    .yrc-name {
+      margin-top: 10px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      letter-spacing: .2px;
+    }
+
+    /* Page dots */
+    .yrc-dots {
       display: flex;
-      align-items: center;
       justify-content: center;
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .yrc-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      padding: 0;
       cursor: pointer;
-      transition: background .2s;
-      z-index: 2;
+      transition: background .25s, width .25s;
     }
 
-    #fl-lb-prev {
-      left: 20px;
-    }
-
-    #fl-lb-next {
-      right: 20px;
-    }
-
-    #fl-lb-prev:hover,
-    #fl-lb-next:hover {
-      background: rgba(168, 232, 50, .3);
+    .yrc-dot.active {
+      background: var(--accent);
+      width: 20px;
+      border-radius: 4px;
     }
 
     .join-cta {
@@ -1016,7 +932,7 @@
     }
 
     @media(max-width:1100px) {
-      .year-images {
+      .yrc-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1113,16 +1029,19 @@
         grid-template-columns: 1fr;
       }
 
-      .year-images {
+      .yrc-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 14px;
       }
 
-      #fl-lb-prev {
-        left: 8px;
+      .yr-clients {
+        gap: 8px;
       }
 
-      #fl-lb-next {
-        right: 8px;
+      .yrc-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
       }
 
       .hero-meta {
@@ -1162,13 +1081,17 @@
       border-color: rgba(168,232,50,0.25);
     }
 
-    /* Timeline images — elevated */
-    [data-theme="light"] .yr-img-card {
+    /* Timeline client logos — elevated */
+    [data-theme="light"] .yrc-logo-wrap {
       box-shadow: 0 4px 18px rgba(15,23,42,0.10);
       border-color: rgba(15,23,42,0.09);
     }
-    [data-theme="light"] .yr-img-card:hover {
+    [data-theme="light"] .yrc-logo-wrap:hover {
       box-shadow: 0 14px 40px rgba(15,23,42,0.15);
+    }
+    [data-theme="light"] .yrc-nav {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(15,23,42,0.08);
     }
 
     /* Portrait cards — shadow */
@@ -1943,5 +1866,3 @@
     transition: none;
   }
 }
-
-

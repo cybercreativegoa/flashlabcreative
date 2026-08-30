@@ -211,7 +211,7 @@
   filter: saturate(1);
 }
 
-    .life-cell-overlay {
+    /* .life-cell-overlay {
       position: absolute;
       inset: 0;
       background: rgba(10, 10, 15, .4);
@@ -221,7 +221,7 @@
       padding: 20px;
     }
 
-    .life-cell:hover .life-cell-overlay { background: rgba(10, 10, 15, .15); }
+    .life-cell:hover .life-cell-overlay { background: rgba(10, 10, 15, .15); } */
 
     .life-cell-label {
       font-family: sans-serif;
@@ -1187,7 +1187,7 @@ body[data-page="career"] .pos-panel {
 
     .open-form-outer.open { display: block; }
 .instagram-placeholder {
-  width: 380px;
+  width: 500px;
   height: 400px;
   overflow: hidden;
   border-radius: 20px;

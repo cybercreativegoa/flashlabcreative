@@ -1,4 +1,4 @@
-    /* ═══════════════════════════════════
+/* ═══════════════════════════════════
        PAGE HERO
     ═══════════════════════════════════ */
     .page-hero {
@@ -431,10 +431,37 @@
       color: rgba(168, 232, 50, 0.15);
     }
 
-    /* ─── FAQ ─── */
+    /* ─── FAQ ───
+       2-column grid, same overall container width as before.
+       If the question count is odd, the last question automatically
+       spans both columns (centered on its own row) via the
+       :last-child:nth-child(odd) selector below — this works for any
+       odd count (3, 5, 7...), not just 5, so it's safe to reuse as-is
+       on the other sub-service pages regardless of how many FAQs
+       each one has. */
     .faq-list {
       max-width: 820px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 56px;
+      align-items: start;
+    }
+
+    .faq-item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 28px);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .faq-list {
+        grid-template-columns: 1fr;
+      }
+      .faq-item:last-child:nth-child(odd) {
+        max-width: none;
+        margin: 0;
+      }
     }
 
     .faq-item {
