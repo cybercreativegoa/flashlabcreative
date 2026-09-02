@@ -868,6 +868,19 @@ li, blockquote, input, textarea { cursor: text; }
   padding-bottom:        40px;
 }
 
+/* footer-grid keeps the default grid align-items (stretch), which
+   makes every column's cell match the height of the tallest column.
+   footer-brand is a full-height flex column so .footer-socials
+   (margin-top:auto below) gets pushed to the very bottom of that
+   stretched cell — landing level with the last item of whichever
+   list column ends up tallest, on every page, instead of sitting
+   right under the paragraph. */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 /* Footer logo */
 .footer-logo img {
   height:    60px;
@@ -887,6 +900,7 @@ li, blockquote, input, textarea { cursor: text; }
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 .footer-socials a {
   width: 36px;
@@ -1041,6 +1055,10 @@ li, blockquote, input, textarea { cursor: text; }
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     align-items: start;
+    height: auto;
+  }
+  .footer-socials {
+    margin-top: 0;
   }
 }
 
@@ -1408,6 +1426,10 @@ html, body {
   .footer-grid { display: flex !important; flex-direction: column !important; gap: 8px !important; padding-top: 28px !important; }
   .footer-brand {
     grid-column: 1 / -1 !important;
+    height: auto !important;
+  }
+  .footer-socials {
+    margin-top: 0 !important;
   }
   .footer-grid > div:last-child {
     grid-column: 1 / -1 !important;

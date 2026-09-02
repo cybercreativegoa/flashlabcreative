@@ -208,6 +208,34 @@
   transition: transform .55s cubic-bezier(.25, .46, .45, .94);
 }
 
+/* Open-position card: generic icon instead of initials/photo */
+.pcard-open .pcard-photo-placeholder {
+  font-size: 2.8rem;
+  color: rgba(255, 255, 255, .18);
+}
+
+.position-open-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(168, 232, 50, .95);
+  color: #0a0a0f;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.position-open-badge i {
+  font-size: .72rem;
+}
+
 .pcard-photo {
   position: absolute;
   inset: 0;
