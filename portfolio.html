@@ -39,7 +39,7 @@
   <a href="portfolio.html">Portfolio</a>
   <ul>
     <li><a href="portfolio.html#port-works"><i class="ri-star-line"></i>Best Work</a></li>
-    <li><a href="portfolio.html#port-founders"><i class="ri-time-line"></i>Our Journey</a></li>
+    <!-- <li><a href="portfolio.html#port-founders"><i class="ri-time-line"></i>Our Journey</a></li> -->
     <li><a href="portfolio.html#port-creative-portfolio"><i class="ri-gallery-line"></i>Our Creative Portfolio</a></li>
   </ul>
 </li>
@@ -203,6 +203,7 @@
             <div class="hss-slide"><img src="images/surf house3.jpeg" alt="Client Instagram post 5" loading="lazy"></div>
             <div class="hss-slide"><img src="images/deck88_3.jpeg" alt="Client Instagram post 6" loading="lazy"></div>
             
+
             <div class="hss-dots" aria-hidden="true">
               <span class="hss-dot active"></span>
               <span class="hss-dot"></span>
@@ -210,7 +211,7 @@
               <span class="hss-dot"></span>
               <span class="hss-dot"></span>
               <span class="hss-dot"></span>
-
+              
             </div>
           </div>
         </div>
@@ -218,13 +219,16 @@
 
       <script>
         // Hero slideshow — scoped, defensive, no external dependencies.
+        // Auto-advances regardless of prefers-reduced-motion: a plain
+        // opacity crossfade is mild enough that it's fine to keep
+        // running for everyone (unlike movement/scaling/parallax,
+        // which is what that setting is really meant to guard against).
         (function () {
           var slides = document.querySelectorAll('#heroSlideshow .hss-slide');
           var dots = document.querySelectorAll('#heroSlideshow .hss-dot');
           if (!slides.length) return;
 
           var current = 0;
-          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
           function goTo(i) {
             slides[current].classList.remove('active');
@@ -234,11 +238,9 @@
             if (dots[current]) dots[current].classList.add('active');
           }
 
-          if (!reduceMotion) {
-            setInterval(function () {
-              goTo((current + 1) % slides.length);
-            }, 3500);
-          }
+          setInterval(function () {
+            goTo((current + 1) % slides.length);
+          }, 3500);
         })();
       </script>
     </section>

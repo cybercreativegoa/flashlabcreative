@@ -354,10 +354,6 @@
       border-radius: 4px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hss-slide { transition: none; }
-    }
-
     .hero-inner {
       position: relative;
       z-index: 1;
