@@ -2572,7 +2572,7 @@
       .outstanding-body { margin: 0 auto; }
     }
 
-    @media (max-width:768px) {
+        @media (max-width:768px) {
       .site-logo-bar { height: 64px; padding: 0 16px; }
       .site-logo-bar img { height: 44px; }
       .navbar, .navbar.scrolled { top: 64px !important; min-height: 52px; }
