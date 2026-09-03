@@ -16,6 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/pages/portfolio.css">
+  <link rel="stylesheet" href="css/pages/clients.css">
 </head>
 
 <body data-page="portfolio">
@@ -186,63 +187,60 @@
           </div>
         </div>
         <div class="hero-img-box">
-          <!-- Client logo wall — replaces the old static hero image.
-               Three columns of client logos scroll vertically in
-               alternating directions (a classic "logo wall" loop),
-               pure CSS animation, no external dependencies. Each
-               column's logo set is duplicated once so the loop is
-               seamless (translateY(-50%) lines up exactly). -->
-          <div class="hero-logos-wall" id="heroLogosWall">
-            <div class="hlw-col hlw-col-up">
-              <div class="hlw-item"><img src="images/logos/tikibab-final.png" alt="Tikibab" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/mikes.png" alt="Mike's Place" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/noorbridals.png" alt="Noor Bridals" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/pedros.png" alt="Pedro's" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/colvaplaza.png" alt="Colva Plaza" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Caravel-Logo.png" alt="Caravel" loading="lazy"></div>
-              <!-- duplicate set for the seamless loop -->
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/tikibab-final.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/mikes.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/noorbridals.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/pedros.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/colvaplaza.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/Caravel-Logo.png" alt="" loading="lazy"></div>
+          <!-- Auto-advancing slideshow — replaces the old scrolling
+               logo wall. 8 Instagram post images from 2 clients (4
+               each), cross-fading one at a time on a timer. Filenames
+               below are placeholders (client1-1.jpg etc.) — swap in
+               the real files at those exact paths, or rename the
+               paths here to match your actual files. Each slide has
+               a dark fallback background so a missing image doesn't
+               show as a blank/broken box in the meantime. -->
+          <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hss-slide active"><img src="images/surfhouse1.jpeg" alt="Client Instagram post 1" loading="eager"></div>
+            <div class="hss-slide"><img src="images/deck88_1.jpeg" alt="Client Instagram post 2" loading="lazy"></div>
+            <div class="hss-slide"><img src="images/surfhouse2.jpeg" alt="Client Instagram post 3" loading="lazy"></div>
+            <div class="hss-slide"><img src="images/deck88_2.jpeg" alt="Client Instagram post 4" loading="lazy"></div>
+            <div class="hss-slide"><img src="images/surf house3.jpeg" alt="Client Instagram post 5" loading="lazy"></div>
+            <div class="hss-slide"><img src="images/deck88_3.jpeg" alt="Client Instagram post 6" loading="lazy"></div>
+            
+            <div class="hss-dots" aria-hidden="true">
+              <span class="hss-dot active"></span>
+              <span class="hss-dot"></span>
+              <span class="hss-dot"></span>
+              <span class="hss-dot"></span>
+              <span class="hss-dot"></span>
+              <span class="hss-dot"></span>
+
             </div>
-            <div class="hlw-col hlw-col-down">
-              <div class="hlw-item"><img src="images/logos/brane.png" alt="Brane" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/theorigin.png" alt="The Origin" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/magzika.png" alt="Magzika" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/caliber2.png" alt="Caliber" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Latin-Quarter-blue.png" alt="Latin Quarter" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Surf-house-logo.png" alt="Surf House" loading="lazy"></div>
-              <!-- duplicate set for the seamless loop -->
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/brane.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/theorigin.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/magzika.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/caliber2.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/Latin-Quarter-blue.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/Surf-house-logo.png" alt="" loading="lazy"></div>
-            </div>
-            <div class="hlw-col hlw-col-up">
-              <div class="hlw-item"><img src="images/logos/ewater.png" alt="eWater" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/gen.png" alt="Gen" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Deltin-Casino.png" alt="Deltin Casino" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/heineken.png" alt="Krank" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/Papiillon-Logo.png" alt="Papillon" loading="lazy"></div>
-              <div class="hlw-item"><img src="images/logos/fc-goa.png" alt="FC Goa" loading="lazy"></div>
-              <!-- duplicate set for the seamless loop -->
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/ewater.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/gen.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/Deltin-Casino.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/heineken.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/Papiillon-Logo.png" alt="" loading="lazy"></div>
-              <div class="hlw-item" aria-hidden="true"><img src="images/logos/fc-goa.png" alt="" loading="lazy"></div>
-            </div>
-            <div class="hero-logos-fade hero-logos-fade-top"></div>
-            <div class="hero-logos-fade hero-logos-fade-bottom"></div>
           </div>
         </div>
       </div>
+
+      <script>
+        // Hero slideshow — scoped, defensive, no external dependencies.
+        (function () {
+          var slides = document.querySelectorAll('#heroSlideshow .hss-slide');
+          var dots = document.querySelectorAll('#heroSlideshow .hss-dot');
+          if (!slides.length) return;
+
+          var current = 0;
+          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          function goTo(i) {
+            slides[current].classList.remove('active');
+            if (dots[current]) dots[current].classList.remove('active');
+            current = i;
+            slides[current].classList.add('active');
+            if (dots[current]) dots[current].classList.add('active');
+          }
+
+          if (!reduceMotion) {
+            setInterval(function () {
+              goTo((current + 1) % slides.length);
+            }, 3500);
+          }
+        })();
+      </script>
     </section>
 
     <!-- MARQUEE -->
@@ -260,6 +258,73 @@
         <span>EVENT ACTIVATION</span>
       </div>
     </div>
+
+
+
+    <!-- INSTAGRAM STORY SHOWCASE -->
+  <section class="stories-section">
+    <div class="wrap">
+      <div class="sec-header centered reveal">
+        <p class="sec-eyebrow">&mdash; Client Campaigns</p>
+        <h2 class="sec-heading">Stories We Brought to<em> Life</em></h2>
+        <p class="sec-sub">Real content we created for real brands stories that stopped the scroll.</p>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card reveal" style="--delay:0s"><img
+            src="./images/27 June 2025 (Hiring Creative - Story Size ) - Caravela.jpg.jpeg"
+            alt="Caravela Story" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a0a,#4a2a2a)'"></div>
+        <div class="story-card reveal" style="--delay:0.07s"><img
+            src="./images/valentine offer story - 17 jan.jpg.jpeg"
+            alt="Papiillon Story" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0a1a0a,#2a4a2a)'"></div>
+        <div class="story-card reveal" style="--delay:0.14s"><img
+            src="./images/Origin-Mosaic Art Workshop Story Size 03 Feb 2026.jpg.jpeg"
+            alt="Origin Story" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a1a,#2a2a4a)'"></div>
+        <div class="story-card reveal" style="--delay:0.21s"><img
+            src="./images/Independence Creative - Deck88.jpg.jpg"
+            alt="Gandhi Jayanti Story" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a00,#4a2a00)'"></div>
+        <div class="story-card reveal" style="--delay:0.28s"><img
+            src="./images/28 May 2025 (Eid Greeting - Story) Robins Ark.jpg.jpeg"
+            alt="Robins Ark Diwali Story" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a00,#5a3a00)'"></div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- SOCIAL MEDIA FEED -->
+  <section class="feed-section section">
+    <div class="wrap">
+      <div class="sec-header centered reveal">
+        <p class="sec-eyebrow">&mdash; Social Media Marketing</p>
+        <h2 class="sec-heading">Instagram Feed <em>Design</em></h2>
+        <p class="sec-sub">Visually engaging feed designs crafted to elevate brand presence and drive real engagement.
+        </p>
+      </div>
+      <div class="feed-grid">
+        <div class="feed-card reveal" style="--delay:0s"><img
+            src="./images/feed1.jpeg"
+            alt="Feed Design 1" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'"></div>
+        <div class="feed-card reveal" style="--delay:0.08s"><img
+            src="./images/feed2.PNG"
+            alt="Feed Design 2" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0f3460,#533483)'"></div>
+        <div class="feed-card reveal" style="--delay:0.16s"><img
+            src="./images/feed3.jpeg"
+            alt="Feed Design 3" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a0a,#4a1a00)'"></div>
+        <div class="feed-card reveal" style="--delay:0.24s"><img
+            src="./images/feed4.PNG"
+            alt="Feed Design 4" loading="lazy"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0a1a0a,#1a4a1a)'"></div>
+      </div>
+    </div>
+  </section>
 
     <!-- PORTFOLIO WORKS -->
     <section class="port-section" id="port-works">
@@ -449,309 +514,7 @@
       </div> -->
     </section>
 
-    <!-- OUR JOURNEY — interactive scrolling timeline. Replaces the old standalone
-         "Before Flashlab" section: instead of two separate founder blocks sitting
-         on their own, the whole company history (pre-Flashlab through today) is
-         now one scroll-tracked timeline with 5 milestones. Sample milestone copy
-         for 2017/2020/2023/Today — final copy to follow. The two founder profiles
-         (with their "early works" grids) are preserved exactly as they were,
-         nested inside the first milestone. -->
-    <section class="port-section alt" id="port-founders">
-      <div class="sr" style="margin-bottom:40px;">
-        <span class="sec-eyebrow"> Our Journey</span>
-        <h2 class="sec-heading">From First Sketch<br><em>to Studio.</em></h2>
-        <p class="sec-sub"> A decade-plus of milestones, from freelance beginnings to a full creative agency serving 350+ brands.</p>
-      </div>
-
-      <div class="journey-timeline">
-        <nav class="journey-rail" id="journeyRail" aria-label="Company timeline">
-          <div class="journey-rail-line"><span class="journey-rail-fill" id="journeyRailFill"></span></div>
-          <a href="#milestone-groundwork" class="journey-rail-item active" data-milestone="groundwork">
-            <span class="journey-rail-dot"></span><span class="journey-rail-label">2013&ndash;2016</span>
-          </a>
-          <a href="#milestone-launch" class="journey-rail-item" data-milestone="launch">
-            <span class="journey-rail-dot"></span><span class="journey-rail-label">2017</span>
-          </a>
-          <a href="#milestone-growth" class="journey-rail-item" data-milestone="growth">
-            <span class="journey-rail-dot"></span><span class="journey-rail-label">2020</span>
-          </a>
-          <a href="#milestone-expansion" class="journey-rail-item" data-milestone="expansion">
-            <span class="journey-rail-dot"></span><span class="journey-rail-label">2023</span>
-          </a>
-          <a href="#milestone-today" class="journey-rail-item" data-milestone="today">
-            <span class="journey-rail-dot"></span><span class="journey-rail-label">Today</span>
-          </a>
-        </nav>
-
-        <div class="journey-milestones">
-
-          <!-- MILESTONE 1 — 2013–2016: The Groundwork -->
-          <article class="journey-milestone sr" id="milestone-groundwork" data-milestone="groundwork">
-            <div class="journey-milestone-head">
-              <span class="journey-year">2013&ndash;2016</span>
-              <h3 class="journey-title">The Groundwork</h3>
-              <p class="journey-desc"><em></em> Before there was a studio, there were two freelancers building the skills, client relationships, and creative instincts that Flashlab would later run on.</p>
-            </div>
-
-            <!-- ANKITH KEDAR -->
-            <div class="founder-block">
-              <div class="sr" style="margin-bottom:28px;">
-                <span class="sec-eyebrow"> Before Flashlab</span>
-                <h2 class="sec-heading"><em>2013 &ndash; 2016</em></h2>
-                <p class="sec-sub">Where it all started.</p>
-              </div>
-
-              <div class="founder-row sr">
-                <div class="founder-portrait-sm">
-                  <img src="images/ankith-team-portrait-1.jpg" alt="Ankith Kedar" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;">
-                </div>
-                <div class="founder-info-compact">
-                  <div class="founder-header">
-                    <div class="founder-name-sm">Ankith<br>Kedar</div>
-                    <div class="founder-badge-sm"><i class="ri-award-line"></i> Creative Director &amp; Brand Strategist</div>
-                  </div>
-                  <div class="founder-role-sm">Founder &middot; Creative Director &middot; Brand Strategist</div>
-                  <p class="founder-bio-sm">Before Flashlab, Ankith worked across design, branding and independent creative projects, shaping the visual thinking and creative approach that would later define the agency.</p>
-                  <div class="founder-meta-row">
-                    <div class="founder-meta-item"><i class="ri-calendar-check-line"></i> Since 2013</div>
-                    <div class="founder-meta-item"><i class="ri-map-pin-2-line"></i> Margao, Goa</div>
-                      <!-- div class="founder-meta-item"><i class="ri-briefcase-4-line"></i> 4 years pre-Flashlab</div> -->
-                    <div class="founder-meta-item"><i class="ri-palette-line"></i> Brand &amp; Visual Design</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="founder-works-label sr"><span>Selected Early Works &middot; 2013&ndash;2016</span></div>
-              <div class="founder-grid sr">
-
-                <div class="f-card">
-                  <div class="f-img bg-e"><img src="images/timeline/southdeck4.jpg" alt="Visual Identity" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2013</div>
-                    <div class="f-title">Visual Identity Local Retailer</div>
-                    <div class="f-cat">Branding &middot; Signage</div>
-                  </div>
-                </div>
-               
-                <div class="f-card">
-                  <div class="f-img bg-c"><img src="images/timeline/mambo1.jpg" alt="Event Collateral" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2015</div>
-                    <div class="f-title">Event Collateral Sunburn Pre-Party</div>
-                    <div class="f-cat">Print &middot; Event Design</div>
-                  </div>
-                </div>
-                <div class="f-card">
-                  <div class="f-img bg-d"><img src="images/timeline/southdeck3.jpg" alt="Portfolio Website" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2015</div>
-                    <div class="f-title">Portfolio Website Personal</div>
-                    <div class="f-cat">Web Design</div>
-                  </div>
-                </div>
-
-                 <div class="f-card">
-                  <div class="f-img bg-b"><img src="images/timeline/2020-bartend.png" alt="Cafe Brand Identity" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2016</div>
-                    <div class="f-title">Cafe Brand Identity North Goa</div>
-                    <div class="f-cat">Branding &middot; Print</div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-
-            <div class="founder-divider">
-              <div class="founder-divider-icon"><i class="ri-heart-line"></i></div>
-            </div>
-
-            <!-- ANURAJ KEDAR -->
-            <div class="founder-block">
-              <div class="sr" style="margin-bottom:28px;">
-                <span class="sec-eyebrow"> Co-Founder's Work</span>
-                <h2 class="sec-heading"><em>Early Highlights</em></h2>
-                <p class="sec-sub">The technical and strategic mind behind Flashlab's digital offering from code to campaigns.</p>
-              </div>
-
-              <div class="founder-row reverse sr">
-                <div class="founder-portrait-sm">
-                  <img src="images/anuraj-team-portrait.jpg" alt="Anuraj Kedar" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;">
-                </div>
-                <div class="founder-info-compact">
-                  <div class="founder-header">
-                    <div class="founder-name-sm">Anuraj<br>Kedar</div>
-                    <div class="founder-badge-sm"><i class="ri-code-s-slash-line"></i> Digital Strategy &amp;  Development Lead</div>
-                  </div>
-                  <div class="founder-role-sm">Co-Founder &middot; Digital Strategist &middot; Dev Lead</div>
-                  <p class="founder-bio-sm">Before Flashlab grew into a full service agency, Anuraj worked across web development, SEO, digital advertising and growth strategy, building the technical and performance driven side of the business.</p>
-                  <div class="founder-meta-row">
-                    <div class="founder-meta-item"><i class="ri-calendar-check-line"></i> Since 2014</div>
-                    <div class="founder-meta-item"><i class="ri-map-pin-2-line"></i> Margao, Goa</div>
-                    <div class="founder-meta-item"><i class="ri-code-line"></i> Digital,Web &amp; Growth</div>
-                    <!-- <div class="founder-meta-item"><i class="ri-bar-chart-2-line"></i> SEO &middot; Ads &middot; Analytics</div> -->
-                  </div>
-                </div>
-              </div>
-
-              <div class="founder-works-label sr"><span>Selected Early Works &middot; 2014&ndash;2016</span></div>
-              <div class="founder-grid sr">
-
-                <div class="f-card">
-                  <div class="f-img bg-a" style="filter:hue-rotate(90deg)"><img src="images/timeline/2018-blasterjaxx.png" alt="First CMS Website" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2014</div>
-                    <div class="f-title">First CMS Website Services Co.</div>
-                    <div class="f-cat">Web Dev</div>
-                  </div>
-                </div>
-
-                <div class="f-card">
-                  <div class="f-img bg-g"><img src="images/timeline/2019pipa.png" alt="Mobile Web App" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2015</div>
-                    <div class="f-title">Mobile Web App Ticketing System</div>
-                    <div class="f-cat">Web Dev &middot; UX</div>
-                  </div>
-                </div>
-                <div class="f-card">
-                  <div class="f-img bg-h"><img src="images/timeline/2018-cyrus.png" alt="Google Ads Campaign" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2015</div>
-                    <div class="f-title">Google Ads Campaign Retail Brand</div>
-                    <div class="f-cat">Digital Ads &middot; SEM</div>
-                  </div>
-                </div>
-                
-                <div class="f-card">
-                  <div class="f-img bg-f"><img src="images/timeline/2019-deltin-life.png" alt="SEO Strategy" style="width:100%; height:100%; object-fit:cover;"></div>
-                  <div class="f-body">
-                    <div class="f-year">2016</div>
-                    <div class="f-title">SEO Strategy Hospitality Client</div>
-                    <div class="f-cat">SEO &middot; Analytics</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- MILESTONE 2 — 2017: Flashlab Begins -->
-          <article class="journey-milestone sr" id="milestone-launch" data-milestone="launch">
-            <div class="journey-milestone-head">
-              <span class="journey-year">2017</span>
-              <h3 class="journey-title">Flashlab Begins</h3>
-              <p class="journey-desc"><em></em> Ankith and Anuraj turned years of freelance experience into a registered studio in Margao. Flashlab Creative opened its doors two founders, one shared laptop, and a plan to bring proper creative work to Goa.</p>
-            </div>
-            <div class="journey-highlight">
-              <div class="journey-highlight-icon"><i class="ri-flashlight-line"></i></div>
-              <div class="journey-highlight-text">Flashlab Creative founded in Margao, Goa.</div>
-            </div>
-          </article>
-
-          <!-- MILESTONE 3 — 2020: Growing the Team & Client Base -->
-          <article class="journey-milestone sr" id="milestone-growth" data-milestone="growth">
-            <div class="journey-milestone-head">
-              <span class="journey-year">2020</span>
-              <h3 class="journey-title">Growing the Team &amp; Client Base</h3>
-              <p class="journey-desc"><em></em> What started as a two person studio grew into a small creative team, taking on hospitality, F&amp;B, and retail clients across Goa and building the roster that would define Flashlab's early reputation.</p>
-            </div>
-            <div class="journey-highlight">
-              <div class="journey-highlight-icon"><i class="ri-team-line"></i></div>
-              <div class="journey-highlight-text">Team and client roster growing steadily across Goa.</div>
-            </div>
-          </article>
-
-          <!-- MILESTONE 4 — 2023: Expanding Our Creative Capabilities -->
-          <article class="journey-milestone sr" id="milestone-expansion" data-milestone="expansion">
-            <div class="journey-milestone-head">
-              <span class="journey-year">2023</span>
-              <h3 class="journey-title">Expanding Our Creative Capabilities</h3>
-              <p class="journey-desc"><em></em> Flashlab added in house photography, videography, and performance marketing capability becoming a genuine 360&deg; creative partner instead of a single service studio.</p>
-            </div>
-            <div class="journey-highlight">
-              <div class="journey-highlight-icon"><i class="ri-camera-3-line"></i></div>
-              <div class="journey-highlight-text">360&deg; in-house production: photo, video, and performance media.</div>
-            </div>
-          </article>
-
-          <!-- MILESTONE 5 — Today -->
-          <article class="journey-milestone sr" id="milestone-today" data-milestone="today">
-            <div class="journey-milestone-head">
-              <span class="journey-year">Today</span>
-              <h3 class="journey-title">10+ Years, 350+ Brands and Still Building</h3>
-              <p class="journey-desc"><em></em> From that first shared laptop to Goa's leading creative agency a full team, hundreds of brands served, and hundreds of projects delivered. And we're just getting started.</p>
-            </div>
-            <div class="journey-highlight">
-              <div class="journey-highlight-icon"><i class="ri-rocket-2-line"></i></div>
-              <div class="journey-highlight-text">Still building the next chapter starts with your project.</div>
-            </div>
-            <div class="journey-stats">
-              <div class="journey-stat"><span class="journey-stat-num">10+</span><span class="journey-stat-label">Years</span></div>
-              <div class="journey-stat-divider"></div>
-              <div class="journey-stat"><span class="journey-stat-num">350+</span><span class="journey-stat-label">Brands</span></div>
-              <div class="journey-stat-divider"></div>
-              <div class="journey-stat"><span class="journey-stat-num">500+</span><span class="journey-stat-label">Projects</span></div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <script>
-      // Journey timeline rail — scroll-spy + progress fill + smooth scroll.
-      // Scoped, defensive, no external dependencies.
-      (function () {
-        var milestones = document.querySelectorAll('.journey-milestone');
-        var railItems = document.querySelectorAll('.journey-rail-item');
-        var fill = document.getElementById('journeyRailFill');
-        var timeline = document.querySelector('.journey-timeline');
-        if (!milestones.length || !railItems.length) return;
-
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function setActive(name) {
-          railItems.forEach(function (item) {
-            var isActive = item.dataset.milestone === name;
-            item.classList.toggle('active', isActive);
-            if (isActive) { item.setAttribute('aria-current', 'true'); }
-            else { item.removeAttribute('aria-current'); }
-          });
-        }
-
-        if ('IntersectionObserver' in window) {
-          var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) { setActive(entry.target.dataset.milestone); }
-            });
-          }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-          milestones.forEach(function (m) { observer.observe(m); });
-        }
-
-        function updateFill() {
-          if (!fill || !timeline || window.innerWidth <= 900) return;
-          var rect = timeline.getBoundingClientRect();
-          var vh = window.innerHeight;
-          var total = rect.height - vh * 0.4;
-          var passed = (vh * 0.5) - rect.top;
-          var pct = Math.min(100, Math.max(0, total > 0 ? (passed / total) * 100 : 0));
-          fill.style.height = pct + '%';
-        }
-        window.addEventListener('scroll', updateFill, { passive: true });
-        window.addEventListener('resize', updateFill);
-        updateFill();
-
-        railItems.forEach(function (item) {
-          item.addEventListener('click', function (e) {
-            e.preventDefault();
-            var target = document.getElementById('milestone-' + item.dataset.milestone);
-            if (!target) return;
-            var y = target.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
-          });
-        });
-      })();
-    </script>
+    
 
     <!-- SOCIAL PROOF -->
     <section class="port-section" id="port-social">
@@ -817,6 +580,50 @@
           <p class="proof-desc">Straight from the people we work with</p>
         </a>
       </div>
+
+
+      <!-- BEHIND THE LENS -->
+  <section class="media-section section">
+    <div class="wrap">
+      <div class="sec-header centered reveal">
+        <p class="sec-eyebrow">&mdash; Our Creative Work</p>
+        <h2 class="sec-heading">Behind The <em>Lens.</em></h2>
+        <p class="sec-sub">Campaigns, shoots, and cinematic productions we've delivered for our clients.</p>
+      </div>
+      <div class="media-grid">
+        <div class="media-item reveal" style="--delay:0s;">
+          <iframe src="https://www.youtube.com/embed/-6RnEd5wqaw" title="Mystras Assagao Property Shoot"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="media-chip"><i class="ri-film-fill"></i> Mystras Assagao Property Shoot</span>
+        </div>
+        <div class="media-item reveal" style="--delay:0.1s;">
+          <iframe src="https://www.youtube.com/embed/pYqtiK4YCnw" title="Pipa Bella Fashion Film"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="media-chip"><i class="ri-video-fill"></i> Pipa Bella Fashion Film</span>
+        </div>
+        <div class="media-item reveal" style="--delay:0.2s;">
+          <iframe src="https://www.youtube.com/embed/ySfFXkFDbiI" title="Ashely &amp; Melita Wedding Promo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="media-chip"><i class="ri-instagram-fill"></i> Ashely &amp; Melita Wedding Promo</span>
+        </div>
+        <div class="media-item reveal" style="--delay:0.3s;">
+          <iframe src="https://www.youtube.com/embed/8oaB_G1o2zE" title="Cyrus Berne - Shape of You Cover"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="media-chip"><i class="ri-calendar-event-fill"></i> Cyrus Berne - Shape of You Cover</span>
+        </div>
+        <div class="media-item reveal" style="--delay:0.4s;">
+          <iframe src="https://www.youtube.com/embed/7nO9kYs-dZE" title="The Southern Deck"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="media-chip"><i class="ri-magic-fill"></i> The Southern Deck</span>
+        </div>
+      </div>
+    </div>
+  </section>
  
 
       <!-- CASE STUDIES — new section, sits above the CTA band.
@@ -842,8 +649,7 @@
       </div>
       <!-- <div class="works-grid" id="caseStudiesPreviewGrid"> -->
 
-        <div class="works-grid" id="worksGrid">
-
+        <div class="works-grid" id="caseStudiesGrid">
         <!-- Card 1 FEATURED — Gym & Fitness -->
         <div class="wcard" data-cats="gym-fitness">
           <a href="./case-studies/next-level.html" class="overlay-cta">
@@ -1064,7 +870,7 @@
         </div>
 
         <!-- NEW Card 10 — Restaurant & Hospitality (Mike's Place) -->
-        <div class="wcard" data-cats="restaurant-hospitality">
+        <!-- <div class="wcard" data-cats="restaurant-hospitality">
           <a href="./case-studies/mikes-place.html" class="overlay-cta">
           <div class="work-card">
             <div class="work-img">
@@ -1080,12 +886,12 @@
             <div class="work-body">
               <div class="work-year">Restaurant &amp; Hospitality</div>
               <div class="work-title">Mike's Place</div>
-              <div class="work-desc">Mike's Place partnered with us to redesign their visual identity and improve their live music promotions. Through a mix of trend-based content, customer testimonials, and targeted ads, we successfully grew their followers by 33%.</div>
+              <div class="work-desc">Mike's Place partnered with us to redesign their visual identity and improve their live music promotions. Through a mix of trend-based content, customer testimonials, and targeted ads, we successfully grew their followers by 33%.</div> -->
               <!-- <div class="work-tags"><span class="wtag">Social</span><span class="wtag">Events</span></div> -->
-            </div>
+            <!-- </div>
           </div>
           </a>
-        </div>
+        </div> -->
 
         <!-- NEW Card 11 — Finance (Finance with Akshay) -->
         <div class="wcard" data-cats="finance">
@@ -1476,5 +1282,6 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="js/pages/clients.js"></script>
 </body>
 </html>

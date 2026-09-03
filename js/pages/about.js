@@ -76,7 +76,7 @@ document.querySelectorAll('.pcard').forEach(card => {
         { name: 'Barefeet Easter', logo: 'images/logos/barefeet easter.jpeg', desc: 'Goa\'s beloved Easter festival celebrating music, sand, and sun.' },
       ],
       '2018': [
-        { name: 'Boca Loca Creatives', logo: 'images/logos/boca loca.jpg', desc: 'A creative studio crafting bold visual identities for Goan brands.' },
+        { name: 'Boca Loca Creatives', logo: 'images/logos/boca loca.png', desc: 'A creative studio crafting bold visual identities for Goan brands.' },
         { name: 'Genora Infotech', logo: 'images/logos/genora infotech.png', desc: 'IT solutions and software services powering local businesses.' },
         { name: 'Bull Frog', logo: 'images/logos/bullfrog.jpeg', desc: 'A lively bar known for its eclectic drinks and buzzing crowd.' },
         { name: 'Sochi Beach', logo: 'images/logos/SOCHI.jpg', desc: 'A beachfront shack serving fresh seafood with ocean views.' },
@@ -122,7 +122,7 @@ document.querySelectorAll('.pcard').forEach(card => {
       '2023': [
         { name: 'The Origin', logo: 'images/logos/theorigin.png', desc: 'A bar & kitchen rooted in bold flavours and honest storytelling.' },
         { name: 'Dempo College', logo: 'images/logos/dempo college.png', desc: 'One of Goa\'s leading institutions for higher education.' },
-        { name: 'Bliss Villa', logo: 'images/logos/Bliss villa.png', desc: 'A serene private villa offering a peaceful escape in Goa.' },
+        { name: 'Bliss Villa', logo: 'images/logos/bliss villa rentals.png', desc: 'A serene private villa offering a peaceful escape in Goa.' },
         { name: 'Orane', logo: 'images/logos/orane.jpg', desc: 'A beauty and wellness academy shaping Goa\'s next-gen professionals.' },
         { name: 'Mike\'s Place', logo: 'images/logos/mikes place white.png', desc: 'A cosy neighbourhood haunt for great food and good vibes.' },
         { name: 'Ziki', logo: 'images/logos/Ziki Logo (Black).png', desc: 'A contemporary dining concept with a playful, modern edge.' },
