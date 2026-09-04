@@ -359,31 +359,48 @@ document.querySelectorAll('a[href^="#"]').forEach(link =>
     counters.forEach(c => io.observe(c));
 })();
 
-/* FILTER TABS & SHOW MORE/LESS pagination */
+/* FILTER TABS & SHOW MORE/LESS pagination
+   Instance-aware: this page can have more than one filter-bar +
+   works-grid pair (e.g. "Best Work" and "Case Studies" further
+   down). Each filter-bar now finds and controls only its OWN
+   section's grid/cards/show-more button, instead of every filter
+   button on the page sharing one hardcoded #worksGrid — which was
+   the bug: clicking a filter in the second section was updating
+   the FIRST section's cards (which don't have matching categories,
+   so they all just disappeared) while the actual visible grid was
+   never touched at all. */
 (function ()
 {
-    const btns  = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('#worksGrid .wcard');
-    const showMoreWrap = document.getElementById('portShowMoreWrap');
-    const showMoreBtn = document.getElementById('portShowMoreBtn');
-    
-    if (!btns.length || !cards.length) return;
-    
-    let expanded = false;
-    
-    function updateWorksGrid(animate = true) {
-        const activeBtn = document.querySelector('.filter-btn.active');
-        if (!activeBtn) return;
-        const filter = activeBtn.dataset.filter;
-        
-        let matchingIndex = 0;
-        cards.forEach(card => {
-            const cats = (card.dataset.cats || '').split(',');
-            const isMatch = filter === 'all' || cats.includes(filter);
-            
-            if (isMatch) {
-                const shouldDisplay = true;
-                if (shouldDisplay) {
+    const filterBars = document.querySelectorAll('.filter-bar');
+    if (!filterBars.length) return;
+
+    filterBars.forEach(filterBar => {
+        const section = filterBar.closest('section');
+        if (!section) return;
+
+        const grid = section.querySelector('.works-grid');
+        if (!grid) return;
+
+        const btns = filterBar.querySelectorAll('.filter-btn');
+        const cards = grid.querySelectorAll('.wcard');
+        const showMoreWrap = section.querySelector('.load-more-wrap');
+        const showMoreBtn = showMoreWrap ? showMoreWrap.querySelector('button') : null;
+
+        if (!btns.length || !cards.length) return;
+
+        let expanded = false;
+
+        function updateWorksGrid(animate = true) {
+            const activeBtn = filterBar.querySelector('.filter-btn.active');
+            if (!activeBtn) return;
+            const filter = activeBtn.dataset.filter;
+
+            let matchingIndex = 0;
+            cards.forEach(card => {
+                const cats = (card.dataset.cats || '').split(',');
+                const isMatch = filter === 'all' || cats.includes(filter);
+
+                if (isMatch) {
                     card.style.display = '';
                     if (animate) {
                         const inner = card.querySelector('.work-card');
@@ -393,65 +410,60 @@ document.querySelectorAll('a[href^="#"]').forEach(link =>
                             inner.style.animation = `cardReveal .5s cubic-bezier(.22,1,.36,1) ${matchingIndex * 0.06}s both`;
                         }
                     }
+                    matchingIndex++;
                 } else {
                     card.style.display = 'none';
                 }
-                matchingIndex++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-        
-        if (showMoreWrap && showMoreBtn) {
-            if (matchingIndex > 4) {
-                showMoreWrap.style.display = '';
-                if (expanded) {
-                    showMoreBtn.innerHTML = 'Show Less <i class="ri-arrow-up-s-line"></i>';
+            });
+
+            if (showMoreWrap && showMoreBtn) {
+                if (matchingIndex > 4) {
+                    showMoreWrap.style.display = '';
+                    showMoreBtn.innerHTML = expanded
+                        ? 'Show Less <i class="ri-arrow-up-s-line"></i>'
+                        : 'Show More <i class="ri-arrow-down-s-line"></i>';
                 } else {
-                    showMoreBtn.innerHTML = 'Show More <i class="ri-arrow-down-s-line"></i>';
+                    showMoreWrap.style.display = 'none';
                 }
-            } else {
-                showMoreWrap.style.display = 'none';
             }
         }
-    }
-    
-    // Initial load
-    updateWorksGrid(false);
-    
-    // Filter click handlers
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            expanded = false; // Reset expand state on filter switch
-            updateWorksGrid(true);
+
+        // Initial load
+        updateWorksGrid(false);
+
+        // Filter click handlers — scoped to this filter-bar's own buttons only
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                expanded = false; // Reset expand state on filter switch
+                updateWorksGrid(true);
+            });
         });
-    });
-    
-    // Show More/Less toggle handler
-    if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', () => {
-            expanded = !expanded;
-            updateWorksGrid(false); // No need to re-trigger reveal stagger animation
-            
-            if (!expanded) {
-                const grid = document.getElementById('worksGrid');
-                if (grid) {
+
+        // Show More/Less toggle handler
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', () => {
+                expanded = !expanded;
+                updateWorksGrid(false); // No need to re-trigger reveal stagger animation
+
+                if (!expanded) {
                     const y = grid.getBoundingClientRect().top + window.scrollY - 100;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
-            }
-        });
-    }
+            });
+        }
+    });
 })();
 
-/* STAGGER CARDS */
+/* STAGGER CARDS — same instance-aware fix: stagger every works-grid
+   on the page, not just the first one. */
 (function ()
 {
-    const workCards = document.querySelectorAll('#worksGrid .work-card');
-    if (!workCards.length) return;
-    workCards.forEach((c, i) => { c.style.animationDelay = (i * 0.08) + 's'; });
+    document.querySelectorAll('.works-grid').forEach(grid => {
+        const workCards = grid.querySelectorAll('.work-card');
+        workCards.forEach((c, i) => { c.style.animationDelay = (i * 0.08) + 's'; });
+    });
     document.querySelectorAll('.founder-grid .f-card')
             .forEach((c, i) => { c.style.transitionDelay = (i * 0.1) + 's'; });
 })();
@@ -513,4 +525,3 @@ document.addEventListener('click', function (e) {
     afterContainer.style.width = value;
     handleLine.style.left = value;
   });
-
