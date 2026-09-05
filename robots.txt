@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /docs/
+Disallow: /env.example
+
+Sitemap: https://flashlabcreative.com/sitemap.xml
