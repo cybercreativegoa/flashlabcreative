@@ -2,6 +2,8 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <script src="../../components.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freelance With Us &mdash; Flashlab Creative</title>
@@ -16,7 +18,14 @@
 </head>
 
 <body data-page="career-freelance">
-  <div class="site-logo-bar"><a href="../../index.html"><img src="../../images/logos/flashlab-logo.png" alt="Flashlab Creative" class="logo-light" id="siteLogoImg"><img src="../../images/logos/flashlab-logo-dark.png" alt="Flashlab Creative" class="logo-dark" id="siteLogoImg"></a></div>
+  <!-- ============================================================
+     ORIGINAL STATIC HEADER (logo bar + navbar + mobile menu) —
+     replaced by the <site-header> component (see /components.js).
+     Left here, commented out, for reference / rollback only.
+     Do not uncomment alongside <site-header> or it will render twice.
+     ============================================================ -->
+<!--
+<div class="site-logo-bar"><a href="../../index.html"><img src="../../images/logos/flashlab-logo.png" alt="Flashlab Creative" class="logo-light" id="siteLogoImg"><img src="../../images/logos/flashlab-logo-dark.png" alt="Flashlab Creative" class="logo-dark" id="siteLogoImg"></a></div>
 
   <nav class="navbar" id="navbar">
     <div class="nav-wrap">
@@ -27,7 +36,7 @@
   <a href="../../portfolio.html">Portfolio</a>
   <ul>
     <li><a href="../../portfolio.html#port-works"><i class="ri-star-line"></i>Best Work</a></li>
-   <!-- <li><a href="../../portfolio.html#port-founders"><i class="ri-time-line"></i>Our Journey</a></li> -->
+   
     <li><a href="../../portfolio.html#port-creative-portfolio"><i class="ri-gallery-line"></i>Our Creative Portfolio</a></li>
   </ul>
 </li>
@@ -77,6 +86,8 @@
     </ul>
     <div class="mob-cta-wrap"><a href="../../connect.html" class="mob-cta">Start a Project <i class="ri-arrow-right-up-line"></i></a></div>
   </div>
+-->
+<site-header></site-header>
 
   <section class="page-hero" style="padding-top: 220px;">
     <div class="wrap hero-inner">
@@ -206,341 +217,100 @@
          FOOTER
          ========================================================= -->
  
-    <footer class="footer">
- 
-        <div class="wrap footer-grid">
- 
- 
-            <!-- FOOTER BRAND -->
- 
-            <div class="footer-brand">
- 
-                <div class="footer-logo">
- 
-                    <a href="../../index.html">
- 
-                        <img
-                            src="../../images/logos/flashlab-logo-dark.png"
-                            alt="Flashlab Creative"
-                            onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff\'>FLASHLAB CREATIVE</span>'">
- 
-                    </a>
- 
-                </div>
- 
-                <p>
-                    Goa's leading creative &amp; digital marketing agency where imagination meets reality.
-                     Born in Margao in 2016, we craft unforgettable digital experiences for brands that dare to stand out. 
-                    From branding and web development to social media, advertising and full-scale production,
-                    we blend creativity and strategy to help brands connect, engage, and grow trusted today
-                    by 350+ brands across Goa and India.
-                </p>
- 
-                <div class="footer-socials">
- 
-                    <a
-                        href="https://www.instagram.com/flashlab.creative"
-                        target="_blank"
-                        rel="noopener">
- 
-                        <i class="ri-instagram-fill"></i>
- 
-                    </a>
- 
-                    <a
-                        href="https://www.facebook.com/flashlab.creative/"
-                        target="_blank"
-                        rel="noopener">
- 
-                        <i class="ri-facebook-fill"></i>
- 
-                    </a>
- 
-                    <a
-                        href="https://www.linkedin.com/company/flashlabcreative"
-                        target="_blank"
-                        rel="noopener">
- 
-                        <i class="ri-linkedin-fill"></i>
- 
-                    </a>
- 
-                    <a
-                        href="https://twitter.com/theflashlab"
-                        target="_blank"
-                        rel="noopener">
- 
-                        <i class="ri-twitter-x-fill"></i>
- 
-                    </a>
- 
-                    <a
-                        href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg"
-                        target="_blank"
-                        rel="noopener">
- 
-                        <i class="ri-youtube-fill"></i>
- 
-                    </a>
- 
-                </div>
- 
-            </div>
- 
- 
-            <!-- NAVIGATION -->
- 
-            <div class="hide-on-mobile">
- 
-                <h4 class="footer-head">
-                    Navigation
-                </h4>
- 
-                <ul class="footer-list">
- 
-                    <li><a href="../../about.html"><i class="ri-arrow-right-s-line"></i>About</a></li>
-                    <li><a href="../../services.html"><i class="ri-arrow-right-s-line"></i>Services</a></li>
-                    <li><a href="../../portfolio.html"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li>
-                    <li><a href="../../clients.html"><i class="ri-arrow-right-s-line"></i>Clients</a></li>
-                    <!-- <li><a href="case-studies.html"><i class="ri-arrow-right-s-line"></i>Case Studies</a></li> -->
-                    <li><a href="../../team.html"><i class="ri-arrow-right-s-line"></i>Teams</a></li>
-                    <li><a href="../../career.html"><i class="ri-arrow-right-s-line"></i>Careers</a></li>
-                    <li><a href="../../connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li>
- 
-                </ul>
- 
-            </div>
- 
- 
-            <!-- SERVICES -->
- 
-            <div class="hide-on-mobile">
- 
-                <h4 class="footer-head">
-                    Services
-                </h4>
- 
-                <ul class="footer-list">
- 
-                    <li><a href="../services/outdoor-print-ads.html"><i class="ri-arrow-right-s-line"></i>Outdoor &amp; Print</a></li>
-                    <li><a href="../services/digital-advertising.html"><i class="ri-arrow-right-s-line"></i>Digital Advertising</a></li>
-                    <li><a href="../services/seo-sem-marketing.html"><i class="ri-arrow-right-s-line"></i>SEO / SEM</a></li>
-                    <li><a href="../services/social-media-management.html"><i class="ri-arrow-right-s-line"></i>Social Media</a></li>
-                    <li><a href="../services/product-design-strategies.html"><i class="ri-arrow-right-s-line"></i>Product Design</a></li>
-                    <li><a href="../services/web-app-development.html"><i class="ri-arrow-right-s-line"></i>Web &amp; App Dev</a></li>
-                    <li><a href="../services/ecommerce.html"><i class="ri-arrow-right-s-line"></i>E-Commerce</a></li>
-                    <li><a href="../services/event-production.html"><i class="ri-arrow-right-s-line"></i>Event Production</a></li>
- 
-                </ul>
- 
-            </div>
- 
- 
-            <!-- JOIN US -->
- 
-            <div class="hide-on-mobile">
- 
-                <h4 class="footer-head">
-                    Join Us
-                </h4>
- 
-                <ul class="footer-list">
- 
-                    <li><a href="../../career.html#open-positions" data-open-role="intern"><i class="ri-arrow-right-s-line"></i>Intern</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="seo-expert"><i class="ri-arrow-right-s-line"></i>SEO Expert</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="social-media-manager"><i class="ri-arrow-right-s-line"></i>Social Media Manager</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="graphic-designer"><i class="ri-arrow-right-s-line"></i>Graphic Designer</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="web-developer"><i class="ri-arrow-right-s-line"></i>Web Developer</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="animation-designer"><i class="ri-arrow-right-s-line"></i>Animation Designer</a></li>
-                    <li><a href="../../career.html#open-positions" data-open-role="app-developer"><i class="ri-arrow-right-s-line"></i>App Developer</a></li>
- 
-                </ul>
- 
-            </div>
- 
- 
-            <!-- SERVICE LINKS -->
- 
-            <div class="hide-on-mobile">
- 
-                <h4 class="footer-head">
-                    Service Links
-                </h4>
- 
-                <ul class="footer-list">
- 
-                    <li><a href="../../team.html"><i class="ri-arrow-right-s-line"></i>Team Blogs</a></li>
- 
-                    <li>
-                        <a
-                            href="https://parashootstudio.com"
-                            target="_blank"
-                            rel="noopener">
- 
-                            <i class="ri-arrow-right-s-line"></i>
-                            Production
- 
-                        </a>
-                    </li>
- 
-                    <li>
-                        <a
-                            href="https://backstagexchange.com"
-                            target="_blank"
-                            rel="noopener">
- 
-                            <i class="ri-arrow-right-s-line"></i>
-                            Event Management
- 
-                        </a>
-                    </li>
- 
-                    <li>
-                        <a href="#">
-                            <i class="ri-arrow-right-s-line"></i>
-                            FNB Marketing
-                        </a>
-                    </li>
- 
-                    <li>
-                        <a
-                            href="https://Strobenightlife.com"
-                            target="_blank"
-                            rel="noopener">
- 
-                            <i class="ri-arrow-right-s-line"></i>
-                            Strobe Nightlife
- 
-                        </a>
-                    </li>
- 
-                    <li>
-                        <a
-                            href="https://www.cybercreative.in"
-                            target="_blank"
-                            rel="noopener">
- 
-                            <i class="ri-arrow-right-s-line"></i>
-                            Web Development &amp; IoT
- 
-                        </a>
-                    </li>
- 
-                </ul>
- 
-            </div>
- 
- 
-            <!-- CONTACT -->
- 
-            <div>
- 
-                <h4 class="footer-head">
-                    Contact
-                </h4>
- 
-                <div class="footer-contact">
- 
-                    <p>
- 
-                        <i class="ri-map-pin-2-fill"></i>
- 
-                        <a
-                            href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa"
-                            target="_blank"
-                            rel="noopener">
- 
-                            G26 Vikrant Complex,
-                            <br>
-                            Margao, Goa, India
- 
-                        </a>
- 
-                    </p>
- 
-                    <p>
- 
-                        <i class="ri-phone-fill"></i>
- 
-                        <a href="tel:+919923580023">
-                            +91 99235 80023
-                        </a>
- 
-                    </p>
- 
-                    <p>
- 
-                        <i class="ri-mail-fill"></i>
- 
-                        <a href="mailto:contact@flashlabcreative.com">
-                            contact@flashlabcreative.com
-                        </a>
- 
-                    </p>
- 
-                    <p>
- 
-                        <i class="ri-time-fill"></i>
- 
-                        <span>
-                            Mon – Sat: 9am – 6pm IST
-                        </span>
- 
-                    </p>
- 
-                    <a
-                        href="../../connect.html"
-                        class="footer-cta">
- 
-                        Start a Project
-                        <i class="ri-arrow-right-line"></i>
- 
-                    </a>
- 
-                </div>
- 
-            </div>
- 
-        </div>
- 
- 
-        <!-- FOOTER BOTTOM -->
- 
-        <div class="footer-bottom">
- 
-            <p class="footer-copy">
- 
-                Copyright &copy; 2026
- 
-                <a
-                    href="../../index.html"
-                    class="flashlab-link">
- 
-                    Flashlab Creative
- 
+    <!-- ============================================================
+     ORIGINAL STATIC FOOTER — replaced by the <site-footer> component
+     (see /components.js). Left here, commented out, for reference /
+     rollback only. Do not uncomment alongside <site-footer> or the
+     footer will render twice.
+     ============================================================ -->
+<!--
+<footer class="footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <a href="../../index.html">
+                    <img src="../../images/logos/flashlab-logo-dark.png" alt="Flashlab Creative">
                 </a>
- 
+            </div>
+            <p>
+                Goa's leading creative &amp; digital marketing agency where imagination meets reality.
+                Born in Margao in 2016, we craft unforgettable digital experiences for brands that dare to stand out.
+                From branding and web development to social media, advertising and full-scale production,
+                we blend creativity and strategy to help brands connect.
             </p>
- 
-            <p class="footer-credit">
- 
-                Website Crafted by
- 
-                <a
-                    href="https://cybercreative.in/"
-                    target="_blank"
-                    rel="noopener"
-                    class="cyber-link">
- 
-                    Cyber Creative
- 
-                </a>
- 
-            </p>
- 
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener"><i class="ri-instagram-fill"></i></a>
+                <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener"><i class="ri-facebook-fill"></i></a>
+                <a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://twitter.com/theflashlab" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a>
+                <a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener"><i class="ri-youtube-fill"></i></a>
+            </div>
         </div>
- 
-    </footer>
+        <div class="hide-on-mobile">
+            <h4 class="footer-head">Navigation</h4>
+            <ul class="footer-list">
+                <li><a href="../../about.html"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                <li><a href="../../services.html"><i class="ri-arrow-right-s-line"></i>Services</a></li>
+                <li><a href="../../portfolio.html"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li>
+                <li><a href="../../clients.html"><i class="ri-arrow-right-s-line"></i>Clients</a></li>
+                <li><a href="../../team.html"><i class="ri-arrow-right-s-line"></i>Teams</a></li>
+                <li><a href="../../career.html"><i class="ri-arrow-right-s-line"></i>Careers</a></li>
+                <li><a href="../../connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li>
+            </ul>
+        </div>
+        <div class="hide-on-mobile">
+            <h4 class="footer-head">Services</h4>
+            <ul class="footer-list">
+                <li><a href="../../html/services/outdoor-print-ads.html"><i class="ri-arrow-right-s-line"></i>Outdoor &amp; Print</a></li>
+                <li><a href="../../html/services/digital-advertising.html"><i class="ri-arrow-right-s-line"></i>Digital Advertising</a></li>
+                <li><a href="../../html/services/seo-sem-marketing.html"><i class="ri-arrow-right-s-line"></i>SEO / SEM</a></li>
+                <li><a href="../../html/services/social-media-management.html"><i class="ri-arrow-right-s-line"></i>Social Media</a></li>
+                <li><a href="../../html/services/product-design-strategies.html"><i class="ri-arrow-right-s-line"></i>Product Design</a></li>
+                <li><a href="../../html/services/web-app-development.html"><i class="ri-arrow-right-s-line"></i>Web &amp; App Dev</a></li>
+                <li><a href="../../html/services/ecommerce.html"><i class="ri-arrow-right-s-line"></i>E-Commerce</a></li>
+                <li><a href="../../html/services/event-production.html"><i class="ri-arrow-right-s-line"></i>Event Production</a></li>
+            </ul>
+        </div>
+        <div class="hide-on-mobile">
+            <h4 class="footer-head">Join Us</h4>
+            <ul class="footer-list">
+                <li><a href="../../career.html#open-positions" data-open-role="intern"><i class="ri-arrow-right-s-line"></i>Intern</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="seo-expert"><i class="ri-arrow-right-s-line"></i>SEO Expert</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="social-media-manager"><i class="ri-arrow-right-s-line"></i>Social Media Manager</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="graphic-designer"><i class="ri-arrow-right-s-line"></i>Graphic Designer</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="web-developer"><i class="ri-arrow-right-s-line"></i>Web Developer</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="animation-designer"><i class="ri-arrow-right-s-line"></i>Animation Designer</a></li>
+                <li><a href="../../career.html#open-positions" data-open-role="app-developer"><i class="ri-arrow-right-s-line"></i>App Developer</a></li>
+            </ul>
+        </div>
+        <div class="hide-on-mobile">
+            <h4 class="footer-head">Service Links</h4>
+            <ul class="footer-list">
+                <li><a href="../../team.html"><i class="ri-arrow-right-s-line"></i>Team Blogs</a></li>
+                <li><a href="https://parashootstudio.com" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Production</a></li>
+                <li><a href="https://backstagexchange.com" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Event Management</a></li>
+                <li><a href="https://Strobenightlife.com" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Strobe Nightlife</a></li>
+                <li><a href="https://www.cybercreative.in" target="_blank" rel="noopener"><i class="ri-arrow-right-s-line"></i>Web Development &amp; IoT</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="footer-head">Contact</h4>
+            <div class="footer-contact">
+                <p><i class="ri-map-pin-2-fill"></i><a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa" target="_blank" rel="noopener">G26 Vikrant Complex,<br>Margao, Goa, India</a></p>
+                <p><i class="ri-phone-fill"></i><a href="tel:+919923580023">+91 99235 80023</a></p>
+                <p><i class="ri-mail-fill"></i><a href="mailto:contact@flashlabcreative.com">contact@flashlabcreative.com</a></p>
+                <p><i class="ri-time-fill"></i><span>Mon &ndash; Sat: 9am &ndash; 6pm IST</span></p>
+                <a href="../../connect.html" class="footer-cta">Start a Project <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">Copyright &copy; 2026 <a href="../../index.html" class="flashlab-link">Flashlab Creative</a></p>
+        <p class="footer-credit">Website Crafted by <a href="https://cybercreative.in/" target="_blank" rel="noopener" class="cyber-link">Cyber Creative</a></p>
+    </div>
+</footer>
+-->
+<site-footer></site-footer>
   <button class="back-top" id="backTop" aria-label="Back to top"><i class="ri-arrow-up-line"></i></button>
   <script src="../../js/main.js"></script>
 </body>
