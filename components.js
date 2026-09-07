@@ -232,6 +232,7 @@ class SiteFooter extends HTMLElement {
                 <li><a href="${ROOT}team.html"><i class="ri-arrow-right-s-line"></i>Teams</a></li>
                 <li><a href="${ROOT}career.html"><i class="ri-arrow-right-s-line"></i>Careers</a></li>
                 <li><a href="${ROOT}connect.html"><i class="ri-arrow-right-s-line"></i>Connect</a></li>
+                <li><a href="${ROOT}story.html"><i class="ri-arrow-right-s-line"></i>Story</a></li>
             </ul>
         </div>
 

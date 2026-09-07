@@ -14,174 +14,165 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100;200;300;400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages/portfolio.css">
+  <link rel="stylesheet" href="css/pages/about.css">
 
   <style>
-    /* ── COMING SOON HERO ── */
-    .cs-hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      background: var(--bg);
-      padding: 220px 5% 100px;
-    }
-
-    /* faint watermark text */
-    .cs-hero::before {
-      content: 'STORY';
-      position: absolute;
-      right: -2%;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(7rem, 18vw, 18rem);
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255,255,255,0.04);
-      pointer-events: none;
-      white-space: nowrap;
-      line-height: 1;
-      z-index: 0;
-    }
-
-    /* ambient blobs */
-    .cs-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .cs-blob-1 {
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(245,109,67,0.12) 0%, transparent 70%);
-      top: -100px; left: -150px;
-    }
-    .cs-blob-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(168,232,50,0.08) 0%, transparent 70%);
-      bottom: -80px; right: -100px;
-    }
-
-    .cs-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 720px;
+    /* ── STORY CTA — location, socials & mini contact form ── */
+    .story-cta-inner {
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .cs-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #a8e832;
-      margin-bottom: 28px;
-    }
-    .cs-eyebrow span {
-      display: inline-block;
-      width: 28px;
-      height: 2px;
-      background: #a8e832;
+    .story-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 50px;
+      text-align: left;
+      margin-top: 46px;
+      position: relative;
+      z-index: 1;
     }
 
-    .cs-heading {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 9vw, 8rem);
-      line-height: 0.95;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #f0eee8;
-      margin-bottom: 8px;
-    }
-    .cs-heading em {
-      font-style: normal;
-      color: #F56D43;
-      text-transform: uppercase;
-    }
-
-    .cs-tag {
-      display: inline-block;
-      background: rgba(245,109,67,0.12);
-      border: 1px solid rgba(245,109,67,0.3);
-      color: #F56D43;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 3px;
-      padding: 8px 24px;
-      border-radius: 100px;
-      margin-bottom: 32px;
-    }
-
-    .cs-body {
-      font-size: 1rem;
-      color: #888;
-      line-height: 1.75;
-      max-width: 520px;
-      margin: 0 auto 44px;
-    }
-
-    .cs-actions {
+    .story-cta-info {
       display: flex;
-      gap: 16px;
-      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .story-cta-info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .story-cta-info-item i {
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .story-cta-info-label {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .story-cta-info-item a,
+    .story-cta-info-item span {
+      color: var(--text);
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    .story-cta-info-item a:hover {
+      color: var(--accent);
+    }
+
+    .story-cta-socials {
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 6px;
     }
-
-    .cs-btn-primary {
-      display: inline-flex;
+    .story-cta-socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: #F56D43;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
+      justify-content: center;
+      color: var(--muted);
+      font-size: .95rem;
+      transition: color .2s, border-color .2s, background .2s;
     }
-    .cs-btn-primary:hover { background: #e05c32; transform: translateY(-2px); }
-
-    .cs-btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: #f0eee8;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-      text-decoration: none;
-      transition: border-color .2s, background .2s, transform .2s;
+    .story-cta-socials a:hover {
+      color: #0a0a0f;
+      background: var(--accent2);
+      border-color: var(--accent2);
     }
-    .cs-btn-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
-    /* divider line before footer */
-    .cs-divider {
+    .story-cta-team-btn {
+      align-self: flex-start;
+      margin-top: 10px;
+    }
+
+    .story-cta-form {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+    .story-cta-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .story-cta-form-group label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .story-cta-form-group input,
+    .story-cta-form-group textarea {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: .9rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .story-cta-form-group input:focus,
+    .story-cta-form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .story-cta-form-btn {
+      justify-content: center;
       width: 100%;
-      height: 1px;
-      background: rgba(255,255,255,0.06);
+      border: none;
+      cursor: pointer;
+      font-size: .88rem;
+    }
+    .story-cta-form-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    .story-cta-form-note {
+      font-size: .8rem;
+      min-height: 1.1em;
+      color: var(--muted);
       margin: 0;
     }
+    .story-cta-form-note.error {
+      color: #F56D43;
+    }
+    .story-cta-form-thankyou {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: .9rem;
+    }
+    .story-cta-form-thankyou.active {
+      display: flex;
+    }
 
-    /* light mode tweaks */
-    [data-theme="light"] .cs-hero { background: #f1f5f9; }
-    [data-theme="light"] .cs-hero::before { -webkit-text-stroke-color: rgba(0,0,0,0.04); }
-    [data-theme="light"] .cs-heading { color: #0a0a0f; }
-    [data-theme="light"] .cs-body { color: #64748b; }
-    [data-theme="light"] .cs-btn-ghost { color: #0a0a0f; border-color: rgba(0,0,0,0.15); }
-    [data-theme="light"] .cs-btn-ghost:hover { background: rgba(0,0,0,0.04); }
-    [data-theme="light"] .cs-divider { background: rgba(0,0,0,0.08); }
+    @media (max-width: 900px) {
+      .story-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
   </style>
 </head>
 
@@ -289,25 +280,375 @@
 -->
 <site-header></site-header>
 
-  <!-- COMING SOON HERO -->
-  <section class="cs-hero">
-    <div class="cs-blob cs-blob-1"></div>
-    <div class="cs-blob cs-blob-2"></div>
-    <div class="cs-inner">
-      <div class="cs-eyebrow"><span></span>Our Story<span></span></div>
-      <h1 class="cs-heading">Something<br><em>Amazing</em><br>Is Coming</h1>
-      <div class="cs-tag">Coming Soon</div>
-      <p class="cs-body">
-        We are crafting the story behind Flashlab Creative &mdash; our journey, our people, and the passion that drives everything we create. Check back soon.
-      </p>
-      <div class="cs-actions">
-        <a href="about.html" class="cs-btn-primary">About The Agency <i class="ri-arrow-right-line"></i></a>
-        <a href="index.html" class="cs-btn-ghost"><i class="ri-arrow-left-line"></i> Back to Home</a>
+  <!-- OUR JOURNEY — moved here from the About Agency page -->
+    <section class="port-section alt" id="port-founders">
+      <div class="sr" style="margin-bottom:40px; ">
+        <span class="sec-eyebrow" style="padding-top:150px;"> Our Journey</span>
+        <h2 class="sec-heading">From First Sketch<br><em>to Studio.</em></h2>
+        <p class="sec-sub"> A decade-plus of milestones, from freelance beginnings to a full creative agency serving 350+ brands.</p>
+      </div>
+
+      <div class="journey-timeline">
+        <nav class="journey-rail" id="journeyRail" aria-label="Company timeline">
+          <div class="journey-rail-line"><span class="journey-rail-fill" id="journeyRailFill"></span></div>
+          <a href="#milestone-groundwork" class="journey-rail-item active" data-milestone="groundwork">
+            <span class="journey-rail-dot"></span><span class="journey-rail-label">2013&ndash;2016</span>
+          </a>
+          <a href="#milestone-launch" class="journey-rail-item" data-milestone="launch">
+            <span class="journey-rail-dot"></span><span class="journey-rail-label">2017</span>
+          </a>
+          <a href="#milestone-growth" class="journey-rail-item" data-milestone="growth">
+            <span class="journey-rail-dot"></span><span class="journey-rail-label">2020</span>
+          </a>
+          <a href="#milestone-expansion" class="journey-rail-item" data-milestone="expansion">
+            <span class="journey-rail-dot"></span><span class="journey-rail-label">2023</span>
+          </a>
+          <a href="#milestone-today" class="journey-rail-item" data-milestone="today">
+            <span class="journey-rail-dot"></span><span class="journey-rail-label">Today</span>
+          </a>
+        </nav>
+
+        <div class="journey-milestones">
+
+          <!-- MILESTONE 1 — 2013–2016: The Groundwork -->
+          <article class="journey-milestone sr" id="milestone-groundwork" data-milestone="groundwork">
+            <div class="journey-milestone-head">
+              <span class="journey-year">2013&ndash;2016</span>
+              <h3 class="journey-title">The Groundwork</h3>
+              <p class="journey-desc"><em></em> Before there was a studio, there were two freelancers building the skills, client relationships, and creative instincts that Flashlab would later run on.</p>
+            </div>
+
+            <!-- ANKITH KEDAR -->
+            <div class="founder-block">
+              <div class="sr" style="margin-bottom:28px;">
+                <span class="sec-eyebrow"> Before Flashlab</span>
+                <h2 class="sec-heading"><em>2013 &ndash; 2016</em></h2>
+                <p class="sec-sub">Where it all started.</p>
+              </div>
+
+              <div class="founder-row sr">
+                <div class="founder-portrait-sm">
+                  <img src="images/ankith-team-portrait-1.jpg" alt="Ankith Kedar" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;">
+                </div>
+                <div class="founder-info-compact">
+                  <div class="founder-header">
+                    <div class="founder-name-sm">Ankith<br>Kedar</div>
+                    <div class="founder-badge-sm"><i class="ri-award-line"></i> Creative Director &amp; Brand Strategist</div>
+                  </div>
+                  <div class="founder-role-sm">Founder &middot; Creative Director &middot; Brand Strategist</div>
+                  <p class="founder-bio-sm">Before Flashlab, Ankith worked across design, branding and independent creative projects, shaping the visual thinking and creative approach that would later define the agency.</p>
+                  <div class="founder-meta-row">
+                    <div class="founder-meta-item"><i class="ri-calendar-check-line"></i> Since 2013</div>
+                    <div class="founder-meta-item"><i class="ri-map-pin-2-line"></i> Margao, Goa</div>
+                      <!-- div class="founder-meta-item"><i class="ri-briefcase-4-line"></i> 4 years pre-Flashlab</div> -->
+                    <div class="founder-meta-item"><i class="ri-palette-line"></i> Brand &amp; Visual Design</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="founder-works-label sr"><span>Selected Early Works &middot; 2013&ndash;2016</span></div>
+              <div class="founder-grid sr">
+
+                <div class="f-card">
+                  <div class="f-img bg-e"><img src="images/timeline/southdeck4.jpg" alt="Visual Identity" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2013</div>
+                    <div class="f-title">Visual Identity Local Retailer</div>
+                    <div class="f-cat">Branding &middot; Signage</div>
+                  </div>
+                </div>
+               
+                <div class="f-card">
+                  <div class="f-img bg-c"><img src="images/timeline/mambo1.jpg" alt="Event Collateral" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2015</div>
+                    <div class="f-title">Event Collateral Sunburn Pre-Party</div>
+                    <div class="f-cat">Print &middot; Event Design</div>
+                  </div>
+                </div>
+                <div class="f-card">
+                  <div class="f-img bg-d"><img src="images/timeline/southdeck3.jpg" alt="Portfolio Website" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2015</div>
+                    <div class="f-title">Portfolio Website Personal</div>
+                    <div class="f-cat">Web Design</div>
+                  </div>
+                </div>
+
+                 <div class="f-card">
+                  <div class="f-img bg-b"><img src="images/timeline/2020-bartend.png" alt="Cafe Brand Identity" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2016</div>
+                    <div class="f-title">Cafe Brand Identity North Goa</div>
+                    <div class="f-cat">Branding &middot; Print</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="founder-divider">
+              <div class="founder-divider-icon"><i class="ri-heart-line"></i></div>
+            </div>
+
+            <!-- ANURAJ KEDAR -->
+            <div class="founder-block">
+              <div class="sr" style="margin-bottom:28px;">
+                <span class="sec-eyebrow"> Co-Founder's Work</span>
+                <h2 class="sec-heading"><em>Early Highlights</em></h2>
+                <p class="sec-sub">The technical and strategic mind behind Flashlab's digital offering from code to campaigns.</p>
+              </div>
+
+              <div class="founder-row reverse sr">
+                <div class="founder-portrait-sm">
+                  <img src="images/anuraj-team-portrait.jpg" alt="Anuraj Kedar" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;">
+                </div>
+                <div class="founder-info-compact">
+                  <div class="founder-header">
+                    <div class="founder-name-sm">Anuraj<br>Kedar</div>
+                    <div class="founder-badge-sm"><i class="ri-code-s-slash-line"></i> Digital Strategy &amp;  Development Lead</div>
+                  </div>
+                  <div class="founder-role-sm">Co-Founder &middot; Digital Strategist &middot; Dev Lead</div>
+                  <p class="founder-bio-sm">Before Flashlab grew into a full service agency, Anuraj worked across web development, SEO, digital advertising and growth strategy, building the technical and performance driven side of the business.</p>
+                  <div class="founder-meta-row">
+                    <div class="founder-meta-item"><i class="ri-calendar-check-line"></i> Since 2014</div>
+                    <div class="founder-meta-item"><i class="ri-map-pin-2-line"></i> Margao, Goa</div>
+                    <div class="founder-meta-item"><i class="ri-code-line"></i> Digital,Web &amp; Growth</div>
+                    <!-- <div class="founder-meta-item"><i class="ri-bar-chart-2-line"></i> SEO &middot; Ads &middot; Analytics</div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="founder-works-label sr"><span>Selected Early Works &middot; 2014&ndash;2016</span></div>
+              <div class="founder-grid sr">
+
+                <div class="f-card">
+                  <div class="f-img bg-a" style="filter:hue-rotate(90deg)"><img src="images/timeline/2018-blasterjaxx.png" alt="First CMS Website" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2014</div>
+                    <div class="f-title">First CMS Website Services Co.</div>
+                    <div class="f-cat">Web Dev</div>
+                  </div>
+                </div>
+
+                <div class="f-card">
+                  <div class="f-img bg-g"><img src="images/timeline/2019pipa.png" alt="Mobile Web App" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2015</div>
+                    <div class="f-title">Mobile Web App Ticketing System</div>
+                    <div class="f-cat">Web Dev &middot; UX</div>
+                  </div>
+                </div>
+                <div class="f-card">
+                  <div class="f-img bg-h"><img src="images/timeline/2018-cyrus.png" alt="Google Ads Campaign" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2015</div>
+                    <div class="f-title">Google Ads Campaign Retail Brand</div>
+                    <div class="f-cat">Digital Ads &middot; SEM</div>
+                  </div>
+                </div>
+                
+                <div class="f-card">
+                  <div class="f-img bg-f"><img src="images/timeline/2019-deltin-life.png" alt="SEO Strategy" style="width:100%; height:100%; object-fit:cover;"></div>
+                  <div class="f-body">
+                    <div class="f-year">2016</div>
+                    <div class="f-title">SEO Strategy Hospitality Client</div>
+                    <div class="f-cat">SEO &middot; Analytics</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- MILESTONE 2 — 2017: Flashlab Begins -->
+          <article class="journey-milestone sr" id="milestone-launch" data-milestone="launch">
+            <div class="journey-milestone-head">
+              <span class="journey-year">2017</span>
+              <h3 class="journey-title">Flashlab Begins</h3>
+              <p class="journey-desc"><em></em> Ankith and Anuraj turned years of freelance experience into a registered studio in Margao. Flashlab Creative opened its doors two founders, one shared laptop, and a plan to bring proper creative work to Goa.</p>
+            </div>
+            <div class="journey-highlight">
+              <div class="journey-highlight-icon"><i class="ri-flashlight-line"></i></div>
+              <div class="journey-highlight-text">Flashlab Creative founded in Margao, Goa.</div>
+            </div>
+          </article>
+
+          <!-- MILESTONE 3 — 2020: Growing the Team & Client Base -->
+          <article class="journey-milestone sr" id="milestone-growth" data-milestone="growth">
+            <div class="journey-milestone-head">
+              <span class="journey-year">2020</span>
+              <h3 class="journey-title">Growing the Team &amp; Client Base</h3>
+              <p class="journey-desc"><em></em> What started as a two person studio grew into a small creative team, taking on hospitality, F&amp;B, and retail clients across Goa and building the roster that would define Flashlab's early reputation.</p>
+            </div>
+            <div class="journey-highlight">
+              <div class="journey-highlight-icon"><i class="ri-team-line"></i></div>
+              <div class="journey-highlight-text">Team and client roster growing steadily across Goa.</div>
+            </div>
+          </article>
+
+          <!-- MILESTONE 4 — 2023: Expanding Our Creative Capabilities -->
+          <article class="journey-milestone sr" id="milestone-expansion" data-milestone="expansion">
+            <div class="journey-milestone-head">
+              <span class="journey-year">2023</span>
+              <h3 class="journey-title">Expanding Our Creative Capabilities</h3>
+              <p class="journey-desc"><em></em> Flashlab added in house photography, videography, and performance marketing capability becoming a genuine 360&deg; creative partner instead of a single service studio.</p>
+            </div>
+            <div class="journey-highlight">
+              <div class="journey-highlight-icon"><i class="ri-camera-3-line"></i></div>
+              <div class="journey-highlight-text">360&deg; in-house production: photo, video, and performance media.</div>
+            </div>
+          </article>
+
+          <!-- MILESTONE 5 — Today -->
+          <article class="journey-milestone sr" id="milestone-today" data-milestone="today">
+            <div class="journey-milestone-head">
+              <span class="journey-year">Today</span>
+              <h3 class="journey-title">10+ Years, 350+ Brands and Still Building</h3>
+              <p class="journey-desc"><em></em> From that first shared laptop to Goa's leading creative agency a full team, hundreds of brands served, and hundreds of projects delivered. And we're just getting started.</p>
+            </div>
+            <div class="journey-highlight">
+              <div class="journey-highlight-icon"><i class="ri-rocket-2-line"></i></div>
+              <div class="journey-highlight-text">Still building the next chapter starts with your project.</div>
+            </div>
+            <div class="journey-stats">
+              <div class="journey-stat"><span class="journey-stat-num">10+</span><span class="journey-stat-label">Years</span></div>
+              <div class="journey-stat-divider"></div>
+              <div class="journey-stat"><span class="journey-stat-num">350+</span><span class="journey-stat-label">Brands</span></div>
+              <div class="journey-stat-divider"></div>
+              <div class="journey-stat"><span class="journey-stat-num">500+</span><span class="journey-stat-label">Projects</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Journey timeline rail — scroll-spy + progress fill + smooth scroll.
+      // Scoped, defensive, no external dependencies.
+      (function () {
+        var milestones = document.querySelectorAll('.journey-milestone');
+        var railItems = document.querySelectorAll('.journey-rail-item');
+        var fill = document.getElementById('journeyRailFill');
+        var timeline = document.querySelector('.journey-timeline');
+        if (!milestones.length || !railItems.length) return;
+
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function setActive(name) {
+          railItems.forEach(function (item) {
+            var isActive = item.dataset.milestone === name;
+            item.classList.toggle('active', isActive);
+            if (isActive) { item.setAttribute('aria-current', 'true'); }
+            else { item.removeAttribute('aria-current'); }
+          });
+        }
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) { setActive(entry.target.dataset.milestone); }
+            });
+          }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+          milestones.forEach(function (m) { observer.observe(m); });
+        }
+
+        function updateFill() {
+          if (!fill || !timeline || window.innerWidth <= 900) return;
+          var rect = timeline.getBoundingClientRect();
+          var vh = window.innerHeight;
+          var total = rect.height - vh * 0.4;
+          var passed = (vh * 0.5) - rect.top;
+          var pct = Math.min(100, Math.max(0, total > 0 ? (passed / total) * 100 : 0));
+          fill.style.height = pct + '%';
+        }
+        window.addEventListener('scroll', updateFill, { passive: true });
+        window.addEventListener('resize', updateFill);
+        updateFill();
+
+        railItems.forEach(function (item) {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.getElementById('milestone-' + item.dataset.milestone);
+            if (!target) return;
+            var y = target.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
+          });
+        });
+      })();
+    </script>
+
+  <div class="join-cta">
+    <div class="story-cta-inner">
+      <span class="sec-eyebrow" style="justify-content:center;display:flex;">&mdash; Let's Create Together</span>
+      <h2>Have a project in mind? <em>Let's talk.</em></h2>
+      <p>Based in Margao, Goa &mdash; serving clients locally and nationally. We'd love to hear your idea.</p>
+
+      <div class="story-cta-grid">
+        <div class="story-cta-info sr-l">
+          <div class="story-cta-info-item">
+            <i class="ri-map-pin-2-fill"></i>
+            <div>
+              <span class="story-cta-info-label">Studio</span>
+              <a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa" target="_blank" rel="noopener">G26 Vikrant Complex,<br>Margao, Goa, India</a>
+            </div>
+          </div>
+          <div class="story-cta-info-item">
+            <i class="ri-phone-fill"></i>
+            <div>
+              <span class="story-cta-info-label">Call</span>
+              <a href="tel:+919923580023">+91 99235 80023</a>
+            </div>
+          </div>
+          <div class="story-cta-info-item">
+            <i class="ri-mail-fill"></i>
+            <div>
+              <span class="story-cta-info-label">Email</span>
+              <a href="mailto:contact@flashlabcreative.com">contact@flashlabcreative.com</a>
+            </div>
+          </div>
+          <div class="story-cta-info-item">
+            <i class="ri-time-fill"></i>
+            <div>
+              <span class="story-cta-info-label">Hours</span>
+              <span>Mon &ndash; Sat: 9am &ndash; 6pm IST</span>
+            </div>
+          </div>
+
+          <div class="story-cta-socials">
+            <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+            <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://twitter.com/theflashlab" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="ri-twitter-x-fill"></i></a>
+            <a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+          </div>
+
+          <a href="team.html" class="btn-ghost story-cta-team-btn">Meet the Team <i class="ri-team-line"></i></a>
+        </div>
+
+        <form class="story-cta-form sr-r" id="storyContactForm" novalidate>
+          <div class="story-cta-form-group">
+            <label for="story-field-name">Name</label>
+            <input type="text" id="story-field-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="story-cta-form-group">
+            <label for="story-field-email">Email</label>
+            <input type="email" id="story-field-email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="story-cta-form-group">
+            <label for="story-field-message">Message</label>
+            <textarea id="story-field-message" name="message" rows="4" placeholder="Tell us a little about your project"></textarea>
+          </div>
+          <button type="submit" class="btn-primary story-cta-form-btn" id="storyFormBtn"><i class="ri-send-plane-fill"></i> Get In Touch</button>
+          <p class="story-cta-form-note" id="storyFormNote"></p>
+          <div class="story-cta-form-thankyou" id="storyFormThankyou">
+            <i class="ri-checkbox-circle-fill"></i>
+            <span>Thanks<span id="story-ty-name"></span> &mdash; we'll be in touch soon.</span>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
-
-  <div class="cs-divider"></div>
+  </div>
 
   <!-- FOOTER -->
   <!-- ============================================================
@@ -411,6 +752,8 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/pages/story.js"></script>
 </body>
 
 </html>
