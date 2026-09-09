@@ -757,7 +757,7 @@
     .mcta-col:last-child {
       padding-right: 7%;
       text-align: center;
-      align-items: flex-end;
+      align-items: center;
     }
 
     .mcta-divider-line {

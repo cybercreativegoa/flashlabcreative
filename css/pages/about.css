@@ -509,7 +509,7 @@
     .why-card-num {
       font-family: var(--font-head);
       font-size: 3rem;
-      color: rgba(168, 232, 50, .18);
+      color: rgba(168, 230, 53, 0.502);
       line-height: 1;
       margin-bottom: 12px;
     }

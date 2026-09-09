@@ -18,160 +18,32 @@
   <link rel="stylesheet" href="css/pages/about.css">
 
   <style>
-    /* ── STORY CTA — location, socials & mini contact form ── */
-    .story-cta-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .story-cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 50px;
-      text-align: left;
-      margin-top: 46px;
+    /* ── JOIN CTA — social icon row below the buttons ── */
+    .join-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
       position: relative;
       z-index: 1;
     }
-
-    .story-cta-info {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .story-cta-info-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .story-cta-info-item i {
-      color: var(--accent);
-      font-size: 1.15rem;
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-    .story-cta-info-label {
-      display: block;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-    .story-cta-info-item a,
-    .story-cta-info-item span {
-      color: var(--text);
-      font-size: .92rem;
-      line-height: 1.5;
-    }
-    .story-cta-info-item a:hover {
-      color: var(--accent);
-    }
-
-    .story-cta-socials {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-    .story-cta-socials a {
-      width: 38px;
-      height: 38px;
+    .join-socials a {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--muted);
-      font-size: .95rem;
+      font-size: 1rem;
       transition: color .2s, border-color .2s, background .2s;
     }
-    .story-cta-socials a:hover {
+    .join-socials a:hover {
       color: #0a0a0f;
       background: var(--accent2);
       border-color: var(--accent2);
-    }
-
-    .story-cta-team-btn {
-      align-self: flex-start;
-      margin-top: 10px;
-    }
-
-    .story-cta-form {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      text-align: left;
-    }
-    .story-cta-form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .story-cta-form-group label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .story-cta-form-group input,
-    .story-cta-form-group textarea {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 14px;
-      color: var(--text);
-      font-size: .9rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-    .story-cta-form-group input:focus,
-    .story-cta-form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .story-cta-form-btn {
-      justify-content: center;
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      font-size: .88rem;
-    }
-    .story-cta-form-btn:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
-    .story-cta-form-note {
-      font-size: .8rem;
-      min-height: 1.1em;
-      color: var(--muted);
-      margin: 0;
-    }
-    .story-cta-form-note.error {
-      color: #F56D43;
-    }
-    .story-cta-form-thankyou {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      color: var(--accent);
-      font-size: .9rem;
-    }
-    .story-cta-form-thankyou.active {
-      display: flex;
-    }
-
-    @media (max-width: 900px) {
-      .story-cta-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
     }
   </style>
 </head>
@@ -579,74 +451,19 @@
     </script>
 
   <div class="join-cta">
-    <div class="story-cta-inner">
-      <span class="sec-eyebrow" style="justify-content:center;display:flex;">&mdash; Let's Create Together</span>
-      <h2>Have a project in mind? <em>Let's talk.</em></h2>
-      <p>Based in Margao, Goa &mdash; serving clients locally and nationally. We'd love to hear your idea.</p>
-
-      <div class="story-cta-grid">
-        <div class="story-cta-info sr-l">
-          <div class="story-cta-info-item">
-            <i class="ri-map-pin-2-fill"></i>
-            <div>
-              <span class="story-cta-info-label">Studio</span>
-              <a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa" target="_blank" rel="noopener">G26 Vikrant Complex,<br>Margao, Goa, India</a>
-            </div>
-          </div>
-          <div class="story-cta-info-item">
-            <i class="ri-phone-fill"></i>
-            <div>
-              <span class="story-cta-info-label">Call</span>
-              <a href="tel:+919923580023">+91 99235 80023</a>
-            </div>
-          </div>
-          <div class="story-cta-info-item">
-            <i class="ri-mail-fill"></i>
-            <div>
-              <span class="story-cta-info-label">Email</span>
-              <a href="mailto:contact@flashlabcreative.com">contact@flashlabcreative.com</a>
-            </div>
-          </div>
-          <div class="story-cta-info-item">
-            <i class="ri-time-fill"></i>
-            <div>
-              <span class="story-cta-info-label">Hours</span>
-              <span>Mon &ndash; Sat: 9am &ndash; 6pm IST</span>
-            </div>
-          </div>
-
-          <div class="story-cta-socials">
-            <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
-            <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-            <a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="https://twitter.com/theflashlab" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="ri-twitter-x-fill"></i></a>
-            <a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
-          </div>
-
-          <a href="team.html" class="btn-ghost story-cta-team-btn">Meet the Team <i class="ri-team-line"></i></a>
-        </div>
-
-        <form class="story-cta-form sr-r" id="storyContactForm" novalidate>
-          <div class="story-cta-form-group">
-            <label for="story-field-name">Name</label>
-            <input type="text" id="story-field-name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="story-cta-form-group">
-            <label for="story-field-email">Email</label>
-            <input type="email" id="story-field-email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="story-cta-form-group">
-            <label for="story-field-message">Message</label>
-            <textarea id="story-field-message" name="message" rows="4" placeholder="Tell us a little about your project"></textarea>
-          </div>
-          <button type="submit" class="btn-primary story-cta-form-btn" id="storyFormBtn"><i class="ri-send-plane-fill"></i> Get In Touch</button>
-          <p class="story-cta-form-note" id="storyFormNote"></p>
-          <div class="story-cta-form-thankyou" id="storyFormThankyou">
-            <i class="ri-checkbox-circle-fill"></i>
-            <span>Thanks<span id="story-ty-name"></span> &mdash; we'll be in touch soon.</span>
-          </div>
-        </form>
-      </div>
+    <span class="sec-eyebrow" style="justify-content:center;display:flex;">&mdash; Let's Create Together</span>
+    <h2>Have a project in mind? <em>Let's talk.</em></h2>
+    <p>Based in Margao, Goa serving clients locally and nationally. We'd love to hear your idea.</p>
+    <div class="join-btns">
+      <a href="connect.html" class="btn-primary">Get In Touch <i class="ri-arrow-right-line"></i></a>
+      <a href="https://share.google/ZrbY5A3idWXAzXBzI" target="_blank" rel="noopener" class="btn-ghost">Get Directions <i class="ri-map-pin-line"></i></a>
+    </div>
+    <div class="join-socials">
+      <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+      <a href="https://www.facebook.com/flashlab.creative/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+      <a href="https://www.linkedin.com/company/flashlabcreative" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+      <a href="https://twitter.com/theflashlab" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="ri-twitter-x-fill"></i></a>
+      <a href="https://www.youtube.com/channel/UCuFtcVt_Yp9CZ82UG6pm-pg" target="_blank" rel="noopener" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
     </div>
   </div>
 
@@ -752,8 +569,6 @@
   </button>
 
   <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="js/pages/story.js"></script>
 </body>
 
 </html>

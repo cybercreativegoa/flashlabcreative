@@ -2276,20 +2276,32 @@
 
     /* === 11. FOUNDER QUOTES === */
     .founder-quote-section {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      gap: 28px;
       width: 100vw;
       margin-left: calc(-1 * ((100vw - 100%) / 2));
       padding: 64px 5%;
       position: relative;
       background: var(--bg2);
       box-sizing: border-box;
+      overflow: hidden;
     }
 
+    /* scrolling viewport — auto-slide + swipe/drag, same track for every breakpoint */
+    .fq-track {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 28px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .fq-track::-webkit-scrollbar { display: none; }
+
     .founder-quote {
-      flex: 1;
+      flex: 0 0 calc(50% - 14px);
+      scroll-snap-align: start;
       padding: 44px 40px;
       text-align: left;
       position: relative;
@@ -2301,7 +2313,7 @@
       box-shadow:
         0 4px 24px rgba(0, 0, 0, 0.28),
         0 1px 0 rgba(168, 232, 50, 0.08) inset;
-      transition: transform .3s ease, box-shadow .3s ease;
+      transition: transform .1s ease, box-shadow .1s ease;
       overflow: hidden;
     }
 
@@ -2334,8 +2346,6 @@
       pointer-events: none;
       user-select: none;
     }
-
-    .fq-vdivider { display: none; }
 
     .fq-icon {
       font-size: 2.4rem;
@@ -2591,19 +2601,11 @@
         align-items: center;
         justify-content: center;
       }
-      .founder-quote-section {
-        display: flex !important;
-        flex-direction: row !important;
+      .founder-quote-section { padding: 40px 5% 0 !important; }
+      .fq-track {
         flex-wrap: nowrap !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
         gap: 16px !important;
-        padding: 40px 5% 60px !important;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
       }
-      .founder-quote-section::-webkit-scrollbar { display: none; }
-      .fq-vdivider { display: none; }
       .founder-quote { padding: 36px 28px; }
       .founder-quote blockquote { font-size: 1rem; }
       .made-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -2974,27 +2976,55 @@
    18. FOUNDER-QUOTE SLIDER (mobile)
    ============================================================ */
 
-/* controls hidden on desktop; the section stays a normal flex row */
-.fq-nav { display: none; }
+/* ---- nav row (arrows + dots) — same on every breakpoint ---- */
+.fq-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px 0 0;
+  position: relative;
+  z-index: 3;
+}
+
+.fq-arrow {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a8e832;
+  color: #0a0a0f;
+  box-shadow: 0 6px 16px rgba(168, 232, 50, .32);
+  transition: transform .18s ease, opacity .18s ease, background .18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.fq-arrow svg { width: 22px; height: 22px; display: block; }
+.fq-arrow:hover { transform: translateY(-2px); }
+.fq-arrow:active { transform: scale(.9); }
+.fq-arrow:disabled { opacity: .3; cursor: default; box-shadow: none; }
+
+.fq-dots { display: flex; align-items: center; gap: 8px; }
+.fq-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(168, 232, 50, .3);
+  cursor: pointer;
+  transition: width .22s ease, background .22s ease;
+}
+.fq-dot.active { width: 22px; border-radius: 5px; background: #a8e832; }
+
+/* light theme arrow contrast */
+[data-theme="light"] .fq-arrow { color: #0a0a0f; }
 
 @media (max-width: 768px) {
-
-  /* turn the section into a horizontal, snap-scrolling track */
-  .founder-quote-section {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    padding: 40px 6% 20px;
-    scrollbar-width: none;          /* Firefox */
-  }
-  .founder-quote-section::-webkit-scrollbar { display: none; }  /* WebKit */
-
-  .fq-vdivider { display: none; }
 
   /* one card per view, with a small peek of the next */
   .founder-quote {
@@ -3003,56 +3033,8 @@
     margin: 0;
   }
 
-  /* ---- nav row (arrows + dots) under the cards ---- */
-  .fq-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 4px 0 36px;
-    background: var(--bg2);
-    width: 100vw;
-    margin-left: calc(-1 * ((100vw - 100%) / 2));
-    position: relative;
-    z-index: 3;
-  }
-
-  .fq-arrow {
-    width: 46px;
-    height: 46px;
-    flex: none;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #a8e832;
-    color: #0a0a0f;
-    box-shadow: 0 6px 16px rgba(168, 232, 50, .32);
-    transition: transform .18s ease, opacity .18s ease, background .18s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .fq-arrow svg { width: 22px; height: 22px; display: block; }
-  .fq-arrow:active { transform: scale(.9); }
-  .fq-arrow:disabled { opacity: .3; cursor: default; box-shadow: none; }
-
-  .fq-dots { display: flex; align-items: center; gap: 8px; }
-  .fq-dot {
-    width: 8px;
-    height: 8px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: rgba(168, 232, 50, .3);
-    cursor: pointer;
-    transition: width .22s ease, background .22s ease;
-  }
-  .fq-dot.active { width: 22px; border-radius: 5px; background: #a8e832; }
+  .fq-nav { padding: 4px 0 36px; }
 }
-
-/* light theme arrow contrast */
-[data-theme="light"] .fq-arrow { color: #0a0a0f; }
 
 /* ============================================================
    19. SERVICES ZIGZAG TIMELINE
@@ -3843,4 +3825,150 @@
   .clients-section {
     padding-bottom: 32px !important;
   }
+}
+/* ============================================================
+   GLIMPSE OF OUR WORK — F&B / Influencer & Celebrity / Real
+   Estate & Hospitality blocks between "Work That Speaks For
+   Itself" and "Our Impact".
+   ============================================================ */
+.glimpse-section { padding: 70px 0; }
+
+.glimpse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.glimpse-grid-feature {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.glimpse-card {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.glimpse-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .28);
+}
+.glimpse-card-feature { aspect-ratio: 16 / 11; }
+
+.glimpse-card-img { position: absolute; inset: 0; }
+.glimpse-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.glimpse-card:hover .glimpse-card-img img { transform: scale(1.06); }
+
+.glimpse-card-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 20px 18px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .35) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.glimpse-card-tag {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #a8e832;
+}
+.glimpse-card-title {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: .3px;
+}
+
+/* Influencer & celebrity slider */
+.glimpse-influencer .infl-track-outer {
+  overflow: hidden;
+  padding: 6px 0 8px;
+}
+.infl-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 5%;
+}
+.infl-track::-webkit-scrollbar { display: none; }
+
+.infl-card {
+  flex: 0 0 180px;
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 16px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.infl-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 232, 50, .4);
+}
+.infl-card-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 2px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.infl-card-name { font-weight: 700; font-size: .92rem; color: var(--text); }
+.infl-card-cat {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.infl-card-social {
+  margin-top: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(168, 232, 50, .12);
+  color: #a8e832;
+  font-size: .9rem;
+}
+
+.glimpse-nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+@media (max-width: 700px) {
+  .glimpse-grid-feature { grid-template-columns: 1fr; }
+  .infl-card { flex-basis: 150px; }
 }
