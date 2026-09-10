@@ -745,6 +745,11 @@
     /* =====================================================
    MAP SECTION
 ===================================================== */
+    .map-header {
+      padding: 90px 5% 40px;
+      text-align: center;
+    }
+
    /* ── Three-Map Grid ── */
     .map-three-grid {
       display: grid;

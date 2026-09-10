@@ -272,7 +272,8 @@ li, blockquote, input, textarea { cursor: text; }
   padding:        12px;
   margin:         0;
   min-width:      540px;
-  max-width:      90vw;
+  width:          max-content;
+  max-width:      min(96vw, 1060px);
   border-radius:  14px;
   z-index:        99999;
 
@@ -281,9 +282,12 @@ li, blockquote, input, textarea { cursor: text; }
   box-shadow:     0 20px 60px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.07);
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Columns are implicit and sized to their content. Two fixed 1fr tracks
+     used to clip labels once the menu grew past 12 items and spilled into
+     a third column. grid-auto-columns adapts to any item count. */
   grid-template-rows: repeat(6, auto);
   grid-auto-flow: column;
+  grid-auto-columns: max-content;
   gap: 4px 12px;
 }
 
@@ -291,7 +295,8 @@ li, blockquote, input, textarea { cursor: text; }
 .nav-links > li:has(> a[href*="career"]) > ul,
 .nav-links > li:has(> a[href*="portfolio"]) > ul {
   min-width: 260px;
-  grid-template-columns: 1fr;
+  width: max-content;
+  grid-template-columns: minmax(240px, max-content);
   grid-template-rows: auto;
   grid-auto-flow: row;
 }
@@ -319,7 +324,6 @@ li, blockquote, input, textarea { cursor: text; }
 .nav-links ul li {
   list-style: none;
   border-radius: 9px;
-  overflow: hidden;
 }
 .nav-links ul li + li { border-top: 1px solid rgba(0,0,0,0.05); }
 
@@ -578,7 +582,10 @@ li, blockquote, input, textarea { cursor: text; }
   transition: max-height .35s ease;
 }
 .mob-sub.open {
-  max-height: 600px;
+  /* The services submenu holds 17 items (~42px each, ~715px). The old 600px
+     cap silently clipped the last two. Kept generous so adding items later
+     doesn't reintroduce the bug. */
+  max-height: 1200px;
 }
 
 .mob-sub li a {
@@ -1686,3 +1693,31 @@ html, body {
 @media (max-width: 480px) {
   .image-comparison { width: min(100%, 330px); }
 }
+
+
+/* =====================================================================
+   SERVICE SUB-PAGE BREADCRUMBS
+   ===================================================================== */
+.svc-breadcrumb {
+  padding: 14px 0 0;
+  font-size: 0.82rem;
+}
+.svc-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.svc-breadcrumb li { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.svc-breadcrumb li + li::before {
+  content: '\ea6e';
+  font-family: 'remixicon';
+  font-size: 0.9rem;
+  color: var(--muted2);
+}
+.svc-breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.25s; }
+.svc-breadcrumb a:hover { color: var(--accent2); }
+.svc-breadcrumb [aria-current="page"] { color: var(--text); font-weight: 550; }

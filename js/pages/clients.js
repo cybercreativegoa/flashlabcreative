@@ -1,11 +1,134 @@
 /* clients.js — Clients page scripts */
 
+/* =====================================================================
+   CLIENT VIDEO TESTIMONIALS (INSTAGRAM REELS)
+   ---------------------------------------------------------------------
+   >>> PASTE YOUR INSTAGRAM REEL LINKS HERE <<<
+
+   One object per reel. Only `client` and `url` are required.
+
+     client : name shown under the video
+     role   : line under the name (owner, brand, venue…)
+     quote  : short pull-quote overlaid on the card
+     url    : the Instagram reel/post permalink
+     thumb  : optional local poster image (e.g. 'images/reels/tikibab.jpg').
+              Instagram blocks hotlinking their CDN, so download a frame and
+              drop it in /images/reels/ — without it the card shows a
+              gradient placeholder, which still looks fine.
+
+   Entries with an empty `url` are treated as not-yet-filled. While
+   SHOW_PLACEHOLDERS is true they render as dashed "add link" cards so you
+   can preview the layout. Set it to false (or fill every url) and only
+   real reels show. If nothing is left to show, the whole section hides
+   itself, so an unfinished list never ships as a broken block.
+   ===================================================================== */
+const REELS = [
+  { client: '', role: '', quote: '', url: '', thumb: '' },
+  { client: '', role: '', quote: '', url: '', thumb: '' },
+  { client: '', role: '', quote: '', url: '', thumb: '' },
+  { client: '', role: '', quote: '', url: '', thumb: '' },
+];
+
+const SHOW_PLACEHOLDERS = true;
+
+(function () {
+  const grid = document.getElementById('reelsGrid');
+  const section = document.getElementById('video-testimonials');
+  if (!grid || !section) return;
+
+  const GRADIENTS = [
+    'linear-gradient(150deg,#1a0a0a,#5a1f1f)',
+    'linear-gradient(150deg,#0a1a12,#1f5a3a)',
+    'linear-gradient(150deg,#0a0f1a,#1f3a5a)',
+    'linear-gradient(150deg,#1a0a1a,#4a1f4a)',
+    'linear-gradient(150deg,#1a1405,#5a4310)',
+    'linear-gradient(150deg,#05141a,#0f4a5a)',
+  ];
+
+  const live = REELS.filter(r => r.url && r.url.trim());
+  const list = SHOW_PLACEHOLDERS ? REELS : live;
+
+  if (!list.length) { section.remove(); return; }
+
+  list.forEach((r, i) => {
+    const filled = !!(r.url && r.url.trim());
+    const bg = GRADIENTS[i % GRADIENTS.length];
+
+    const card = document.createElement(filled ? 'a' : 'div');
+    card.className = 'reel-card reveal' + (filled ? '' : ' reel-card-empty');
+    card.style.setProperty('--delay', (i * 0.08) + 's');
+
+    if (filled) {
+      card.href = r.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.setAttribute('aria-label', 'Watch ' + (r.client || 'client') + "'s testimonial on Instagram");
+    }
+
+    const media = document.createElement('div');
+    media.className = 'reel-media';
+    media.style.background = bg;
+
+    if (filled && r.thumb) {
+      const img = document.createElement('img');
+      img.src = r.thumb;
+      img.alt = r.client ? r.client + ' video testimonial' : 'Client video testimonial';
+      img.loading = 'lazy';
+      img.onerror = () => img.remove();
+      media.appendChild(img);
+    }
+
+    if (filled) {
+      media.insertAdjacentHTML('beforeend',
+        '<span class="reel-play"><i class="ri-play-fill"></i></span>' +
+        '<span class="reel-badge"><i class="ri-instagram-line"></i> Reel</span>' +
+        (r.quote ? '<p class="reel-quote">\u201c' + r.quote + '\u201d</p>' : ''));
+    } else {
+      media.insertAdjacentHTML('beforeend',
+        '<span class="reel-empty-mark"><i class="ri-add-line"></i></span>' +
+        '<p class="reel-empty-text">Add an Instagram reel link<br><small>REELS list in js/pages/clients.js</small></p>');
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'reel-meta';
+    meta.innerHTML = filled
+      ? '<strong>' + (r.client || 'Client') + '</strong>' + (r.role ? '<span>' + r.role + '</span>' : '')
+      : '<strong>Awaiting link</strong><span>Slot ' + (i + 1) + '</span>';
+
+    card.appendChild(media);
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+
+  /* These cards are built after js/main.js has already snapshotted the
+     .reveal elements on the page, so main.js will never observe them and
+     they would stay stuck at opacity:0. Give them their own observer. */
+  const cards = grid.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(el => el.classList.add('active'));
+    return;
+  }
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(el => revealObs.observe(el));
+})();
+
 /* STAR RATINGS */
 document.querySelectorAll('.star-rating').forEach(el => el.innerHTML = '&#9733;'.repeat(5));
 
-/* COUNTER ANIMATION */
+/* COUNTER ANIMATION — client impact stats */
 (function () {
-  const counters = document.querySelectorAll('.counter');
+  const section = document.getElementById('clientImpact');
+  if (!section) return;
+  const counters = section.querySelectorAll('.counter');
+  if (!counters.length) return;
+
   function animate(el) {
     const target = +el.getAttribute('data-target');
     const start = performance.now();
@@ -15,16 +138,87 @@ document.querySelectorAll('.star-rating').forEach(el => el.innerHTML = '&#9733;'
       if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
     })(start);
   }
-  const heroStats = document.querySelector('.hero-ed-right');
-  if (heroStats) {
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          counters.forEach(animate);
-        }
-      });
-    }, { threshold: 0.3 }).observe(heroStats);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        counters.forEach(animate);
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  io.observe(section);
+})();
+
+/* BRAND LOGOS — category filter + show all
+   Visibility is driven entirely from here (not the old CSS nth-child rule),
+   because nth-child counts every child regardless of display and so broke
+   as soon as a filter hid some of them. */
+(function () {
+  const grid = document.getElementById('logosGrid');
+  const bar = document.getElementById('logoFilterBar');
+  const btn = document.getElementById('loadMoreLogosBtn');
+  const status = document.getElementById('logoFilterStatus');
+  const empty = document.getElementById('logoEmpty');
+  if (!grid || !bar) return;
+
+  const COLLAPSED_COUNT = 18;
+  const items = Array.from(grid.querySelectorAll('.logo-free-item'));
+  let cat = 'all';
+  let expanded = false;
+
+  function render() {
+    const matching = items.filter(el => cat === 'all' || el.dataset.cat === cat);
+    const limit = expanded ? matching.length : Math.min(COLLAPSED_COUNT, matching.length);
+
+    items.forEach(el => el.classList.add('is-hidden'));
+    matching.slice(0, limit).forEach(el => el.classList.remove('is-hidden'));
+
+    if (empty) empty.hidden = matching.length > 0;
+
+    if (btn) {
+      const hasMore = matching.length > COLLAPSED_COUNT;
+      btn.parentElement.hidden = !hasMore;
+      btn.textContent = expanded ? 'Show Less' : 'Show All ' + matching.length + ' Brands';
+      btn.setAttribute('aria-expanded', String(expanded));
+    }
+
+    if (status) {
+      const label = cat === 'all'
+        ? 'Showing ' + limit + ' of ' + matching.length + ' brands'
+        : 'Showing ' + limit + ' of ' + matching.length + ' brands in this category';
+      status.textContent = label;
+    }
   }
+
+  bar.addEventListener('click', (e) => {
+    const tab = e.target.closest('.logo-filter-tab');
+    if (!tab) return;
+    bar.querySelectorAll('.logo-filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    cat = tab.dataset.cat;
+    expanded = false;
+    render();
+  });
+
+  if (btn) btn.addEventListener('click', () => {
+    expanded = !expanded;
+    render();
+    if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* "See these brands" buttons in the Industries section jump here pre-filtered */
+  document.querySelectorAll('[data-jump-cat]').forEach(el => {
+    el.addEventListener('click', () => {
+      const target = bar.querySelector('.logo-filter-tab[data-cat="' + el.dataset.jumpCat + '"]');
+      if (!target) return;
+      target.click();
+      document.getElementById('brand-partners').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  grid.classList.remove('collapsed');
+  render();
 })();
 
 /* TESTIMONIAL SLIDER */

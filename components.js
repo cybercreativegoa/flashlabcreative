@@ -109,6 +109,11 @@ class SiteHeader extends HTMLElement {
                     <li><a href="${ROOT}html/services/event-production.html"><i class="ri-calendar-event-line"></i>Event Production</a></li>
                     <li><a href="${ROOT}html/services/media-consulting.html"><i class="ri-chat-voice-line"></i>Media Consulting</a></li>
                     <li><a href="${ROOT}html/services/animation-motion.html"><i class="ri-video-line"></i>Animation &amp; Motion</a></li>
+                    <li><a href="${ROOT}html/services/branding-strategy.html"><i class="ri-quill-pen-line"></i>Branding &amp; Strategy</a></li>
+                    <li><a href="${ROOT}html/services/content-creative.html"><i class="ri-edit-box-line"></i>Content &amp; Creative</a></li>
+                    <li><a href="${ROOT}html/services/public-relations.html"><i class="ri-broadcast-line"></i>Public Relations</a></li>
+                    <li><a href="${ROOT}html/services/analytics-automation.html"><i class="ri-line-chart-line"></i>Analytics &amp; Automation</a></li>
+                    <li><a href="${ROOT}html/services/legal-business-support.html"><i class="ri-scales-3-line"></i>Legal &amp; Business Support</a></li>
                 </ul>
             </li>
             <li><a href="${ROOT}clients.html">Clients</a></li>
@@ -165,6 +170,11 @@ class SiteHeader extends HTMLElement {
                 <li><a href="${ROOT}html/services/event-production.html">Event Production</a></li>
                 <li><a href="${ROOT}html/services/media-consulting.html">Media Consulting</a></li>
                 <li><a href="${ROOT}html/services/animation-motion.html">Animation &amp; Motion</a></li>
+                <li><a href="${ROOT}html/services/branding-strategy.html">Branding &amp; Strategy</a></li>
+                <li><a href="${ROOT}html/services/content-creative.html">Content &amp; Creative</a></li>
+                <li><a href="${ROOT}html/services/public-relations.html">Public Relations</a></li>
+                <li><a href="${ROOT}html/services/analytics-automation.html">Analytics &amp; Automation</a></li>
+                <li><a href="${ROOT}html/services/legal-business-support.html">Legal &amp; Business Support</a></li>
             </ul>
         </li>
         <li><a href="${ROOT}clients.html">Clients</a></li>
@@ -297,7 +307,7 @@ class SiteFooter extends HTMLElement {
                 </p>
                 <p>
                     <i class="ri-time-fill"></i>
-                    <span>Mon – Sat: 9am – 6pm IST</span>
+                    <span>Mon – Sat: 9am – 9pm IST</span>
                 </p>
                 <a href="${ROOT}connect.html" class="footer-cta">Start a Project <i class="ri-arrow-right-line"></i></a>
             </div>

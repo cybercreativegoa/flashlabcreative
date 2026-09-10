@@ -1036,3 +1036,136 @@
     margin-bottom: 20px;
   }
 }
+
+
+/* =====================================================================
+   SERVICES — CLOSING CTA
+   services.html previously ran FAQ straight into the footer with no
+   call to action anywhere on the page.
+   ===================================================================== */
+.svc-cta-section {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 66px 0 72px;
+}
+.svc-cta-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.svc-cta-heading {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: 1px;
+  color: var(--text-strong);
+  margin: 14px 0 16px;
+}
+.svc-cta-heading em { color: var(--accent2); font-style: normal; }
+.svc-cta-copy p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 52ch;
+}
+.svc-cta-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.svc-cta-actions .btn-primary,
+.svc-cta-actions .btn-ghost { width: 100%; justify-content: center; }
+.svc-cta-direct {
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.svc-cta-direct span {
+  font-size: 0.76rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+.svc-cta-direct a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.svc-cta-direct a:hover { color: var(--accent2); }
+
+@media (max-width: 860px) {
+  .svc-cta-inner { grid-template-columns: 1fr; gap: 30px; }
+  .svc-cta-section { padding: 48px 0 54px; }
+}
+
+
+/* =====================================================================
+   SPECIALIST SERVICES — compact secondary grid
+   The main .svc-grid-top is a fixed 4-column layout, so these five sit
+   in their own auto-fitting grid rather than leaving a ragged row.
+   ===================================================================== */
+.spec-section { padding: 56px 0 60px; }
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px;
+}
+.spec-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.spec-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 232, 50, 0.5);
+  box-shadow: 0 14px 34px var(--shadow);
+}
+.spec-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: rgba(168, 232, 50, 0.12);
+  color: var(--accent);
+}
+.spec-body { flex: 1; min-width: 0; }
+.spec-body h3 {
+  font-size: 1.02rem;
+  font-weight: 650;
+  color: var(--text-strong);
+  margin-bottom: 6px;
+}
+.spec-body p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.spec-arrow {
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+  color: var(--muted2);
+  transition: color 0.3s, transform 0.3s;
+}
+.spec-card:hover .spec-arrow { color: var(--accent2); transform: translate(2px, -2px); }
+
+@media (max-width: 480px) {
+  .spec-section { padding: 40px 0 44px; }
+  .spec-card { padding: 18px 16px; gap: 13px; }
+}
