@@ -1688,7 +1688,15 @@ body[data-page="career"] {
    ============================================================ */
 
 .internship-grid {
-  grid-template-columns: repeat(2, 310px);
+  grid-template-columns: repeat(2, minmax(0, 330px));
+}
+
+/* Four cards sit comfortably in one row on wide screens; below that they
+   wrap to a centred 2 x 2 block. */
+@media (min-width: 1320px) {
+  .internship-grid {
+    grid-template-columns: repeat(4, minmax(0, 290px));
+  }
 }
 
 
@@ -2059,5 +2067,182 @@ body[data-page="career"] {
   .marquee-track span {
     font-size: 12px;
     white-space: nowrap;
+  }
+}
+
+/* ============================================================
+   INTERN TESTIMONIALS — EXTRA FIELDS
+   Track tag, college + duration meta, photo avatar with letter
+   fallback, and an optional LinkedIn link.
+   ============================================================ */
+
+/* Stars now share a row with the track tag */
+.testi-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.testi-card-top .testi-stars {
+  margin-bottom: 0;
+}
+
+/* ---- Track / department tag ---- */
+
+.testi-track {
+  flex-shrink: 0;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: rgba(148, 163, 184, .14);
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+
+.testi-track-social {
+  background: rgba(168, 232, 50, .12);
+  color: #7ba82a;
+  border-color: rgba(168, 232, 50, .3);
+}
+.testi-track-video {
+  background: rgba(245, 109, 67, .12);
+  color: #d4552f;
+  border-color: rgba(245, 109, 67, .3);
+}
+.testi-track-design {
+  background: rgba(139, 92, 246, .12);
+  color: #7c4ddb;
+  border-color: rgba(139, 92, 246, .3);
+}
+.testi-track-web {
+  background: rgba(56, 152, 236, .12);
+  color: #2b7fc4;
+  border-color: rgba(56, 152, 236, .3);
+}
+
+[data-theme="dark"] .testi-track-social { color: #a8e832; }
+[data-theme="dark"] .testi-track-video  { color: #f8916d; }
+[data-theme="dark"] .testi-track-design { color: #b39bf5; }
+[data-theme="dark"] .testi-track-web    { color: #6fb4f0; }
+
+/* ---- College + duration meta ---- */
+
+.testi-meta {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.testi-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: .66rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.testi-meta i {
+  flex-shrink: 0;
+  font-size: .8rem;
+  color: var(--accent);
+  opacity: .75;
+  margin-top: 1px;
+}
+
+/* ---- Avatar: photo when present, letter when not ---- */
+
+.testi-avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.testi-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  border-radius: 9px;
+}
+
+/* The letter sits underneath; if the photo 404s the <img> removes itself
+   and this shows through, so the card never renders a broken image. */
+.testi-avatar .testi-initial {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.testi-author-text {
+  min-width: 0;
+  flex: 1;
+}
+
+/* ---- LinkedIn ---- */
+
+.testi-linkedin {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  font-size: .9rem;
+  color: var(--muted);
+  background: var(--input-bg);
+  text-decoration: none;
+  transition: color .25s, background .25s;
+}
+
+.testi-linkedin:hover {
+  color: #fff;
+  background: #0a66c2;
+}
+
+/* Placeholder href — the link only appears once a real URL is pasted in. */
+.testi-linkedin[href="#"],
+.testi-linkedin:not([href]) {
+  display: none;
+}
+
+/* ---- Unfilled values ---- */
+
+.is-placeholder {
+  font-style: italic;
+  opacity: .5;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+.testi-card-sample {
+  border-style: dashed;
+  border-color: rgba(148, 163, 184, .45);
+}
+
+@media (max-width: 640px) {
+  .testi-card-top {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .testi-meta {
+    margin-top: 10px;
   }
 }

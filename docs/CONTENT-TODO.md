@@ -100,6 +100,38 @@ CDN hotlinking).
 
 ---
 
+### Intern testimonials — `career.html`
+
+Each card now carries four extra fields. Everything unfilled renders in
+*dimmed italic with a dotted underline*, so unreplaced values are obvious
+on the page rather than silently shipping as fact.
+
+**Real interns — I only filled what I could source:**
+
+| Intern | Track | College · Course | Duration |
+|---|---|---|---|
+| Rey D'cruz | *needs value* | *needs value* | *needs value* |
+| Brendan Colaco | Social Media | *needs value* | 2 months |
+
+Brendan's track and duration come from his own quote ("2 months as an
+intern", "social media and creative work"). I deliberately did **not**
+invent a college for either of them — putting a fabricated institution
+against a named real person is not a placeholder, it's a false claim.
+
+**Two sample cards** (`#testi-sample-1`, `#testi-sample-2`) are dashed-bordered
+and say SAMPLE CARD in the quote. Replace or delete them.
+
+**Photos** — drop a square JPG in `images/interns/` named after the slug:
+`rey-dcruz.jpg`, `brendan-colaco.jpg`, `sample-1.jpg`, `sample-2.jpg`.
+If the file is missing the `<img>` removes itself and the letter avatar
+shows, so there is never a broken image. No markup change needed.
+
+**LinkedIn** — each card has a link that is hidden by CSS while its
+`href` is `"#"`. Paste a profile URL and the icon appears automatically.
+
+**Track tag colours** available: `testi-track-social` (green),
+`-video` (orange), `-design` (purple), `-web` (blue).
+
 ## 3. Missing assets
 
 ### 11 logo files referenced but absent from `images/logos/`
