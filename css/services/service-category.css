@@ -25,18 +25,53 @@
   line-height: 1;
 }
 
-[data-page="branding-strategy"] .page-hero::before     { content: 'BRAND'; }
-[data-page="digital-marketing"] .page-hero::before     { content: 'DIGITAL'; }
-[data-page="social-media"] .page-hero::before          { content: 'SOCIAL'; }
-[data-page="content-creative"] .page-hero::before      { content: 'CONTENT'; }
-[data-page="photography-video-animation"] .page-hero::before { content: 'VISUAL'; }
-[data-page="web-technology"] .page-hero::before        { content: 'WEB'; }
-[data-page="advertising-media"] .page-hero::before     { content: 'MEDIA'; }
-[data-page="events-experiences"] .page-hero::before    { content: 'EVENTS'; }
-[data-page="public-relations"] .page-hero::before      { content: 'PR'; }
-[data-page="legal-business-support"] .page-hero::before { content: 'LEGAL'; }
-[data-page="analytics-automation"] .page-hero::before  { content: 'DATA'; }
-[data-page="trademark-registration"] .page-hero::before { content: 'TRADEMARK'; }
+[data-page="branding-strategy"] .page-hero::before {
+  content: 'BRAND';
+}
+
+[data-page="digital-marketing"] .page-hero::before {
+  content: 'DIGITAL';
+}
+
+[data-page="social-media"] .page-hero::before {
+  content: 'SOCIAL';
+}
+
+[data-page="content-creative"] .page-hero::before {
+  content: 'CONTENT';
+}
+
+[data-page="photography-video-animation"] .page-hero::before {
+  content: 'VISUAL';
+}
+
+[data-page="web-technology"] .page-hero::before {
+  content: 'WEB';
+}
+
+[data-page="advertising-media"] .page-hero::before {
+  content: 'MEDIA';
+}
+
+[data-page="events-experiences"] .page-hero::before {
+  content: 'EVENTS';
+}
+
+[data-page="public-relations"] .page-hero::before {
+  content: 'PR';
+}
+
+[data-page="legal-business-support"] .page-hero::before {
+  content: 'LEGAL';
+}
+
+[data-page="analytics-automation"] .page-hero::before {
+  content: 'DATA';
+}
+
+[data-page="trademark-registration"] .page-hero::before {
+  content: 'TRADEMARK';
+}
 
 [data-theme="dark"] .page-hero::before {
   -webkit-text-stroke: 1.5px #2a2a3a;
@@ -300,9 +335,27 @@
 /* SERVICES GRID */
 .design-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
   background: var(--border);
+}
+
+[data-page="public-relations"] .design-grid,
+[data-page="legal-business-support"] .design-grid {
+  grid-template-columns: repeat(4, 1fr);
+  background: transparent;
+  gap: 2px;
+}
+
+[data-page="public-relations"] .design-card,
+[data-page="legal-business-support"] .design-card {
+  grid-column: span 2;
+  border: 1px solid var(--border);
+}
+
+[data-page="public-relations"] .design-card:last-child,
+[data-page="legal-business-support"] .design-card:last-child {
+  grid-column: 2 / span 2;
 }
 
 @media (max-width: 900px) {
@@ -317,9 +370,11 @@
     background: transparent;
     padding-bottom: 12px;
   }
+
   .design-grid::-webkit-scrollbar {
     display: none;
   }
+
   .design-card {
     flex: 0 0 45%;
     scroll-snap-align: center;
@@ -396,28 +451,29 @@
   column-gap: 56px;
   align-items: start;
 }
- 
+
 .faq-item:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   max-width: calc(50% - 28px);
   margin: 0 auto;
 }
- 
+
 @media (max-width: 700px) {
   .faq-list {
     grid-template-columns: 1fr;
   }
+
   .faq-item:last-child:nth-child(odd) {
     max-width: none;
     margin: 0;
   }
 }
- 
+
 .faq-item {
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
- 
+
 .faq-q {
   width: 100%;
   background: none;
@@ -430,14 +486,14 @@
   cursor: pointer;
   text-align: left;
 }
- 
+
 .faq-q span {
   font-size: 0.98rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.4;
 }
- 
+
 .faq-icon {
   flex-shrink: 0;
   width: 32px;
@@ -452,29 +508,30 @@
   color: var(--green);
   transition: background 0.25s, transform 0.35s;
 }
- 
+
 .faq-item.open .faq-icon {
   background: var(--green);
   color: var(--dark);
   transform: rotate(45deg);
 }
- 
+
 .faq-a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
+
 .faq-item.open .faq-a {
   max-height: 260px;
 }
- 
+
 .faq-a p {
   font-size: 0.9rem;
   color: var(--text2);
   line-height: 1.72;
   padding-bottom: 22px;
 }
+
 /* CONTACT BAND */
 .contact-band {
   padding: 20px;
@@ -543,9 +600,11 @@
     background: transparent;
     padding-bottom: 12px;
   }
+
   .why-grid::-webkit-scrollbar {
     display: none;
   }
+
   .why-block {
     flex: 0 0 85%;
     scroll-snap-align: center;
@@ -593,29 +652,36 @@
     padding-top: 155px !important;
     padding-bottom: 24px !important;
   }
+
   .section {
     padding: 16px 0;
   }
+
   [style*="margin-bottom:48px"],
   [style*="margin-bottom: 48px"] {
     margin-bottom: 12px !important;
   }
+
   .btn-primary {
     padding: 12px 20px;
     font-size: 0.8rem;
   }
+
   .page-hero h1 {
     font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
     line-height: 1.1;
   }
+
   .page-hero-sub {
     font-size: 0.95rem;
     padding: 0 10px;
   }
+
   .overview-content {
     text-align: center;
     padding: 0 10px;
   }
+
   .overview-content .sec-eyebrow {
     justify-content: center;
   }
@@ -628,10 +694,12 @@
     padding-bottom: 50px !important;
     min-height: auto !important;
   }
+
   .service-page-hero h1 {
     font-size: clamp(2rem, 8.5vw, 3.5rem) !important;
     letter-spacing: 1px;
   }
+
   .overview-img-main {
     height: 300px !important;
   }
@@ -641,13 +709,16 @@
   .service-page-hero {
     padding-top: 150px !important;
   }
+
   .overview-img-main {
     height: 240px !important;
     border-radius: 10px !important;
   }
+
   .design-card {
     padding: 28px 20px !important;
   }
+
   .design-card h3 {
     font-size: 1rem !important;
   }
@@ -657,6 +728,7 @@
   .service-page-hero {
     padding-top: 135px !important;
   }
+
   .overview-img-main {
     height: 200px !important;
   }
@@ -667,17 +739,20 @@
   .contact-band {
     padding: 0 20px 40px !important;
   }
+
   .contact-band h2 {
     font-size: clamp(2.2rem, 8vw, 2.8rem) !important;
     word-break: break-word !important;
     line-height: 1.1 !important;
     margin-bottom: 16px !important;
   }
+
   .contact-band p {
     font-size: 0.95rem !important;
     margin-bottom: 24px !important;
     padding: 0 10px !important;
   }
+
   .contact-band .btn-dark {
     width: auto !important;
     padding: 14px 32px !important;
@@ -690,6 +765,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
+
 .benefit-card {
   padding: 32px 28px;
   background: var(--bg2);
@@ -708,13 +784,18 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .benefits-grid::-webkit-scrollbar { display: none; }
+
+  .benefits-grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .benefit-card {
     flex: 0 0 85% !important;
     width: 85% !important;
     scroll-snap-align: center;
   }
 }
+
 /* =========================
    MARQUEE
 ========================= */
@@ -792,7 +873,7 @@
 .departments-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
+
 }
 
 @media (max-width: 1100px) {
@@ -806,6 +887,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 /* =========================
    SIGN UP MODAL
 ========================= */
@@ -879,9 +961,11 @@
   margin-bottom: 6px;
   font-size: 0.68rem;
 }
+
 .modal-box .sec-heading {
   font-size: clamp(1.7rem, 4vw, 2.4rem);
 }
+
 .modal-box .sec-sub {
   margin-top: 6px;
   font-size: 0.84rem;
@@ -897,6 +981,7 @@ body.modal-open {
     padding: 20px 18px 18px;
     border-radius: 12px;
   }
+
   .modal-close {
     top: 12px;
     right: 12px;
@@ -1015,6 +1100,7 @@ body.modal-open {
 .glance-section {
   padding: 0 0 8px;
 }
+
 .glance-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1024,6 +1110,7 @@ body.modal-open {
   border-radius: var(--radius);
   overflow: hidden;
 }
+
 .glance-item {
   background: var(--bg2);
   padding: 22px 20px;
@@ -1031,22 +1118,33 @@ body.modal-open {
   flex-direction: column;
   gap: 7px;
 }
+
 .glance-label {
   font-size: 0.72rem;
   letter-spacing: 1.1px;
   text-transform: uppercase;
   color: var(--muted2);
 }
+
 .glance-value {
   font-size: 1.02rem;
   font-weight: 650;
   color: var(--text-strong);
   line-height: 1.35;
 }
+
 @media (max-width: 820px) {
-  .glance-grid { grid-template-columns: repeat(2, 1fr); }
+  .glance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media (max-width: 420px) {
-  .glance-item { padding: 16px 14px; }
-  .glance-value { font-size: 0.92rem; }
+  .glance-item {
+    padding: 16px 14px;
+  }
+
+  .glance-value {
+    font-size: 0.92rem;
+  }
 }
