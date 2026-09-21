@@ -2084,6 +2084,7 @@
 
     .testi-carousel-track {
       display: flex;
+      align-items: flex-start;
       gap: 20px;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
