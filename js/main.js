@@ -520,8 +520,21 @@ document.addEventListener('click', function (e) {
   const afterContainer = document.getElementById('after-img-container');
   const handleLine = document.getElementById('handle-line');
 
-  rangeInput.addEventListener('input', (e) => {
-    const value = e.target.value + "%";
-    afterContainer.style.width = value;
-    handleLine.style.left = value;
-  });
+  if (rangeInput && afterContainer && handleLine) {
+    rangeInput.addEventListener('input', (e) => {
+      const value = e.target.value + "%";
+      afterContainer.style.width = value;
+      handleLine.style.left = value;
+    });
+  }
+
+
+/* ─────────────────────────────────────────────────────────────
+   9. GLOBAL IMAGE ERROR HANDLER
+   Hides images that fail to load (replaces inline onerror handlers)
+───────────────────────────────────────────────────────────── */
+document.addEventListener('error', function (e) {
+  if (e.target.tagName === 'IMG') {
+    e.target.style.display = 'none';
+  }
+}, true);
