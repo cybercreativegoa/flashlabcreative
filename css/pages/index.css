@@ -2084,7 +2084,7 @@
 
     .testi-carousel-track {
       display: flex;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 20px;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
@@ -2103,7 +2103,10 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      min-height: 220px;
+      border: 1.5px solid transparent;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       cursor: pointer;
       text-decoration: none;
     }
@@ -2111,7 +2114,7 @@
     .testi-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
-      border: 1.5px solid rgba(66, 133, 244, 0.25);
+      border-color: rgba(66, 133, 244, 0.25);
     }
 
     /* Top row: avatar, name + date, Google badge — matches the
@@ -2143,7 +2146,11 @@
       font-size: 0.85rem;
     }
 
-    .testi-text-wrap { flex: 1; }
+    .testi-text-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
     .testi-card p {
       color: #444;
@@ -2170,7 +2177,7 @@
       background: none;
       border: none;
       padding: 0;
-      margin: 0;
+      margin-top: auto;
       font-size: 0.76rem;
       font-weight: 600;
       color: #1a73e8;
