@@ -182,31 +182,29 @@
 -->
 <site-header></site-header>
 
-  <!-- ===== HERO — HAPPY TO ASSIST ===== -->
+  <!-- ===== HERO — GET IN TOUCH WITH US ===== -->
   <section class="hero-section">
     <div class="hero-noise"></div>
     
-    <!-- Social sidebar positioned absolutely to the left -->
-    <div class="sidebar-socials reveal" style="--delay:0.5s; position:absolute; left:3%; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:20px; z-index:10;">
-      <div style="display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:20px;">
-        <div style="width:6px; height:6px; background:var(--accent); border-radius:50%;"></div>
-        <div style="width:1px; height:40px; background:rgba(255,255,255,0.2);"></div>
-        <span style="writing-mode:vertical-rl; transform:rotate(180deg); font-size:0.75rem; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-top:10px;">Follow Us</span>
+    <!-- Social sidebar positioned on the left (desktop rail) -->
+    <div class="sidebar-socials reveal" style="--delay:0.5s;">
+      <div class="sidebar-socials-label">
+        <div class="sidebar-socials-dot"></div>
+        <div class="sidebar-socials-line"></div>
+        <span>Follow Us</span>
       </div>
-      <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" class="sidebar-social-link" style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all 0.3s;"><i class="ri-instagram-line"></i></a>
-      <a href="https://www.linkedin.com/company/flashlabcreative/" target="_blank" rel="noopener" class="sidebar-social-link" style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all 0.3s;"><i class="ri-linkedin-fill"></i></a>
-      <a href="https://x.com/theflashlab" target="_blank" rel="noopener" class="sidebar-social-link" style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all 0.3s;"><i class="ri-twitter-x-line"></i></a>
-      <a href="https://www.facebook.com/share/1BYmzHhn1o/" target="_blank" rel="noopener" class="sidebar-social-link" style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all 0.3s;"><i class="ri-facebook-fill"></i></a>
+      <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+      <a href="https://www.linkedin.com/company/flashlabcreative/" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+      <a href="https://x.com/theflashlab" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="X / Twitter"><i class="ri-twitter-x-line"></i></a>
+      <a href="https://www.facebook.com/share/1BYmzHhn1o/" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
     </div>
 
-
-    
     <div class="hero-inner">
 
       <div class="hero-left">
-        <h1 class="hero-title reveal" style="--delay:0.1s; text-transform:uppercase;">
-          GET IN TOUCH<br>
-          <span style="color:var(--accent2); font-family:var(--font-head); font-weight:700;">WITH US.</span>
+        <h1 class="hero-title reveal" style="--delay:0.1s;">
+          GET IN TOUCH
+          <span class="hero-title-accent">WITH US.</span>
         </h1>
 
         <p class="hero-desc reveal" style="--delay:0.2s">
@@ -215,34 +213,43 @@
           grow. Fill out the form and we'll connect with you shortly.
         </p>
 
-        <div class="hero-info-cards reveal" style="--delay:0.4s">
-          <div class="info-card" style="grid-column: 1 / -1;">
+        <div class="hero-info-cards reveal" style="--delay:0.35s">
+          <div class="info-card">
             <div class="info-card-icon"><i class="ri-user-star-line"></i></div>
             <div class="info-card-text">
               <h5>Speak Directly to the Founder</h5>
               <p>Got a bold idea or a burning question? Skip the queue <br>
-                <a href="mailto:ankith@flashlabcreative.com" style="color:var(--accent2); font-weight:600; font-size:0.88rem; letter-spacing:0.3px;">ankith@flashlabcreative.com</a>
+                <a href="mailto:ankith@flashlabcreative.com">ankith@flashlabcreative.com</a>
               </p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-right reveal-right" style="transform: translateY(-30px);">
-        <div class="hero-image-frame">
-          <img src="images/two-women-working-with-laptop-documents.png" alt="Flashlab Creative team collaborating">
-          <div class="hero-image-placeholder" id="hero-placeholder" style="display:none">
-            <div class="big-bolt"><i class="ri-flashlight-line"></i></div>
-            <p>Flashlab Creative</p>
-          </div>
-          <div class="hero-image-placeholder" id="hero-placeholder-default">
-            <div class="big-bolt"><i class="ri-flashlight-line"></i></div>
-            <p>Flashlab Creative</p>
+        <!-- Inline social row for mobile and tablet viewports -->
+        <div class="hero-socials-inline reveal" style="--delay:0.45s;">
+          <span>Follow Us</span>
+          <div class="hero-socials-inline-links">
+            <a href="https://www.instagram.com/flashlab.creative" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="https://www.linkedin.com/company/flashlabcreative/" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://x.com/theflashlab" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="X / Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="https://www.facebook.com/share/1BYmzHhn1o/" target="_blank" rel="noopener" class="sidebar-social-link" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
           </div>
         </div>
-        <div class="hero-pill">
-          <span class="dot"></span>
-          Available for new projects
+      </div>
+
+      <div class="hero-right reveal-right" style="--delay:0.25s;">
+        <div class="hero-image-card">
+          <div class="hero-image-frame">
+            <img src="images/two-women-working-with-laptop-documents.png" alt="Flashlab Creative team collaborating" loading="eager" decoding="async">
+            <div class="hero-image-placeholder" id="hero-placeholder-default" style="display:none;">
+              <div class="big-bolt"><i class="ri-flashlight-line"></i></div>
+              <p>Flashlab Creative</p>
+            </div>
+          </div>
+          <div class="hero-pill">
+            <span class="dot"></span>
+            We are available for new projects
+          </div>
         </div>
       </div>
 
@@ -257,19 +264,18 @@
       </div>
  
       <div class="map-three-grid">
- 
+
         <!-- 01 — Flashlab Creative -->
         <div class="map-card reveal" style="--delay:0.1s">
           <div class="map-card-header">
             <div class="map-card-icon"><i class="ri-flashlight-line"></i></div>
             <div>
-              <div class="map-card-eyebrow">01 &mdash; Creative Agency</div>
               <h3 class="map-card-title">Flashlab Creative</h3>
             </div>
           </div>
           <div class="map-card-address">
             <i class="ri-map-pin-2-fill"></i>
-            <span>G26 Vikrant Complex, Malbhat,<br>Margao,South Goa &mdash; 403601</span>
+            <span>G26/A, Ground Floor, Vikrant Complex,<br>Malbhat, Margao, South Goa &mdash; 403601</span>
           </div>
           <div class="map-card-embed">
             <iframe
@@ -279,25 +285,23 @@
               aria-label="Flashlab Creative location map">
             </iframe>
           </div>
-          <a href="https://www.google.com/maps/place/Flashlab+Creative/@15.2703639,73.964001,17z"
+          <a href="https://www.google.com/maps/place/Flashlab+Creative/@15.2703639,73.9614261,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfb3c15e66be93:0x5db29cb82b90889e!8m2!3d15.2703639!4d73.964001!16s%2Fg%2F11g8k1dngv"
             target="_blank" rel="noopener" class="map-card-btn">
             <i class="ri-navigation-fill"></i> Get Directions
           </a>
         </div>
- 
+
         <!-- 02 — Parashoot Studio -->
         <div class="map-card reveal" style="--delay:0.2s">
           <div class="map-card-header">
             <div class="map-card-icon" style="background:rgba(245,109,67,0.12); color:var(--accent2);"><i class="ri-camera-line"></i></div>
             <div>
-              <div class="map-card-eyebrow">02 &mdash; Production Studio</div>
               <h3 class="map-card-title">Parashoot Studio</h3>
             </div>
           </div>
           <div class="map-card-address">
             <i class="ri-map-pin-2-fill"></i>
-
-            <span>G26 Vikrant Complex, Malbhat,<br>Margao,South Goa &mdash; 403601</span>
+            <span>G26/B, Mezzanine Floor, Vikrant Complex,<br>Malbhat, Margao, South Goa &mdash; 403601</span>
           </div>
           <div class="map-card-embed">
             <iframe
@@ -307,36 +311,36 @@
               aria-label="Parashoot Studio location map">
             </iframe>
           </div>
-          <a href="https://www.google.com/maps/place/Flashlab+Creative/@15.2703639,73.964001,17z"
+          <a href="https://www.google.com/maps/place/Flashlab+Creative/@15.2703639,73.9614261,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfb3c15e66be93:0x5db29cb82b90889e!8m2!3d15.2703639!4d73.964001!16s%2Fg%2F11g8k1dngv"
             target="_blank" rel="noopener" class="map-card-btn map-card-btn-accent2" style="background:rgba(245,109,67,0.1); color:var(--accent2); border-color:rgba(245,109,67,0.25);">
             <i class="ri-navigation-fill"></i> Get Directions
           </a>
         </div>
- 
+
         <!-- 03 — Cyber Creative -->
         <div class="map-card reveal" style="--delay:0.3s">
           <div class="map-card-header">
             <div class="map-card-icon" style="background:rgba(99,102,241,0.12); color:#6366f1;"><i class="ri-code-s-slash-line"></i></div>
             <div>
-              <div class="map-card-eyebrow">03 &mdash; Web &amp; IoT</div>
               <h3 class="map-card-title">Cyber Creative</h3>
             </div>
           </div>
-           <div class="map-card-address">
+          <div class="map-card-address">
             <i class="ri-map-pin-2-fill"></i>
-            <span>G26 Vikrant Complex, Malbhat,<br>Margao,South Goa &mdash; 403601</span>
+            <span>852/E2, First Floor, Near Kings School,<br>Camarxet, Curtorim, South Goa &mdash; 403709</span>
           </div>
           <div class="map-card-embed">
             <iframe
               loading="lazy"
-              src="https://maps.google.com/maps?q=15.2703639,73.964001&t=m&z=17&output=embed&iwloc=near"
+              src="https://maps.google.com/maps?q=Camarxet,+Curtorim,+South+Goa+403709&t=m&z=15&output=embed&iwloc=near"
               title="Cyber Creative"
               aria-label="Cyber Creative location map">
             </iframe>
           </div>
-          <a href="https://www.cybercreative.in" target="_blank" rel="noopener"
+          <a href="https://www.google.com/maps/search/852+E2+Camarxet+Curtorim+South+Goa+403709"
+            target="_blank" rel="noopener"
             class="map-card-btn map-card-btn-indigo" style="background:rgba(99,102,241,0.1); color:#6366f1; border-color:rgba(99,102,241,0.25);">
-            <i class="ri-external-link-line"></i> Visit Website
+            <i class="ri-navigation-fill"></i> Get Directions
           </a>
         </div>
       </div>
@@ -366,8 +370,8 @@
               <div class="ci-icon"><i class="ri-map-pin-2-fill"></i></div>
               <div class="ci-content">
                 <h5>Address</h5>
-                <a href="https://www.google.com/maps/search/Flashlab+Creative+Margao+Goa" target="_blank" rel="noopener">
-                  G26 Vikrant Complex,<br>Malbhat, Margao, Goa 403601
+                <a href="https://www.google.com/maps/place/Flashlab+Creative/@15.2703639,73.9614261,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfb3c15e66be93:0x5db29cb82b90889e!8m2!3d15.2703639!4d73.964001!16s%2Fg%2F11g8k1dngv" target="_blank" rel="noopener">
+                  G26/A, Ground Floor, Vikrant Complex,<br>Malbhat, Margao, South Goa &mdash; 403601
                 </a>
               </div>
             </div>
@@ -375,8 +379,8 @@
               <div class="ci-icon"><i class="ri-phone-fill"></i></div>
               <div class="ci-content">
                 <h5>Phone</h5>
-                <a href="tel:+919923580022">+91 99235 80022</a><br>
-                <a href="tel:+919923580023">+91 99235 80023</a>
+                <a href="tel:+919923580023">+91 99235 80023</a><br>
+                <a href="tel:+919923580022">+91 99235 80022</a>
               </div>
             </div>
             <div class="ci-item">

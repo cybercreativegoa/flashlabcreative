@@ -5,6 +5,9 @@
   const imgEl = document.querySelector('.hero-image-frame img');
   const defaultPh = document.getElementById('hero-placeholder-default');
   if (imgEl) {
+    if (imgEl.complete && imgEl.naturalWidth > 0 && defaultPh) {
+      defaultPh.style.display = 'none';
+    }
     imgEl.addEventListener('load', () => { if (defaultPh) defaultPh.style.display = 'none'; });
     imgEl.addEventListener('error', () => { imgEl.style.display = 'none'; if (defaultPh) defaultPh.style.display = 'flex'; });
   }

@@ -1,19 +1,22 @@
 /* career.js — Career page scripts */
 
 /* RESUME UPLOAD HANDLER */
+const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024; // 2MB restriction
+
 function handleResumeUpload(input, chosenId) {
   const chosenEl = document.getElementById(chosenId);
   if (!chosenEl) return;
   if (input.files && input.files[0]) {
     const file = input.files[0];
-    if (file.type !== 'application/pdf') {
+    const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+    if (!isPdf) {
       alert('Please upload a PDF file only.');
       input.value = '';
       chosenEl.classList.remove('visible');
       return;
     }
-    if (file.size > 5 * 1024 * 1024) {
-      alert('File size must be under 5MB.');
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      alert('File size must be under 2MB.');
       input.value = '';
       chosenEl.classList.remove('visible');
       return;
@@ -81,14 +84,156 @@ function toggleForm(id, btn) {
   }
 }
 
-/* WHATSAPP SENDER HELPER */
-const WA_PHONE = '919923580023';
+/* EMAIL RECIPIENTS & SUBMISSION HANDLER */
+const CAREER_TARGET_EMAIL = 'careers@flashlabcreative.com';
+const CAREER_CC_EMAIL     = 'flashlabhr@gmail.com';
 
-function sendToWhatsApp(messageText) {
-  const url = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(messageText);
-  const win = window.open(url, '_blank');
-  if (!win || win.closed || typeof win.closed === 'undefined') {
-    window.location.href = url;
+function showFormStatus(form, type, message) {
+  let statusEl = form.querySelector('.form-status-msg');
+  if (!statusEl) {
+    statusEl = document.createElement('div');
+    statusEl.className = 'form-status-msg';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.parentNode.insertBefore(statusEl, submitBtn.nextSibling);
+    } else {
+      form.appendChild(statusEl);
+    }
+  }
+  statusEl.className = 'form-status-msg active ' + type;
+  statusEl.innerHTML = message;
+}
+
+function clearFormStatus(form) {
+  const statusEl = form.querySelector('.form-status-msg');
+  if (statusEl) {
+    statusEl.className = 'form-status-msg';
+    statusEl.innerHTML = '';
+  }
+}
+
+async function sendCareerEmail(form, subject, fields, resumeFile) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Submitting Application…';
+  }
+  clearFormStatus(form);
+
+  const formData = new FormData();
+  formData.append('_cc', CAREER_CC_EMAIL);
+  formData.append('_subject', subject);
+  formData.append('_template', 'table');
+  formData.append('_captcha', 'false');
+
+  if (fields.Email) {
+    formData.append('_replyto', fields.Email);
+  }
+
+  // Append all enquiry fields
+  for (const [key, val] of Object.entries(fields)) {
+    if (val !== null && val !== undefined && val !== '') {
+      formData.append(key, val);
+    }
+  }
+
+  // Mandatory document validation
+  if (!resumeFile) {
+    showFormStatus(form, 'error', '<i class="ri-error-warning-fill"></i> Please upload your resume (PDF format, Max 2MB).');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+    return;
+  }
+
+  if (resumeFile.size > MAX_FILE_SIZE_BYTES) {
+    showFormStatus(form, 'error', '<i class="ri-error-warning-fill"></i> Uploaded document exceeds 2MB limit. Please upload a file under 2MB.');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+    return;
+  }
+  formData.append('attachment', resumeFile, resumeFile.name);
+
+  try {
+    let response = null;
+    let data = null;
+
+    // 1. Try native server mailer first (for production hosting where PHP is available)
+    try {
+      response = await fetch('career-apply.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+      if (response && response.ok) {
+        data = await response.json().catch(() => null);
+      }
+    } catch (phpErr) {
+      // Local development or PHP server unavailable
+    }
+
+    // 2. If career-apply.php is unavailable (e.g. testing locally on Python server), fallback seamlessly to FormSubmit with attachment
+    if (!response || !response.ok || (data && data.success !== true && data.success !== 'true')) {
+      response = await fetch('https://formsubmit.co/' + CAREER_TARGET_EMAIL, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+      data = await response.json().catch(() => null);
+    }
+
+    if (response && (response.ok || (data && (data.success === 'true' || data.success === true || (data.message && data.message.includes('Activation')))))) {
+      showFormStatus(
+        form,
+        'success',
+        '<i class="ri-checkbox-circle-fill"></i> <strong>Application Sent Successfully!</strong><br>Thank you for reaching out. Your application and attached document have been received. Our team will review your details soon.'
+      );
+      if (submitBtn) {
+        submitBtn.innerHTML = '<i class="ri-check-line"></i> Submitted!';
+      }
+
+      // Reset form after delay
+      setTimeout(() => {
+        form.reset();
+        const chosen = form.querySelector('.resume-file-chosen');
+        if (chosen) {
+          chosen.classList.remove('visible');
+          const span = chosen.querySelector('span');
+          if (span) span.textContent = '';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }, 4000);
+    } else {
+      const errMsg = (data && data.message && !data.message.includes('@')) ? data.message : 'Failed to send application. Please try again.';
+      showFormStatus(form, 'error', '<i class="ri-error-warning-fill"></i> ' + errMsg);
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
+  } catch (err) {
+    console.error('Career application submission error:', err);
+    showFormStatus(
+      form,
+      'error',
+      '<i class="ri-error-warning-fill"></i> Network error while sending enquiry. Please check your internet connection and try again.'
+    );
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   }
 }
 
@@ -99,38 +244,49 @@ function submitForm(e, position) {
   const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
   const getVal = (n) => { const v = get(n); return (v && v !== '—') ? v : null; };
 
-  let body = '*New Career Application — Flashlab Creative*\n\n' +
-    '*Position:* ' + position + '\n' +
-    '*Name:* ' + get('fname') + ' ' + get('lname') + '\n' +
-    '*Email:* ' + get('email') + '\n' +
-    '*Phone:* ' + get('phone') + '\n';
-
-  if (getVal('city')) body += '*City:* ' + getVal('city') + '\n';
-  if (getVal('college')) body += '*College:* ' + getVal('college') + '\n';
-  if (getVal('course')) body += '*Course:* ' + getVal('course') + '\n';
-  if (getVal('graduation')) body += '*Graduation Year:* ' + getVal('graduation') + '\n';
-  if (getVal('interest')) body += '*Area of Interest:* ' + getVal('interest') + '\n';
+  const fname = get('fname');
+  const lname = get('lname');
+  const fullName = (fname + ' ' + lname).trim();
+  const email = get('email');
+  const phone = get('phone');
 
   const exp = getVal('exp') || getVal('software') || getVal('stack') || getVal('tools') || getVal('framework') || getVal('platforms');
-  if (exp) body += '*Skills / Experience:* ' + exp + '\n';
-  if (getVal('prev')) body += '*Previous Job Title:* ' + getVal('prev') + '\n';
-  if (getVal('duration')) body += '*Duration:* ' + getVal('duration') + '\n';
-  if (getVal('fulltime')) body += '*Open to Full-Time:* ' + getVal('fulltime') + '\n';
-  if (getVal('start')) body += '*When Can Start:* ' + getVal('start') + '\n';
-  if (getVal('portfolio')) body += '*Portfolio:* ' + getVal('portfolio') + '\n';
-  if (getVal('instagram')) body += '*Instagram:* ' + getVal('instagram') + '\n';
-  if (getVal('linkedin')) body += '*LinkedIn:* ' + getVal('linkedin') + '\n';
-  if (getVal('why')) body += '*Why Flashlab:* ' + getVal('why') + '\n';
-  if (getVal('heard')) body += '*Heard From:* ' + getVal('heard') + '\n';
 
-  const resumeInput = form.querySelector('[name="resume"]');
-  if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
-    body += '*Resume File:* ' + resumeInput.files[0].name + ' (will share on chat)\n';
+  const fields = {
+    'Position Applied': position,
+    'Candidate Name': fullName,
+    'Email': email,
+    'Phone': phone,
+    'City': getVal('city'),
+    'College / University': getVal('college'),
+    'Course / Specialization': getVal('course'),
+    'Graduation Year': getVal('graduation'),
+    'Area of Interest': getVal('interest'),
+    'Skills / Experience': exp,
+    'Previous Job Title': getVal('prev'),
+    'Duration': getVal('duration'),
+    'Open to Full-Time': getVal('fulltime'),
+    'When Can Start': getVal('start'),
+    'Portfolio Link': getVal('portfolio'),
+    'Instagram': getVal('instagram'),
+    'LinkedIn': getVal('linkedin'),
+    'Why Flashlab Creative': getVal('why'),
+    'Where Did You Hear About Us': getVal('heard'),
+    'Source': 'flashlabcreative.com/career.html'
+  };
+
+  const resumeInput = form.querySelector('[name="attachment"]') || form.querySelector('[name="resume"]');
+  const resumeFile = (resumeInput && resumeInput.files && resumeInput.files[0]) ? resumeInput.files[0] : null;
+
+  if (!resumeFile) {
+    showFormStatus(form, 'error', '<i class="ri-error-warning-fill"></i> Please upload your resume in PDF format (Max 2MB).');
+    const zone = form.querySelector('.resume-upload-zone');
+    if (zone) zone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
   }
 
-  body += '\n_Submitted via flashlabcreative.com/career.html_';
-
-  sendToWhatsApp(body);
+  const subject = 'Flashlab Creative Enquiry: ' + position + ' — ' + (fullName || 'Candidate');
+  sendCareerEmail(form, subject, fields, resumeFile);
 }
 
 /* OPEN APPLICATION FORM TOGGLE */
@@ -158,33 +314,46 @@ function submitOpenForm(e) {
   const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
   const getVal = (n) => { const v = get(n); return (v && v !== '—') ? v : null; };
 
-  let body = '*Open Application — Flashlab Creative*\n\n' +
-    '*Name:* ' + get('fname') + ' ' + get('lname') + '\n' +
-    '*Email:* ' + get('email') + '\n' +
-    '*Phone:* ' + get('phone') + '\n';
+  const fname = get('fname');
+  const lname = get('lname');
+  const fullName = (fname + ' ' + lname).trim();
+  const email = get('email');
+  const phone = get('phone');
+  const roleApplied = getVal('role_name') || 'Open Role';
 
-  if (getVal('city')) body += '*City:* ' + getVal('city') + '\n';
-  if (getVal('role_type')) body += '*Role Type:* ' + getVal('role_type') + '\n';
-  if (getVal('role_name')) body += '*Role Applied For:* ' + getVal('role_name') + '\n';
-  if (getVal('intern_duration')) body += '*Internship Duration:* ' + getVal('intern_duration') + '\n';
-  if (getVal('convert_fulltime')) body += '*Open to Full-Time:* ' + getVal('convert_fulltime') + '\n';
-  if (getVal('notice')) body += '*Notice Period / Start:* ' + getVal('notice') + '\n';
-  if (getVal('salary')) body += '*Expected Salary:* ' + getVal('salary') + '\n';
-  if (getVal('why_role')) body += '*Why This Role:* ' + getVal('why_role') + '\n';
-  if (getVal('company_benefit')) body += '*How Company Benefits:* ' + getVal('company_benefit') + '\n';
-  if (getVal('portfolio')) body += '*Portfolio / Resume Link:* ' + getVal('portfolio') + '\n';
-  if (getVal('instagram')) body += '*Instagram:* ' + getVal('instagram') + '\n';
-  if (getVal('linkedin')) body += '*LinkedIn:* ' + getVal('linkedin') + '\n';
-  if (getVal('heard')) body += '*Heard From:* ' + getVal('heard') + '\n';
+  const fields = {
+    'Application Type': 'Open Application',
+    'Candidate Name': fullName,
+    'Email': email,
+    'Phone': phone,
+    'City': getVal('city'),
+    'Looking For': getVal('role_type'),
+    'Role Applied For': roleApplied,
+    'Internship Duration': getVal('intern_duration'),
+    'Open to Full-Time': getVal('convert_fulltime'),
+    'Notice Period / Start': getVal('notice'),
+    'Expected Salary': getVal('salary'),
+    'Why This Specific Role': getVal('why_role'),
+    'How Company Benefits': getVal('company_benefit'),
+    'Portfolio / Resume Link': getVal('portfolio'),
+    'Instagram': getVal('instagram'),
+    'LinkedIn': getVal('linkedin'),
+    'Where Did You Hear About Us': getVal('heard'),
+    'Source': 'flashlabcreative.com/career.html'
+  };
 
-  const resumeInput = form.querySelector('[name="resume"]');
-  if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
-    body += '*Resume File:* ' + resumeInput.files[0].name + ' (will share on chat)\n';
+  const resumeInput = form.querySelector('[name="attachment"]') || form.querySelector('[name="resume"]');
+  const resumeFile = (resumeInput && resumeInput.files && resumeInput.files[0]) ? resumeInput.files[0] : null;
+
+  if (!resumeFile) {
+    showFormStatus(form, 'error', '<i class="ri-error-warning-fill"></i> Please upload your resume in PDF format (Max 2MB).');
+    const zone = form.querySelector('.resume-upload-zone');
+    if (zone) zone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
   }
 
-  body += '\n_Submitted via flashlabcreative.com/career.html_';
-
-  sendToWhatsApp(body);
+  const subject = 'Flashlab Creative Enquiry: Open Role (' + roleApplied + ') — ' + (fullName || 'Candidate');
+  sendCareerEmail(form, subject, fields, resumeFile);
 }
 
 /* FAQ TOGGLE */
