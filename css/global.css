@@ -2,7 +2,7 @@
    1. TOKENS
    ============================================================ */
 :root {
-  --accent:       #a8e832;
+  --accent:       #ABE832;
   --accent2:      #F56D43;
   --accent3:      #dc2626;
   --font-head:    'Bebas Neue', sans-serif;
@@ -14,7 +14,7 @@
   --stats-noise-op: 0;
   --noise-op: 0;
 
-  --green:      #a8e832;
+  --green:      #ABE832;
   --orange:     #F56D43;
   --dark:       #0a0a0f;
   --white:      #ffffff;

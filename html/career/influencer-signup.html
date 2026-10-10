@@ -447,40 +447,83 @@
             <textarea id="message" name="message" rows="2" placeholder="A short intro about your content style and audience..."></textarea>
           </div>
         </div>
-        <button type="submit" class="btn-primary">Submit Application <i class="ri-arrow-right-up-line"></i></button>
+        <button type="submit" class="btn-primary">Submit</button>
         <p class="form-note">By submitting, you agree to be contacted by Flashlab Creative regarding collaboration opportunities.</p>
       </form>
     </div>
   </div>
 
   <script>
-    // Signup modal — scoped, defensive, no external dependencies.
+    // Signup modal & form handler — scoped, defensive, no external dependencies.
     (function () {
       var overlay = document.getElementById('signupModalOverlay');
       var closeBtn = document.getElementById('signupModalClose');
       var openBtns = document.querySelectorAll('.open-signup-btn');
-      if (!overlay || !openBtns.length) return;
+      var form = document.getElementById('influencerForm');
 
       function openModal(e) {
         if (e) e.preventDefault();
-        overlay.classList.add('active');
-        document.body.classList.add('modal-open');
+        if (overlay) {
+          overlay.classList.add('active');
+          document.body.classList.add('modal-open');
+        }
       }
       function closeModal() {
-        overlay.classList.remove('active');
-        document.body.classList.remove('modal-open');
+        if (overlay) {
+          overlay.classList.remove('active');
+          document.body.classList.remove('modal-open');
+        }
       }
 
       openBtns.forEach(function (btn) {
         btn.addEventListener('click', openModal);
       });
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeModal();
-      });
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeModal();
+        });
+      }
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
       });
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var fullName = (document.getElementById('fullName') || {}).value || '';
+          var email = (document.getElementById('email') || {}).value || '';
+          var phone = (document.getElementById('phone') || {}).value || '';
+          var city = (document.getElementById('city') || {}).value || '';
+          var instagram = (document.getElementById('instagram') || {}).value || '';
+          var followersEl = document.getElementById('followers');
+          var followers = followersEl && followersEl.selectedIndex >= 0 ? followersEl.options[followersEl.selectedIndex].text : '';
+          var categoryEl = document.getElementById('category');
+          var category = categoryEl && categoryEl.selectedIndex >= 0 ? categoryEl.options[categoryEl.selectedIndex].text : '';
+          var portfolio = (document.getElementById('portfolio') || {}).value || '';
+          var message = (document.getElementById('message') || {}).value || '';
+
+          var waText = '*New Influencer / Creator Application — Flashlab Creative*\n\n' +
+            '*Name:* ' + fullName.trim() + '\n' +
+            '*Email:* ' + email.trim() + '\n' +
+            '*Phone:* ' + phone.trim() + '\n' +
+            '*City:* ' + city.trim() + '\n' +
+            '*Instagram:* ' + instagram.trim() + '\n' +
+            '*Followers:* ' + (followers || '—') + '\n' +
+            '*Category:* ' + (category || '—') + '\n';
+          if (portfolio.trim()) waText += '*Portfolio / Reel:* ' + portfolio.trim() + '\n';
+          if (message.trim()) waText += '*About:* ' + message.trim() + '\n';
+          waText += '\n_Submitted via flashlabcreative.com_';
+
+          var waUrl = 'https://wa.me/919923580023?text=' + encodeURIComponent(waText);
+          var win = window.open(waUrl, '_blank');
+          if (!win || win.closed || typeof win.closed === 'undefined') {
+            window.location.href = waUrl;
+          }
+          closeModal();
+          form.reset();
+        });
+      }
     })();
   </script>
 

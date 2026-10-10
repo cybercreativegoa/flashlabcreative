@@ -98,40 +98,61 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   }
 
   btn.disabled    = true;
-  btn.innerHTML   = '<i class="ri-loader-4-line"></i> Sending…';
+  btn.innerHTML   = '<i class="ri-loader-4-line"></i> Opening WhatsApp…';
   noteEl.textContent = '';
   noteEl.className   = 'form-note';
 
-  emailjs.send('service_ugavxkq', 'template_4dptoed', {
-    name:    name,
-    email:   email,
-    mobile:  mobile,
-    enquiry: enquiry,
-    message: message
-  })
-  .then(function () {
-    const form = document.getElementById('contactForm');
-    const ty   = document.getElementById('formThankyou');
-    document.getElementById('ty-name').textContent = name;
-    form.style.display = 'none';
-    ty.classList.add('active');
+  // Format enquiry message for WhatsApp (+91 99235 80023)
+  const waNumber = '919923580023';
+  let waText = '*New Website Enquiry — Flashlab Creative*\n\n' +
+    '*Name:* ' + name + '\n' +
+    '*Mobile:* ' + mobile + '\n' +
+    '*Email:* ' + email + '\n' +
+    '*Enquiry Type:* ' + enquiry + '\n';
+  if (message) {
+    waText += '*Message:* ' + message + '\n';
+  }
+  waText += '\n_Sent via flashlabcreative.com/connect.html_';
 
+  const waUrl = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(waText);
+
+  // Background backup via EmailJS if initialized
+  try {
+    if (typeof emailjs !== 'undefined' && emailjs.send) {
+      emailjs.send('service_ugavxkq', 'template_4dptoed', {
+        name:    name,
+        email:   email,
+        mobile:  mobile,
+        enquiry: enquiry,
+        message: message
+      }).catch(function (err) {
+        console.warn('Backup EmailJS note:', err);
+      });
+    }
+  } catch (err) {
+    // ignore
+  }
+
+  // Open WhatsApp in new tab, fallback to same window
+  const win = window.open(waUrl, '_blank');
+  if (!win || win.closed || typeof win.closed === 'undefined') {
+    window.location.href = waUrl;
+  }
+
+  const form = document.getElementById('contactForm');
+  const ty   = document.getElementById('formThankyou');
+  document.getElementById('ty-name').textContent = name;
+  form.style.display = 'none';
+  ty.classList.add('active');
+
+  setTimeout(function () {
+    ty.classList.add('leaving');
     setTimeout(function () {
-      ty.classList.add('leaving');
-      setTimeout(function () {
-        ty.classList.remove('active', 'leaving');
-        form.reset();
-        form.style.display = '';
-        btn.disabled  = false;
-        btn.innerHTML = '<i class="ri-mail-send-line"></i> Send Message';
-      }, 500);
-    }, 3500);
-  })
-  .catch(function (err) {
-    btn.disabled  = false;
-    btn.innerHTML = '<i class="ri-mail-send-line"></i> Send Message';
-    noteEl.textContent = 'Something went wrong. Please try again.';
-    noteEl.className   = 'form-note error';
-    console.error('EmailJS error:', err);
-  });
+      ty.classList.remove('active', 'leaving');
+      form.reset();
+      form.style.display = '';
+      btn.disabled  = false;
+      btn.innerHTML = 'Submit';
+    }, 500);
+  }, 4000);
 });

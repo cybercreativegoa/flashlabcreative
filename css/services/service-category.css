@@ -1072,11 +1072,21 @@ body.modal-open {
 }
 
 .signup-form .btn-primary {
+  background: #ABE832;
+  color: #0a0a0f;
   border: none;
   cursor: pointer;
   font-family: 'Outfit', sans-serif;
+  font-weight: 700;
   padding: 10px 24px !important;
   font-size: 0.86rem !important;
+  transition: all 0.3s;
+}
+
+.signup-form .btn-primary:hover {
+  background: #bef54a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(171, 232, 50, 0.35);
 }
 
 .form-note {

@@ -81,40 +81,56 @@ function toggleForm(id, btn) {
   }
 }
 
+/* WHATSAPP SENDER HELPER */
+const WA_PHONE = '919923580023';
+
+function sendToWhatsApp(messageText) {
+  const url = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(messageText);
+  const win = window.open(url, '_blank');
+  if (!win || win.closed || typeof win.closed === 'undefined') {
+    window.location.href = url;
+  }
+}
+
 /* POSITION APPLICATION FORM SUBMIT */
 function submitForm(e, position) {
   e.preventDefault();
   const form = e.target;
-  const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value : '—'; };
-  const to  = 'flashlabhr@gmail.com';
-  const cc  = 'ankith%40flashlabcreative.com';
-  const subject = 'Career Application — ' + position + ' | Flashlab Creative';
-  const body =
-    'New Career Application — Flashlab Creative\n\n' +
-    'Position: ' + position + '\n' +
-    'Name: ' + get('fname') + ' ' + get('lname') + '\n' +
-    'Email: ' + get('email') + '\n' +
-    'Phone: ' + get('phone') + '\n' +
-    'City: ' + get('city') + '\n' +
-    'College: ' + get('college') + '\n' +
-    'Course: ' + get('course') + '\n' +
-    'Graduation Year: ' + get('graduation') + '\n' +
-    'Area of Interest: ' + get('interest') + '\n' +
-    'Experience: ' + (get('exp') || get('framework') || get('software') || '—') + '\n' +
-    'Previous Job Title: ' + get('prev') + '\n' +
-    'Platforms: ' + get('platforms') + '\n' +
-    'Tech Stack: ' + get('stack') + '\n' +
-    'SEO Tools: ' + get('tools') + '\n' +
-    'Duration: ' + get('duration') + '\n' +
-    'Open to Full-Time: ' + get('fulltime') + '\n' +
-    'When Can Start: ' + get('start') + '\n' +
-    'Portfolio: ' + (get('portfolio') || '—') + '\n' +
-    'Instagram: ' + (get('instagram') || '—') + '\n' +
-    'LinkedIn: ' + (get('linkedin') || '—') + '\n' +
-    'Why Join: ' + get('why') + '\n' +
-    'Heard From: ' + (get('heard') || '—') + '\n\n' +
-    'Note: Resume/CV was attached via the upload field. Please request it separately if not received.';
-  window.location.href = 'mailto:' + to + '?cc=' + cc + '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
+  const getVal = (n) => { const v = get(n); return (v && v !== '—') ? v : null; };
+
+  let body = '*New Career Application — Flashlab Creative*\n\n' +
+    '*Position:* ' + position + '\n' +
+    '*Name:* ' + get('fname') + ' ' + get('lname') + '\n' +
+    '*Email:* ' + get('email') + '\n' +
+    '*Phone:* ' + get('phone') + '\n';
+
+  if (getVal('city')) body += '*City:* ' + getVal('city') + '\n';
+  if (getVal('college')) body += '*College:* ' + getVal('college') + '\n';
+  if (getVal('course')) body += '*Course:* ' + getVal('course') + '\n';
+  if (getVal('graduation')) body += '*Graduation Year:* ' + getVal('graduation') + '\n';
+  if (getVal('interest')) body += '*Area of Interest:* ' + getVal('interest') + '\n';
+
+  const exp = getVal('exp') || getVal('software') || getVal('stack') || getVal('tools') || getVal('framework') || getVal('platforms');
+  if (exp) body += '*Skills / Experience:* ' + exp + '\n';
+  if (getVal('prev')) body += '*Previous Job Title:* ' + getVal('prev') + '\n';
+  if (getVal('duration')) body += '*Duration:* ' + getVal('duration') + '\n';
+  if (getVal('fulltime')) body += '*Open to Full-Time:* ' + getVal('fulltime') + '\n';
+  if (getVal('start')) body += '*When Can Start:* ' + getVal('start') + '\n';
+  if (getVal('portfolio')) body += '*Portfolio:* ' + getVal('portfolio') + '\n';
+  if (getVal('instagram')) body += '*Instagram:* ' + getVal('instagram') + '\n';
+  if (getVal('linkedin')) body += '*LinkedIn:* ' + getVal('linkedin') + '\n';
+  if (getVal('why')) body += '*Why Flashlab:* ' + getVal('why') + '\n';
+  if (getVal('heard')) body += '*Heard From:* ' + getVal('heard') + '\n';
+
+  const resumeInput = form.querySelector('[name="resume"]');
+  if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
+    body += '*Resume File:* ' + resumeInput.files[0].name + ' (will share on chat)\n';
+  }
+
+  body += '\n_Submitted via flashlabcreative.com/career.html_';
+
+  sendToWhatsApp(body);
 }
 
 /* OPEN APPLICATION FORM TOGGLE */
@@ -139,30 +155,36 @@ function handleOpenRoleType(val) {
 function submitOpenForm(e) {
   e.preventDefault();
   const form = e.target;
-  const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value : '—'; };
-  const to  = 'flashlabhr@gmail.com';
-  const cc  = 'ankith%40flashlabcreative.com';
-  const subject = 'Open Application — ' + get('role_name') + ' | Flashlab Creative';
-  const body =
-    'Open Application — Flashlab Creative\n\n' +
-    'Name: ' + get('fname') + ' ' + get('lname') + '\n' +
-    'Email: ' + get('email') + '\n' +
-    'Phone: ' + get('phone') + '\n' +
-    'City: ' + get('city') + '\n' +
-    'Role Type: ' + get('role_type') + '\n' +
-    'Role Applied For: ' + get('role_name') + '\n' +
-    'Internship Duration: ' + (get('intern_duration') || '—') + '\n' +
-    'Open to Full-Time: ' + (get('convert_fulltime') || '—') + '\n' +
-    'Notice Period / Start: ' + (get('notice') || '—') + '\n' +
-    'Expected Salary: ' + (get('salary') || '—') + '\n' +
-    'Why This Role: ' + get('why_role') + '\n' +
-    'How Company Benefits: ' + get('company_benefit') + '\n' +
-    'Portfolio / Resume: ' + (get('portfolio') || '—') + '\n' +
-    'Instagram: ' + (get('instagram') || '—') + '\n' +
-    'LinkedIn: ' + (get('linkedin') || '—') + '\n' +
-    'Heard From: ' + get('heard') + '\n\n' +
-    'Note: Resume/CV was attached via the upload field. Please request it separately if not received.';
-  window.location.href = 'mailto:' + to + '?cc=' + cc + '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  const get = (n) => { const el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
+  const getVal = (n) => { const v = get(n); return (v && v !== '—') ? v : null; };
+
+  let body = '*Open Application — Flashlab Creative*\n\n' +
+    '*Name:* ' + get('fname') + ' ' + get('lname') + '\n' +
+    '*Email:* ' + get('email') + '\n' +
+    '*Phone:* ' + get('phone') + '\n';
+
+  if (getVal('city')) body += '*City:* ' + getVal('city') + '\n';
+  if (getVal('role_type')) body += '*Role Type:* ' + getVal('role_type') + '\n';
+  if (getVal('role_name')) body += '*Role Applied For:* ' + getVal('role_name') + '\n';
+  if (getVal('intern_duration')) body += '*Internship Duration:* ' + getVal('intern_duration') + '\n';
+  if (getVal('convert_fulltime')) body += '*Open to Full-Time:* ' + getVal('convert_fulltime') + '\n';
+  if (getVal('notice')) body += '*Notice Period / Start:* ' + getVal('notice') + '\n';
+  if (getVal('salary')) body += '*Expected Salary:* ' + getVal('salary') + '\n';
+  if (getVal('why_role')) body += '*Why This Role:* ' + getVal('why_role') + '\n';
+  if (getVal('company_benefit')) body += '*How Company Benefits:* ' + getVal('company_benefit') + '\n';
+  if (getVal('portfolio')) body += '*Portfolio / Resume Link:* ' + getVal('portfolio') + '\n';
+  if (getVal('instagram')) body += '*Instagram:* ' + getVal('instagram') + '\n';
+  if (getVal('linkedin')) body += '*LinkedIn:* ' + getVal('linkedin') + '\n';
+  if (getVal('heard')) body += '*Heard From:* ' + getVal('heard') + '\n';
+
+  const resumeInput = form.querySelector('[name="resume"]');
+  if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
+    body += '*Resume File:* ' + resumeInput.files[0].name + ' (will share on chat)\n';
+  }
+
+  body += '\n_Submitted via flashlabcreative.com/career.html_';
+
+  sendToWhatsApp(body);
 }
 
 /* FAQ TOGGLE */

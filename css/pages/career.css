@@ -719,7 +719,7 @@
     .form-submit {
       width: 100%;
       padding: 14px;
-      background: var(--accent);
+      background: #ABE832;
       color: #0a0a0f;
       border: none;
       border-radius: 999px;
@@ -735,7 +735,11 @@
       transition: all .3s;
     }
 
-    .form-submit:hover { background: #bef54a; transform: translateY(-2px); }
+    .form-submit:hover {
+      background: #bef54a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(171, 232, 50, 0.35);
+    }
 
     .form-close-btn {
       display: inline-flex;
